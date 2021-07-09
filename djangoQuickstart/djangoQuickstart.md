@@ -9,43 +9,77 @@
 
 ## Potential Core Stepping Stones
 - requests, urls, views, static sites
+    - static resources / filestructure
+    - http requests
     - slugs
+    - urls.py, project wide vs app-wide
+    - 
 - templates
+    - evaluation in templates / limiting logic to views(separation of concerns)
+    - generic templates
 - models
     - local vs persisted vs 'instanced'!!!
     - CRUD operations
     - field types
+    - relationships
 - queries / querysets
-    - chaining
     - querysets are lazy.. do not touch DB
+    - chaining
 - migrations
 - forms
     -cross site navigation!
 - djangoadmin site
-
+    - adding to project
+    - configuring
+    - using
 - Task/Project ideas
     - amazon clone (models, querysets, templates)
-        - User model
-            - string: address
-            - string: name
-            - [string] : common search terms (maybe recommended?)
-            - [Product]: previous purchases
-            - [Product]: current cart
-        - Product Model
-            - string: description
-            - real: price
-            - [real]: dimensions, weight
-            - [string]: urls of images
-            - [Review] : list of reviews for this product
-        - Review Model
-            - string: review contents
-            - integer: rating
-            - User: user who did review
+        -MODELS
+            - User model
+                - string: address
+                - string: name
+                - [string] : common search terms (maybe recommended?)
+                - [Product]: previous purchases
+                - [Product]: current cart
+            - Product Model
+                - string: description
+                - real: price
+                - [real]: dimensions, weight
+                - [string]: urls of images
+                - [Review] : list of reviews for this product
+            - Review Model
+                - string: review contents
+                - integer: rating
+                - User: user who did review
+        -PAGES
+            -home
+            -register
+            -login
+            -search result
+            -product
+            -cart
+            -checkout
 
-    - Food Survey / recommender
-        - FoodItem Model
-
-
+    - Food Survey / food recommender (admin?)
+        -MODELS
+            -FoodItem
+                - string: name
+                - string: description
+                - string: image
+                - int: index
+            -User
+                - string: ID
+                - [(integer, integer)]: foodItem index, personal rating
+                - 
+        -NOTES
+            - maybe make this one based on sessions instead of username/password?
+            - allow users to enter in new food Items
+            - use admin to remove offensive/incorrect food items
+            - users may not have rated all foods, but can still iterate through all foods that are in DB to find recommendations
+            - recommendation ideas:
+                - top 5 foodItem ratings of k nearest User neighbors
+                - can make it a social media site where you browse other users
+                - OR choose your own reccomendation algorithms
 
 ## Bird's Eye Structure
 - Django Quickstart
@@ -59,7 +93,7 @@
         - location of files on server
     - file structure 
     - running test server / difference between full server
-- Concept1: Static Site: linking routes to views
+- Concept1: Requests, Routes, Views, static site
     - project-wide urls vs 
     - hello world with single route that returns HttpResponse
     - link up hello world to simple view
