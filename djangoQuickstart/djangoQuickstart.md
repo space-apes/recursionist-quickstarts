@@ -1,11 +1,11 @@
 ## Links
-- Django official docs: https://docs.djangoproject.com/en/3.2/
+- Django official docs: [link](https://docs.djangoproject.com/en/3.2/)
     - see tutorial 
     - see topic list
     - see advanced topics
-- geeksforgeeks django: https://www.geeksforgeeks.org/django-tutorial/
-- readthedocs.io free book: https://django-book.readthedocs.io/en/latest/
-- learn django from scratch youtube: https://www.youtube.com/watch?v=t7DrJqcUviA
+- geeksforgeeks django: [link](https://www.geeksforgeeks.org/django-tutorial/)
+- readthedocs.io free book: [link](https://django-book.readthedocs.io/en/latest/)
+- learn django from scratch youtube: [link](https://www.youtube.com/watch?v=t7DrJqcUviA)
 
 ## Potential Core Stepping Stones
 - requests, urls, views, static sites
@@ -17,6 +17,7 @@
     - evaluation in templates / limiting logic to views(separation of concerns)
     - generic templates
 - models
+    - using the shell
     - local vs persisted vs 'instanced'!!!
     - CRUD operations
     - field types
@@ -63,8 +64,8 @@
             -checkout
 
     - Food Survey / food recommender (admin?)
-        -MODELS
-            -FoodItem
+        - MODELS
+            - FoodItem
                 - string: name
                 - string: description
                 - string: image
@@ -72,8 +73,7 @@
             -User
                 - string: ID
                 - [(integer, integer)]: foodItem index, personal rating
-                - 
-        -NOTES
+        - NOTES
             - maybe make this one based on sessions instead of username/password?
             - allow users to enter in new food Items
             - use admin to remove offensive/incorrect food items
@@ -89,12 +89,16 @@
     - what is django
 - Installation
     - installing libraries / venv
+        - https://docs.python.org/3/library/venv.html
     - installing DB
     - creating new project
         - projects vs apps
         - location of files on server
-    - file structure 
+    - file structure
+    - manage.py -h  
     - running test server / difference between full server
+    - running remotely
+    - 'disallowed host' 
 - Concept1: Requests, Routes, Views, static site
     - project-wide urls vs 
     - hello world with single route that returns HttpResponse
