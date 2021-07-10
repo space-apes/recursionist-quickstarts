@@ -16,16 +16,33 @@
 - templates
     - evaluation in templates / limiting logic to views(separation of concerns)
     - generic templates
-- models
+- models / DB
+    - each model is a table "appName-modelName"
+    - each member variable that instantiates models.Xfield is a column in table (underscore convention)
+
+    - activate models by adding to settings.py, migrate (adds schema and API!)
     - using the shell
+        - import model first
+        - instantiate local object
+        - persist
+        - retrieve
+        - access member values
     - local vs persisted vs 'instanced'!!!
     - CRUD operations
     - field types
     - relationships
+        - one to many 
+        - one to one 
+        - many to many
 - queries / querysets
     - querysets are lazy.. do not touch DB
     - chaining
 - migrations
+    - 'makemigrations' to make new migration after changing models
+        - look in file to see migration
+    - 'sqlmigrate' to view sql code generated for migration
+    - 'migrate' to execute migration
+    - 'check' to look for problems in current migration before touching db
 - forms
     -cross site navigation!
 - djangoadmin site
@@ -35,7 +52,7 @@
 - multi-app projects, reusable apps, virtual environments
 - configuring external DB server
 
-- Task/Project ideas
+## Task/Project ideas
     - amazon clone (models, querysets, templates)
         - MODELS
             - User model
@@ -87,24 +104,32 @@
 - Django Quickstart
     - version
     - what is django
+    - requirements
+        - OOP
+        - helps to understand python modules, html, css, db basics
+        - model view controller architecture
 - Installation
     - installing libraries / venv
         - https://docs.python.org/3/library/venv.html
     - installing DB
     - creating new project
         - projects vs apps
-        - location of files on server
+        - location of files on servera
+        - default apps
     - file structure
     - manage.py -h  
     - running test server / difference between full server
     - running remotely
     - 'disallowed host' 
+    - creating app, adding app to project apps in settings
 - Concept1: Requests, Routes, Views, static site
-    - project-wide urls vs 
+    - project-wide urlsconf vs app specific
+    - greedy match on urlpattern route
     - hello world with single route that returns HttpResponse
     - link up hello world to simple view
 - Challenge 1
-- Concept 2
+- Concept 2 Models / DB / Dynamic content
+    - 'model is definitive truth about data': fields, behavior, db schema
 - Challenge 2
 - Concept 3
 - Challenge 3

@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-rs0d^wu9o8*o01lh(3p-svvn(tcdwtvp356_2w$#7bt5y^$6l2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['radialasymmetry.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
