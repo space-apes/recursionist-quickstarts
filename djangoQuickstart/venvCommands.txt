@@ -1,0 +1,7 @@
+create venv:
+    - python3 -m venv <envName>
+enter venv:
+    - source <envName>/bin/activate
+leave venv:
+    - exit
+

@@ -13,7 +13,6 @@
     - http requests
     - slugs
     - urls.py, project wide vs app-wide
-    - 
 - templates
     - evaluation in templates / limiting logic to views(separation of concerns)
     - generic templates
@@ -32,9 +31,12 @@
     - adding to project
     - configuring
     - using
+- multi-app projects, reusable apps, virtual environments
+- configuring external DB server
+
 - Task/Project ideas
     - amazon clone (models, querysets, templates)
-        -MODELS
+        - MODELS
             - User model
                 - string: address
                 - string: name
