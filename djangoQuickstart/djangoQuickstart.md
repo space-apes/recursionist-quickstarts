@@ -24,14 +24,25 @@
     - "When somebody requests a page from your website – say, “/polls/34/”, Django will load the mysite.urls Python module because it’s pointed to by the ROOT_URLCONF setting. It finds the variable named urlpatterns and traverses the patterns in order. After finding the match at 'polls/', it strips off the matching text ("polls/") and sends the remaining text – "34/" – to the ‘polls.urls’ URLconf for further processing. There it matches '<int:question_id>/', resulting in a call to the detail() view like so"
 
         - https://docs.djangoproject.com/en/3.2/topics/http/urls/
+        - using name instead of hardcoded urls
+            - if multiple apps with same url names, can namespace 
+                - add 'app_name = <name>' in urlsconf
+                - when referencing the url, <app_name>:<urlName>
     - views
         - "A view is a “type” of Web page in your Django application that generally serves a specific function and has a specific template."
         - 'pages' vs 'actions'?
         - goal of view is to either return an HttpResponse or raise an exception(EX: 404)
+        - passing context into httpresponse
 
 - templates
+    - https://docs.djangoproject.com/en/3.2/topics/templates/
+    - maybe cover static resources
     - evaluation in templates / limiting logic to views(separation of concerns)
+    - namespacing templates for modularity
+    - loading and rendering templates in views, using django.shortcuts.render
+    - error handling / 404s
     - generic templates
+    - removing hardcoded URLS. using 'name' of a path instead. modularity. dont need to change url in each template, only need to update urlsconf
 - models / DB (or models / DB / migrations)
     - "DRY" philosophy: models are absolute truth about data. define them in one place, derive all else from that definition.
     - adjust settings.py ('default', 'user', 'password', 'host')
@@ -67,7 +78,10 @@
             - api access of many from one <ModelName>.<relModelName>_set.all()
         - one to one 
         - many to many
-    - underscoreunderscore str underscoreunderscore method of model definitions
+    - underscoreunderscore str underscoreunderscore method of model definitionsa
+    - django.shortcuts.get_object_or_404
+        - use helper function to maintain loose coupling: do not want to couple view and model layers
+        - also django.shortcuts.get_list_or_404() that uses filter instead of get() and raises Http404 if list is empty
 - queries / querysets
     - https://docs.djangoproject.com/en/3.2/topics/db/queries/#field-lookups-intro
     - querysets are lazy.. do not touch DB
@@ -80,8 +94,15 @@
     - 'migrate' to execute migration
     - 'check' to look for problems in current migration before touching db
 - forms
-    -cross site navigation!
-- djangoadmin sitea
+    - cross site navigation!
+    - http method review
+    - 'name/value' http attributes when posting
+    - request.post[<name>], use try and except on KeyError
+        - request.post is a dictionary like object with key value pairs. value is always a string!
+        - always redirect when posting to avoid user hitting 'back' button and submitting multiple times
+
+
+- djangoadmin site
     - admin/0ligarch33
     - purpose of admin site
     - added by default (check apps)
@@ -94,7 +115,17 @@
 - configuring external DB server
 
 ## Task/Project ideas
-- amazon clone (models, querysets, templates)
+- amazon clone (views, routes, models, querysets, templates)
+    - Possible Educational Sequence
+        - views/routes/templates
+            - create basic HttpResponse views and urlpatterns for Login, Register, Search, ItemDetail, Cart,
+            - create models for User, Item, use shell 
+            - create querysets for different varieties of searching for items(filter, order_by, chaining)
+            - create templates for each type of page
+                - form template for registering 
+                - template for when search is blank vs search has search terma
+
+
     - MODELS
         - User model
             - string: address
@@ -121,7 +152,7 @@
         -cart
         -checkout
 
-- Food Survey / food recommender (admin?)
+- Food Survey / food recommender (admin?, libraries?)
     - MODELS
         - FoodItem
             - string: name
@@ -147,8 +178,11 @@
     - what is django
     - requirements
         - OOP
+        - 'coupling' 
         - helps to understand python modules, html, css, db basics
         - model view controller architecture
+    - a note on content: some concepts fall across earlier stepping stones and will appear in multiple places.. something like this...
+    - a note on workflow: it may help to have many windows open at same time...(image of example workflow)
 - Installation
     - installing libraries / venv
         - https://docs.python.org/3/library/venv.html
@@ -170,7 +204,7 @@
     - link up hello world to simple view
 - Challenge 1
 - Concept 2 Models / DB / Dynamic content
-    - 'model is definitive truth about data': fields, behavior, db schema
+    - 'model is definitive truth about data': fields, behavior, db schema, API calls on models
 - Challenge 2
 - Concept 3
 - Challenge 3
