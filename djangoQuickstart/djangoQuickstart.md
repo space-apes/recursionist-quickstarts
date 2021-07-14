@@ -8,7 +8,7 @@
 - learn django from scratch youtube: [link](https://www.youtube.com/watch?v=t7DrJqcUviA)
 
 ## Potential Core Stepping Stones
-- requests, urls, views, static sites
+#### requests, urls, views, static sites
     - static resources / filestructure
     - http requests
     - HttpRequest, HttpResponse
@@ -51,7 +51,7 @@
 
         - why class-based views? to use power of OOP mixins and inheritance
 
-- templates
+#### templates
     - subtle diff between mvc and mvt: https://www.tutorialspoint.com/django/django_overview.htm
     - https://docs.djangoproject.com/en/3.2/topics/templates/
     - maybe cover static resources
@@ -61,7 +61,7 @@
     - error handling / 404s
     - removing hardcoded URLS. using 'name' of a path instead. modularity. dont need to change url in each template, only need to update urlsconf
 
-- models / DB (or models / DB / migrations)
+#### models / DB (or models / DB / migrations)
     - "DRY" philosophy: models are absolute truth about data. define them in one place, derive all else from that definition.
     - adjust settings.py ('default', 'user', 'password', 'host')
     - defining models
@@ -102,12 +102,12 @@
     - django.shortcuts.get_object_or_404
         - use helper function to maintain loose coupling: do not want to couple view and model layers
         - also django.shortcuts.get_list_or_404() that uses filter instead of get() and raises Http404 if list is empty
-- queries / querysets
+#### queries / querysets
     - https://docs.djangoproject.com/en/3.2/topics/db/queries/#field-lookups-intro
     - querysets are lazy.. do not touch DB
     - ordering
     - chaining
-- migrations
+#### migrations
     - 'makemigrations' to make new migration after changing models
         - look in file to see migration
     - 'sqlmigrate' to view sql code generated for migration
@@ -121,10 +121,10 @@
         - request.post is a dictionary like object with key value pairs. value is always a string!
         - always redirect when posting to avoid user hitting 'back' button and submitting multiple times
 
-- building RESTful API
+#### building RESTful API
     - https://docs.djangoproject.com/en/3.2/ref/request-response/
 
-- djangoadmin site
+#### djangoadmin site
     - admin/0ligarch33
     - purpose of admin site
     - added by default (check apps)
@@ -133,10 +133,10 @@
         - (web interface generated from models.py!)
     - configuring
     - using
-- multi-app projects, reusable apps, virtual environments
-- configuring external DB server
-- security issues in Django apps
-- testing in django, "Test Driven Development"
+#### multi-app projects, reusable apps, virtual environments
+#### configuring external DB server
+#### security issues in Django apps
+#### testing in django, "Test Driven Development"
     - work is done in <appName>/tests.py
     - import django.test.TestCase
     - class of tests for each model(for example) QuestionModelTests(TestCase), subclasses TestCase
