@@ -136,12 +136,18 @@
 - multi-app projects, reusable apps, virtual environments
 - configuring external DB server
 - security issues in Django apps
-- automated testing in django, "Test Driven Development"
+- testing in django, "Test Driven Development"
     - work is done in <appName>/tests.py
     - import django.test.TestCase
     - class of tests for each model(for example) QuestionModelTests(TestCase), subclasses TestCase
         - define function for each test whose name starts with 'test' and whose body ends with ends with self.assertIs(arg1, value) 
-    - run test with manage.py test <appName>
+    - run test with manage.py test <appName>a
+    - testing http responses using shell
+        - django.test.Client()
+            -response = client.get('url')
+            - can now observer response.status_code, response.content, response.context
+    -testing views 
+        
 
 ## Task/Project ideas
 - amazon clone (views, routes, models, querysets, templates)
