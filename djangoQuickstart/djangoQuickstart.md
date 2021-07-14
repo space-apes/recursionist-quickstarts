@@ -61,7 +61,7 @@
 - error handling / 404s
 - removing hardcoded URLS. using 'name' of a path instead. modularity. dont need to change url in each template, only need to update urlsconf
 
-#### models / DB (or models / DB / migrations)
+### models / DB (or models / DB / migrations)
 - "DRY" philosophy: models are absolute truth about data. define them in one place, derive all else from that definition.
 - adjust settings.py ('default', 'user', 'password', 'host')
 - defining models
