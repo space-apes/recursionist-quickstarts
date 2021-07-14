@@ -33,16 +33,34 @@
         - 'pages' vs 'actions'?
         - goal of view is to either return an HttpResponse or raise an exception(EX: 404)
         - passing context into httpresponse
+        - redirecting after handling POST data
+        - using reverse to pass control to different view from view name, and pass arguments to view
+            - uses view name to determine urlconf url. returns url string after domain name with inserted variable parts
+            - 'args' parameter must be iterable
+        - using generic views: commonm case of getting data from DB from URL, loading template, returning rendered templatea
+            - https://docs.djangoproject.com/en/3.2/topics/class-based-views/
+            - types: listView, detailView
+            - adjust urlconf (variable part must use int:pk), view goes views.functionname to views.FunctionName.as_view()
+            - each view is now class that subclasses (generic.ListView) or DetailView
+                - member variable string: template_name 
+                    - (if not specified, defaults to <appname>/<model_name>_<genericTypeName>.html (detail or list)
+                - member variable context_object_name
+                    - this also overrides default context variable. in detail, it is the queried mode object, in list, it is <modelName>_list
+                - member variable Class : model
+                - method get_queryset(self) -> queryset (default method for querying db in listview only)
+
+        - why class-based views? to use power of OOP mixins and inheritance
 
 - templates
+    - subtle diff between mvc and mvt: https://www.tutorialspoint.com/django/django_overview.htm
     - https://docs.djangoproject.com/en/3.2/topics/templates/
     - maybe cover static resources
     - evaluation in templates / limiting logic to views(separation of concerns)
     - namespacing templates for modularity
     - loading and rendering templates in views, using django.shortcuts.render
     - error handling / 404s
-    - generic templates
     - removing hardcoded URLS. using 'name' of a path instead. modularity. dont need to change url in each template, only need to update urlsconf
+
 - models / DB (or models / DB / migrations)
     - "DRY" philosophy: models are absolute truth about data. define them in one place, derive all else from that definition.
     - adjust settings.py ('default', 'user', 'password', 'host')
@@ -58,6 +76,8 @@
         - instantiate local object
         - CRUD operations
         - persist
+            - use F() to avoid race conditions
+            - https://docs.djangoproject.com/en/3.2/ref/models/expressions/#avoiding-race-conditions-using-f
         - retrieve
             - all()
             - filter(): for multiple items. no matches gives empty queryset
@@ -101,6 +121,8 @@
         - request.post is a dictionary like object with key value pairs. value is always a string!
         - always redirect when posting to avoid user hitting 'back' button and submitting multiple times
 
+- building RESTful API
+    - https://docs.djangoproject.com/en/3.2/ref/request-response/
 
 - djangoadmin site
     - admin/0ligarch33
@@ -113,17 +135,25 @@
     - using
 - multi-app projects, reusable apps, virtual environments
 - configuring external DB server
+- security issues in Django apps
+- automated testing in django, "Test Driven Development"
+    - work is done in <appName>/tests.py
+    - import django.test.TestCase
+    - class of tests for each model(for example) QuestionModelTests(TestCase), subclasses TestCase
+        - define function for each test whose name starts with 'test' and whose body ends with ends with self.assertIs(arg1, value) 
+    - run test with manage.py test <appName>
 
 ## Task/Project ideas
 - amazon clone (views, routes, models, querysets, templates)
     - Possible Educational Sequence
         - views/routes/templates
             - create basic HttpResponse views and urlpatterns for Login, Register, Search, ItemDetail, Cart,
-            - create models for User, Item, use shell 
+            - create models for User, Item, use shell, learn about migrations, the Model API, relationships
             - create querysets for different varieties of searching for items(filter, order_by, chaining)
             - create templates for each type of page
                 - form template for registering 
-                - template for when search is blank vs search has search terma
+                - template for when search is blank vs search has search termaa
+            - integrate some visualization librarys to see how much of each item category has been purchased
 
 
     - MODELS
@@ -176,6 +206,7 @@
 - Django Quickstart
     - version
     - what is django
+        - great short explanation: https://www.youtube.com/watch?v=GGkFg52Ot5o
     - requirements
         - OOP
         - 'coupling' 
@@ -183,6 +214,8 @@
         - model view controller architecture
     - a note on content: some concepts fall across earlier stepping stones and will appear in multiple places.. something like this...
     - a note on workflow: it may help to have many windows open at same time...(image of example workflow)
+        - MVC: 'create model', 'add controller views and routes to access them from urls', 'write templatea
+        - https://www.geeksforgeeks.org/difference-between-mvc-and-mvt-design-patterns/
 - Installation
     - installing libraries / venv
         - https://docs.python.org/3/library/venv.html
