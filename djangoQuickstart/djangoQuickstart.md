@@ -1,3 +1,5 @@
+# CHECK THE GOOGLE DOC FOR MOST UPDATED VERSION OF SCRATCHPAD
+
 ## Links
 - Django official docs: [link](https://docs.djangoproject.com/en/3.2/)
     - see tutorial 

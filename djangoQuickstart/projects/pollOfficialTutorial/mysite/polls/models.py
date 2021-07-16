@@ -15,8 +15,6 @@ class Question(models.Model):
     def __str__(self):
         return self.question_text
 
-
-
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length = 200)
@@ -25,3 +23,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+def createQuestionWithChoices(questionText, days, choiceTextList):
+    q = Question.objects.create(question_text=questionText, pub_date = timezone.now() + timezone.timedelta(days=days))
+    for choiceText in choiceTextList:
+        q.choice_set.create(choice_text = choiceText)
+
+
+
