@@ -51,3 +51,34 @@ These are skeletons for the types of web pages we want to view as the final outp
 9.  Server passes response back to client browser
 
 Of course, this is an example showing a fraction of the potential of Django in order to illustrate the overall flow.
+
+## Installation and Setup
+Django is written in Python and installed as a python package through the pip python package manager. If your particular operating system supports Python, you will more than likely be able to install Django as well.
+
+1. Install Python if it is not already installed. 
+    - check which version of Python is needed for the newest version of Django:
+    -  https://docs.djangoproject.com/en/3.2/faq/install/#faq-python-version-support
+    - Official Beginner’s Guide for Python: 
+    -  https://wiki.python.org/moin/BeginnersGuide/Download
+    - make sure to click “add Python to PATH” during installation
+    - Test your installation by running the python executable with no arguments. exit interactive mode with `quit()` 
+    - because the python executable has different names in different operating systems, 
+    it will be referred to by the name ‘python’ for the rest of this quickstart. 
+2. Install Django pip package
+    -  https://docs.djangoproject.com/en/3.2/intro/install/
+    - `pip install django`
+3. Start a test project 
+    - `django-admin startproject testProject`
+    - this should generate a folder containing a number of files
+4. Run your test project on the development server
+    - change directory to the testProject directory
+    - `python manage.py runserver 8080`
+    - open your web browser and enter this address: “127.0.0.1:8080”
+    - you should see this:
+5. (Optional) Install django-extensions pip package
+    - this package includes some quality of life features like auto-loading all packages when 
+        testing instead of loading them in manually
+    - `pip install django-extensions`
+
+
+
