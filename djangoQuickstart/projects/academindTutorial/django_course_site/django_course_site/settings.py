@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,8 @@ SECRET_KEY = 'django-insecure-2id6z*g5wt$_zwk%+)1x)jr%ey$9e5wt55thw2leojhb^(k7v^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['radialasymmetry.com']
-
+ALLOWED_HOSTS = ['django-meetup']
+FORCE_SCRIPT_NAME = '/d-meetup'
 
 # Application definition
 
@@ -75,10 +76,13 @@ WSGI_APPLICATION = 'django_course_site.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	'default':{
+		'ENGINE': os.environ['DB_ENGINE'],
+		'HOST': os.environ['DB_HOST'],
+		'NAME': os.environ['DB_NAME'],
+		'USER': os.environ['DB_USER'],
+		'PASSWORD': os.environ['DB_PASSWORD']
+	}
 }
 
 
@@ -118,7 +122,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'https://radialasymmetry.com/static/d-meetup/'
+
+STATIC_ROOT='./static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

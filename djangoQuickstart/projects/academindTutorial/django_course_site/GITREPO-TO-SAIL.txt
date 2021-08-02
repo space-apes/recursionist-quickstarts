@@ -1,0 +1,14 @@
+1. mkdir recursionist_referral_system && cd recursionist_referral_system && git init
+2. git remote add origin https://github.com/space-apes/recursionist-referral-system
+3. git pull origin master
+4. git checkout -b withSail
+4. cp .env.example .env
+4. curl -sS https://getcomposer.org/installer | php --
+5. mv composer.phar /usr/local/bin/composer
+6. composer require laravel/sail --dev
+7. composer update --with-dependencies
+8. adjust any ENV vars
+9. php artisan sail:install
+10. select mysql
+
+   

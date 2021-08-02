@@ -1,0 +1,16 @@
+#let's attempt to use volumes for whole project. for example of built project look at polls
+FROM python:alpine
+
+ENV PYTHONUNBUFFERED 1 
+
+#RUN mkdir /code
+
+#WORKDIR /code
+
+#don't need to copy contents since we are using live contents?
+COPY ./requirements.txt .
+
+RUN apk add --update gcc libc-dev linux-headers postgresql-dev && pip3 install -r requirements.txt && apk del gcc libc-dev linux-headers
+
+
+

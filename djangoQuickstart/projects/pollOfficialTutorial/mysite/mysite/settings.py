@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-5bqio7$pd2t6vbtt51e8ln5o44(d_-us97gesg3d=e(gv0!crh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['radialasymmetry.com']
+ALLOWED_HOSTS = ['radialasymmetry.com', 'django-poll']
+
+FORCE_SCRIPT_NAME = '/d-poll'
 
 
 # Application definition

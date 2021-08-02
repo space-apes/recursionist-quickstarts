@@ -1,0 +1,6 @@
+mysql-connector-python
+django
+#postgresql connector
+#psycopg2-binary
+django-extensions
+gunicorn

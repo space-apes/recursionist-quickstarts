@@ -1,0 +1,5 @@
+django
+#use if building with slim
+psycopg2-binary
+django-extensions
+gunicorn
