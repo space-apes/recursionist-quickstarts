@@ -120,25 +120,38 @@ Your project will contain one Django application that has its own `urls.py` and 
 
 Your website will have 5 types of pages, and for each you will need to add an entry into the Url Dispatcher, write a view function, and create an appropriate template.
 
-####‘’->views.index
-- description:
-        - landing page
-        
-        - view
-                - includes hard-coded list of strings of urls of images of scenes from the sport
-                - randomly selects one of url strings from list and passes it into template 
-        - template: 
-                - includes named blocks “header” and “footer” from base.html
-                - includes content describing purpose of page and image tag with random url from view
+#### ‘’->views.index
+- _description:_
+    - landing page
+- _view:_
+    - includes hard-coded list of strings of urls of images of scenes from the sport
+    - randomly selects one of url strings from list and passes it into template 
+- _template:_ 
+    - includes named blocks “header” and “footer” from base.html
+    - includes content describing purpose of page and image tag with random url from view
 
-‘rules/’->views.rules
-    - description: 
-- page giving rules or description of sport
-- view:  
-    - simply render template
-    - template:
-        - includes named blocks “header” and “footer” from base.html
-        - includes content describing rules or description of sport
+#### ‘rules/’->views.rules
+- _description:_
+    - page giving rules or description of sport
+- _view:_
+    - simply render template 
+- _template:_ 
+    - includes named blocks “header” and “footer” from base.html
+    - includes content describing rules or description of sport
+
+#### ‘notables/<int:notablesIndex>/’->views.notablesDetail
+- _description:_
+    - detailed view of a notable player or character including name, image, description, and stats
+- _view:_
+    - includes hard-coded list of dictionary elements representing players or characters (at least 3)
+    - a single list element will be selected and passed to template
+    - each dictionary element should have string values for name, imageUrl, description, and a list for stats
+    - uses `notablesIndex` value from `path()` to access appropriate list element
+    - should raise Http404(“player does not exist”) on IndexError exception https://docs.djangoproject.com/en/3.2/intro/tutorial03/#raising-a-404-error
+- _template:_ 
+    - includes named blocks “header” and “footer” from base.html
+    - image tag and relevant information of selected player
+    - link back to list of notables
 
 ‘notables/<int:notablesIndex>/’->views.notablesDetail
     - description: 
