@@ -70,15 +70,49 @@ Django is written in Python and installed as a python package through the pip py
 3. Start a test project 
     - `django-admin startproject testProject`
     - this should generate a folder containing a number of files
+    - ![Django Project Files](images/djangoProjectFiles.png)
 4. Run your test project on the development server
     - change directory to the testProject directory
     - `python manage.py runserver 8080`
     - open your web browser and enter this address: “127.0.0.1:8080”
     - you should see this:
-5. (Optional) Install django-extensions pip package
+    - ![Django Install Success](images/djangoInstallSuccess.png)
+5. (optional) Create virtual environments to isolate each Django project
+    - Windows: https://docs.djangoproject.com/en/3.2/howto/windows/#setting-up-a-virtual-environment  
+    - Linux/MacOS(see section on venv): https://docs.djangoproject.com/en/3.2/intro/contributing/ 
+7. (Optional) Install django-extensions pip package
     - this package includes some quality of life features like auto-loading all packages when 
         testing instead of loading them in manually
     - `pip install django-extensions`
 
+## Official Tutorial: Poll Project
+Follow the Django official tutorial to get an understanding of how all of the components work together:
+https://docs.djangoproject.com/en/3.2/intro/tutorial01/
+
+## Stepping Stone 1: Url Dispatcher, Views, Templates
+The Django request cycle is:
+
+1. Client Browser makes Http Request
+2. Url Dispatcher matches the requested url, and calls associated view function
+3. View function assembles an Http Response
+4. Http Response is sent back to Client Browser
+
+The url dispatcher is the first routine of our django app that is triggered by an incoming request and the url->view mappings are stored in one or more `urls.py` files.
+
+Url->view function mappings are added as entries to the urlpatterns list within urls.py. 
+
+https://docs.djangoproject.com/en/3.2/ref/urls/
+
+The next step in the sequence is to call the view functions that are defined in any django applications’s `views.py` file. View functions will do one of the following: redirect the request, raise an exception, or assemble and return an HttpResponse object. 
+
+https://docs.djangoproject.com/en/3.2/topics/http/views/
+
+You can learn about HttpResponse and HttpRequest objects including determining the Http Request method (GET, POST..) and accessing data posted from forms here:
+
+https://docs.djangoproject.com/en/3.2/ref/request-response/
+
+Views are used in conjunction with templates. As a view is assembling the HttpResponse, it needs a way to dynamically generate the HTML of the response. Templates are composed of static HTML and django-template syntax for inserting data from the view and basic flow-control abilities related to the construction of the HTML. They can be extended and reused and can be made to generate other formats like XML and CSV as well. 
+
+https://docs.djangoproject.com/en/3.2/ref/templates/language/
 
 
