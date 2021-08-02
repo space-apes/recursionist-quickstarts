@@ -97,9 +97,7 @@ The Django request cycle is:
 3. View function assembles an Http Response
 4. Http Response is sent back to Client Browser
 
-The url dispatcher is the first routine of our django app that is triggered by an incoming request and the url->view mappings are stored in one or more `urls.py` files.
-
-Url->view function mappings are added as entries to the urlpatterns list within urls.py. 
+The url dispatcher is the first routine of our django app that is triggered by an incoming request and the url->view mappings are stored in one or more `urls.py` files within the `urlpatterns` list.
 
 https://docs.djangoproject.com/en/3.2/ref/urls/
 
@@ -111,8 +109,80 @@ You can learn about HttpResponse and HttpRequest objects including determining t
 
 https://docs.djangoproject.com/en/3.2/ref/request-response/
 
-Views are used in conjunction with templates. As a view is assembling the HttpResponse, it needs a way to dynamically generate the HTML of the response. Templates are composed of static HTML and django-template syntax for inserting data from the view and basic flow-control abilities related to the construction of the HTML. They can be extended and reused and can be made to generate other formats like XML and CSV as well. 
+Views are used in conjunction with templates. As a view is assembling the HttpResponse, it needs a way to dynamically generate the HTML of the response. Templates are composed of static HTML and django-template syntax for inserting data from the view and basic flow-control abilities (FOREACH, IF) related to the construction of the HTML. They can be extended and reused and can be made to generate other formats like XML and CSV as well. 
 
 https://docs.djangoproject.com/en/3.2/ref/templates/language/
 
+### Challenge 1A: Sports/Game Fan Website
+Your first project involves the creation of a website about your favorite sport (or video game if you like) meant to inform the audience about relevant details of the sport. It will rely on templates in order to give structure to the HttpResponses, and pre-written data from views that is passed into templates.
 
+Your project will contain one Django application that has its own `urls.py` and `views.py`. 
+
+Your website will have 5 types of pages, and for each you will need to add an entry into the Url Dispatcher, write a view function, and create an appropriate template.
+
+####‘’->views.index
+- description:
+        - landing page
+        
+        - view
+                - includes hard-coded list of strings of urls of images of scenes from the sport
+                - randomly selects one of url strings from list and passes it into template 
+        - template: 
+                - includes named blocks “header” and “footer” from base.html
+                - includes content describing purpose of page and image tag with random url from view
+
+‘rules/’->views.rules
+    - description: 
+- page giving rules or description of sport
+- view:  
+    - simply render template
+    - template:
+        - includes named blocks “header” and “footer” from base.html
+        - includes content describing rules or description of sport
+
+‘notables/<int:notablesIndex>/’->views.notablesDetail
+    - description: 
+- detailed view of a notable player or character. Includes name, image, 
+      description, and stats
+- view:
+- includes hard-coded list of dictionaries for at least 3 of your favorite players or 
+      characters that will be injected into the template.
+- Use the notablesIndex url parameter as the index to retrieve the player.
+- should raise Http404(“player does not exist”) on IndexError exception
+  https://docs.djangoproject.com/en/3.2/intro/tutorial03/#raising-a-404-error
+
+- template:
+        - includes named blocks “header” and “footer” from base.html
+        - image of selected player, name, description, stats
+        - link to notablesList
+‘notables/’->views.notablesList
+    - description: list of links to each of the notable players
+    - view: 
+        - simply pass the global list of players into template
+- template: 
+        - includes named blocks “header” and “footer” from base.html
+- generate anchor tags for each player, using thumbnail of their image and 
+      their name as the content of tag using for template tag
+  https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#std:templatetag-for
+- Use forloop.count0 to generate the urls to detailed views of players
+ 
+
+
+‘externalLinks/’-> views.externalLinks
+    - description: 
+- set of external links to learn more information about your sport
+- view: 
+- contains list of string urls to off-site resources
+- passes list of urls to template
+    - template:
+        - iterates through each url and generates anchor tag for each
+
+Create a base template `base.html` in the appropriate directory that will be extended for each of the pages in your site. It will contain the following named blocks:
+- "header": has navbar with anchor tags to each of the pages within the site besides the detailed view of notable players
+- "footer": has copyright information, year, webmaster email address
+
+When making any refernces to internal URLs use reverse URL resolution.
+
+https://docs.djangoproject.com/en/3.2/topics/http/urls/#reverse-resolution-of-urls
+
+ 
