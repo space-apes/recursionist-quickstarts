@@ -118,7 +118,9 @@ Your first project involves the creation of a website about your favorite sport 
 
 Your project will contain one Django application that has its own `urls.py` and `views.py`. 
 
-Your website will have 5 types of pages, and for each you will need to add an entry into the Url Dispatcher, write a view function, and create an appropriate template.
+Your website will have 5 types of pages, and for each you will need to add an entry into the Url Dispatcher, write a view function, and create an appropriate template that uses reverse url resolution for internal urls.
+https://docs.djangoproject.com/en/3.2/topics/http/urls/#reverse-resolution-of-urls
+
 
 #### ‘’->views.index
 - _description:_
@@ -139,7 +141,7 @@ Your website will have 5 types of pages, and for each you will need to add an en
     - includes named blocks “header” and “footer” from base.html
     - includes content describing rules or description of sport
 
-#### ‘notables/<int:notablesIndex>/’->views.notablesDetail
+#### ‘notables/\<int:notablesIndex\>/’->views.notablesDetail
 - _description:_
     - detailed view of a notable player or character including name, image, description, and stats
 - _view:_
@@ -153,49 +155,27 @@ Your website will have 5 types of pages, and for each you will need to add an en
     - image tag and relevant information of selected player
     - link back to list of notables
 
-‘notables/<int:notablesIndex>/’->views.notablesDetail
-    - description: 
-- detailed view of a notable player or character. Includes name, image, 
-      description, and stats
-- view:
-- includes hard-coded list of dictionaries for at least 3 of your favorite players or 
-      characters that will be injected into the template.
-- Use the notablesIndex url parameter as the index to retrieve the player.
-- should raise Http404(“player does not exist”) on IndexError exception
-  https://docs.djangoproject.com/en/3.2/intro/tutorial03/#raising-a-404-error
+#### ‘notables/’->views.notablesList
+- _description:_
+    - list of internal links to each of the notable players
+- _view:_
+    - simply pass the list of players into template 
+- _template:_ 
+    - generate anchor tags for each player, using thumbnail of their image and 
+      their name as the content of html tag using `for` django-template tag
+      https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#std:templatetag-for
+    - anchor tags link to detailed view of player
 
-- template:
-        - includes named blocks “header” and “footer” from base.html
-        - image of selected player, name, description, stats
-        - link to notablesList
-‘notables/’->views.notablesList
-    - description: list of links to each of the notable players
-    - view: 
-        - simply pass the global list of players into template
-- template: 
-        - includes named blocks “header” and “footer” from base.html
-- generate anchor tags for each player, using thumbnail of their image and 
-      their name as the content of tag using for template tag
-  https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#std:templatetag-for
-- Use forloop.count0 to generate the urls to detailed views of players
- 
+#### ‘externalLinks/’->views.externalLinks
+- _description:_
+    - set of external links to learn more information about your sport / game
+- _view:_
+    - contains list of string urls to off-site resources
+    -  passes list of urls to template
+- _template:_ 
+    - includes named blocks “header” and “footer” from base.html
+    - iterates through each url and generates anchor tag for each
 
-
-‘externalLinks/’-> views.externalLinks
-    - description: 
-- set of external links to learn more information about your sport
-- view: 
-- contains list of string urls to off-site resources
-- passes list of urls to template
-    - template:
-        - iterates through each url and generates anchor tag for each
-
-Create a base template `base.html` in the appropriate directory that will be extended for each of the pages in your site. It will contain the following named blocks:
+Finally create the base template `base.html` in the appropriate directory that will be extended for each of the pages in your site. It will contain the following named blocks:
 - "header": has navbar with anchor tags to each of the pages within the site besides the detailed view of notable players
 - "footer": has copyright information, year, webmaster email address
-
-When making any refernces to internal URLs use reverse URL resolution.
-
-https://docs.djangoproject.com/en/3.2/topics/http/urls/#reverse-resolution-of-urls
-
- 
