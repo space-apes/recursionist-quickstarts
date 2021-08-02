@@ -6,8 +6,48 @@ To make the best use of this quickstart, it is suggested you feel comfortable wi
 - MVC application architecture
 - Python3 Syntax, Python modules
 - OOP principles and design
-- HTTP requests
+- HTTP protocol 
 - Relational database basics
 - Getting information from Web API
 - HTML, CSS, JS basics
 
+## Django High-Level Overview
+
+Before we begin with installing Django on your system, let’s take a high-level view of Django’s MVT architecture and compare it to the serving of a static web page from a web-server in order to see how all the components of Django fit together. 
+
+![Basic Static Website Overview](images/StaticPageDiagram.png "Basic Static Website Overview")
+Almost every website interaction will involve the basic flow of having a client browser make an HTTP request from a server, requesting some resource, and the server sending back an HTTP response with the contents of the requested resource. In the most basic case, the resource requested is stored on the server computer as one or more static files that may be stored on the hard drive.
+
+You can find a refreshed on general HTTP concepts including Requests and Responses here:
+[https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+
+![Django Simplified Overview](images/DjangoBasicDiagram.png)
+Django adds a layer to the basic flow, where the Django executable is able to send and retrieve data from a variety of other elements, process it, and assemble a dynamic response that will be understood by the web browser before sending a response. In the end, a Django app receives an HTTP request, and responds with an HTTP response. In this way, we can connect the idea of Django apps to Input->Output.
+
+![Django MVT Elements Through Example](images/MVTBasicDiagram.png)
+Let’s look a little deeper through an example. In order to maintain a separation of concerns, Django follows the MVT (Model, View, Template) architectural pattern. MVT is similar to the MVC (Model View Controller) pattern, but if you are familiar with MVC be careful about conflicts in the terminology between the two patterns.
+
+### Model
+These are descriptions of the types of data we will use in our application and arguably, serve as the core of our django projects. They are very similar to the concept of OOP classes, containing both data fields and also method definitions. Instances of models can be created and manipulated in code, but they are also represented in the database as records. In this example, we have GolfPlayers, but might also have Skiers, and WebsiteUsers.
+
+### View
+These are Python functions and methods that are executed when some url is requested. They take in an Http Request and return an Http Response. They are responsible for all of the business logic that must occur when a resource is requested, as well as the selection and assembly of the components in the final response. In this example, we have views that will be executed when users access the login page, golf page, or skiing page.
+
+### Template
+These are skeletons for the types of web pages we want to view as the final output. They are made up of HTML, CSS, and data that was retrieved and inserted by the View. Along with these, Django has a templating language to interact with data passed in as well as help structure the page to do things like create multiple tags in a loop. In this example there is a template for all pages that have to do with sports. We may reuse this template when users request Golf resources or Skiing resources, inserting different content but using the same structure. 
+
+### Putting It All Together
+![Django MVT Elements Through Example](images/MVTBasicDiagram.png)
+1.  client browser requests ‘example.com/golf’
+2.  server passes request on to django
+3.  the url mapper matches the ‘/golf’ part of request and calls golfView()
+4.  golfView() requests data from the database and uses the GolfPlayer model as a 
+        guide
+5.  golfView() uses data from the DB and GolfPlayer.calculateStats() from Model 
+        definition to calculate statistics for given players
+6.  golfView() inserts DB data and calculated data into sports template 
+7.  golfView() returns assembled template with inserted dynamic data
+8.  Django passes response back to server
+9.  Server passes response back to client browser
+
+Of course, this is an example showing a fraction of the potential of Django in order to illustrate the overall flow.
