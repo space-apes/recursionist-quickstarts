@@ -184,12 +184,19 @@ Finally create the base template `base.html` in the appropriate directory that w
 Your employer runs a car warehouse that specializes in some subset of car makes (EX: "German Cars": Audi, BMW, Mercedes... OR  EX: "Sports Cars": Ferrari, McClaren, Bugatti...) They need to a user-friendly website for requesting and displaying information from the external API located at https://vpic.nhtsa.dot.gov/api/
 
 JSON data must be retrieved and parsed from the API in order to display the results within a webpage. 
-This is a good opportunity to incorporate python libraries into your django project. Python has a with a library for opening external URLs
+This is a good opportunity to incorporate python libraries into your django project. Python has a with a library for opening external URLs:
 https://docs.python.org/3/library/urllib.request.html
-But it is highly recommended to install the 'requests' library
+But it is highly recommended to install and use the 'requests' library instead:
 https://docs.python-requests.org/en/master/
 
-Use Django's shell to explore how to make these requests within the context of your Django program using  `python manage.py shell'.
+You will most likely want to convert JSON data into a python dictionary. You use python's json library for that:
+https://docs.python.org/3/library/json.html
+
+
+
+Once you have installed the library and created a single-app django project use Django's shell to explore how to make these requests within the context of your Django program using  `python manage.py shell'.
+
+
 
 #### ‘’->views.index
 - _description:_
@@ -198,4 +205,5 @@ Use Django's shell to explore how to make these requests within the context of y
     - (HTTP GET REQUEST): 
     - (HTTP POST REQUEST): 
 - _template:_ 
-    - includes content describing purpose of page and image tag with random url from view
+    - header: 
+        -  
