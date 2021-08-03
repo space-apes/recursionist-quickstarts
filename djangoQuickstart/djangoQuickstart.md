@@ -113,7 +113,7 @@ Views are used in conjunction with templates. As a view is assembling the HttpRe
 
 https://docs.djangoproject.com/en/3.2/ref/templates/language/
 
-### Challenge 1A: Sports/Game Fan Website
+## Challenge 1A: Sports/Game Fan Website
 Your first project involves the creation of a website about your favorite sport (or video game if you like) meant to inform the audience about relevant details of the sport. It will rely on templates in order to give structure to the HttpResponses, and pre-written data from views that is passed into templates.
 
 Your project will contain one Django application that has its own `urls.py` and `views.py`. 
@@ -179,3 +179,23 @@ https://docs.djangoproject.com/en/3.2/topics/http/urls/#reverse-resolution-of-ur
 Finally create the base template `base.html` in the appropriate directory that will be extended for each of the pages in your site. It will contain the following named blocks:
 - "header": has navbar with anchor tags to each of the pages within the site besides the detailed view of notable players
 - "footer": has copyright information, year, webmaster email address
+
+## Challenge 1B: Car Information Portal
+Your employer runs a car warehouse that specializes in some subset of car makes (EX: "German Cars": Audi, BMW, Mercedes... OR  EX: "Sports Cars": Ferrari, McClaren, Bugatti...) They need to a user-friendly website for requesting and displaying information from the external API located at https://vpic.nhtsa.dot.gov/api/
+
+JSON data must be retrieved and parsed from the API in order to display the results within a webpage. 
+This is a good opportunity to incorporate python libraries into your django project. Python has a with a library for opening external URLs
+https://docs.python.org/3/library/urllib.request.html
+But it is highly recommended to install the 'requests' library
+https://docs.python-requests.org/en/master/
+
+Use Django's shell to explore how to make these requests within the context of your Django program using  `python manage.py shell'.
+
+#### ‘’->views.index
+- _description:_
+    - landing page to show list of Make options and search bar
+- _view:_
+    - (HTTP GET REQUEST): 
+    - (HTTP POST REQUEST): 
+- _template:_ 
+    - includes content describing purpose of page and image tag with random url from view
