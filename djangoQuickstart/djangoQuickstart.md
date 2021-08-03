@@ -181,29 +181,37 @@ Finally create the base template `base.html` in the appropriate directory that w
 - "footer": has copyright information, year, webmaster email address
 
 ## Challenge 1B: Car Information Portal
-Your employer runs a car warehouse that specializes in some subset of car makes (EX: "German Cars": Audi, BMW, Mercedes... OR  EX: "Sports Cars": Ferrari, McClaren, Bugatti...) They need to a user-friendly website for requesting and displaying information from the external API located at https://vpic.nhtsa.dot.gov/api/
+Your employer runs a car warehouse that specializes in some subset of car makes (EX: "German Cars": Audi, BMW, Mercedes... OR  EX: "Sports Cars": Ferrari, McLaren, Bugatti...) They need to a user-friendly website for requesting and displaying information from the external API located at 
+
+https://vpic.nhtsa.dot.gov/api/
 
 JSON data must be retrieved and parsed from the API in order to display the results within a webpage. 
 This is a good opportunity to incorporate python libraries into your django project. Python has a with a library for opening external URLs:
+
 https://docs.python.org/3/library/urllib.request.html
+
 But it is highly recommended to install and use the 'requests' library instead:
+
 https://docs.python-requests.org/en/master/
 
 You will most likely want to convert JSON data into a python dictionary. You use python's json library for that:
+
 https://docs.python.org/3/library/json.html
 
+Once you have installed the library and created a single-app django project use Django's shell to explore how to make these requests within the context of your Django program using  `python manage.py shell`.
 
+Besides the data from the API, your employer wants the site to serve all media itself. Determine the subset of car makes you wish to use and find images of their logos to be used as static resources on your page. Find or create some logo for the website to be used as well. 
+https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-Once you have installed the library and created a single-app django project use Django's shell to explore how to make these requests within the context of your Django program using  `python manage.py shell'.
+This Django project will feel like a single-page app and will reuse a header on all pages like this:
+
 
 
 
 #### ‘’->views.index
 - _description:_
-    - landing page to show list of Make options and search bar
-- _view:_
-    - (HTTP GET REQUEST): 
-    - (HTTP POST REQUEST): 
+    - landing page to display searchbar and list of available makes
+- _view:
 - _template:_ 
     - header: 
-        -  
+        -
