@@ -198,20 +198,38 @@ You will most likely want to convert JSON data into a python dictionary. You use
 
 https://docs.python.org/3/library/json.html
 
-Once you have installed the library and created a single-app django project use Django's shell to explore how to make these requests within the context of your Django program using  `python manage.py shell`.
+Once you have installed the library and created a single-app Django project, use Django's shell to explore how to make these requests within the context of your Django program using  `python manage.py shell`.
 
-Besides the data from the API, your employer wants the site to serve all media itself. Determine the subset of car makes you wish to use and find images of their logos to be used as static resources on your page. Find or create some logo for the website to be used as well. 
+Besides the data from the API, your employer wants the site to serve a lot of the media and scripts directly from the server. Determine the set of car makes you wish to use and find images of their logos to be used as static resources on your page. Any javascript files you create should be included as well. 
+
 https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-This Django project will feel like a single-page app and will reuse a header on all pages like this:
+The user will interact with the site primarily through forms. You can refresh your memory on creating forms in Django here:
 
+https://docs.djangoproject.com/en/3.2/ref/forms/
 
+This Django project will feel like a single-page app and will reuse a header on all pages that has these elements:
+![Car Information Portal Header](images/carPortalHeader.png)
+- MAKE: dropdown menu with options populated by the set of car makes you decided to use and defaults to the first choice from the set
+- MODEL: dropdown menu with options populated by API call if a car make has been selected and submitted. it also includes an 'any' option which is default if no make is selected. You may also load these choices asynchronously using AJAX
+https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
+- BEG DATE: input type number that has minimum of 1886, maximum of the current year and defaults to current year
+- END DATE: input type number that has minimum of 1886, maximum of the current year and defaults to current year
+- SUBMIT: button or anchor to submit form data
 
+The project will have FSH&SF&HS)FHS)FHS)F&HS)F&HS)*&F*)&SFH*SHF)*SFG*)SFG)S*FG)SFGS)*FG)S*^GF)*SGFS*)FG)*SFG)*SFG)*SGF)^GS^)*FGS)*FGSF
+SFOYGSOFYSGF*GSP*F
+DGSOPIGSIDGSIPODGtypes of pages: 
 
 #### ‘’->views.index
-- _description:_
-    - landing page to display searchbar and list of available makes
-- _view:
-- _template:_ 
-    - header: 
-        -
+- HTTP GET
+    - header with default search values
+    - display available makes including logos of each and links that lead to modelList/\<make\>/ of each make for current year to current year
+- HTTP POST
+    - header maintains search values that were submitted
+    - list items for all matching entries with at least 4 values (EX: year, model, engine power, top speed) from API entry
+    List of available variables per entry: 
+    https://vpic.nhtsa.dot.gov/api//vehicles/GetVehicleVariableList?format=json
+    - view raises http404 if no matches
+#### 'modelList/\<make\>/'-> views.modelList
+
