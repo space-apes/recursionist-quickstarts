@@ -217,20 +217,25 @@ https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
 - END DATE: input type number that has minimum of 1886, maximum of the current year and defaults to current year
 - SUBMIT: button or anchor to submit form data
 
-The project will have FSH&SF&HS)FHS)FHS)F&HS)F&HS)*&F*)&SFH*SHF)*SFG*)SFG)S*FG)SFGS)*FG)S*^GF)*SGFS*)FG)*SFG)*SFG)*SGF)^GS^)*FGS)*FGSF
-SFOYGSOFYSGF*GSP*F
-DGSOPIGSIDGSIPODGtypes of pages: 
+The project will have 3 types of pages: 
 
 #### ‘’->views.index
 - HTTP GET
     - header with default search values
-    - display available makes including logos of each and links that lead to modelList/\<make\>/ of each make for current year to current year
-    - 
+    - display available makes including images of logos of each and links that lead to modelList/\<make\>/ of each make for current year to current year
+    - ![Car Portal Landing Page](images/carPortalLandingPage.png)
 - HTTP POST
-    - header maintains search values that were submitted
+    - header must maintain search values that were submitted
     - list items for all matching entries with at least 4 values (EX: year, model, engine power, top speed) from API entry
     List of available variables per entry: 
     https://vpic.nhtsa.dot.gov/api//vehicles/GetVehicleVariableList?format=json
     - view raises http404 if no matches
+    - ![Car Portal Search Results](images/carPortalSearchResults.png)
 #### 'modelList/\<make\>/'-> views.modelList
+    - search parameters in header should be set to make: given, model: any, beg date: current year, end date: current year
+    - main content contains list of all models for the current year of the given make
+    - each model in list should be clickable and send user to search results page with parameters make: given, model: given, beg year: minimum, end year: maximum
+    - should raise http404 if user enters url with make that is not in set of makes your employer chose
+    - ![Car Portal Model List](images/carPortalModelList.png)
+    
 
