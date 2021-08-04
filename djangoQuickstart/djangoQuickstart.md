@@ -239,3 +239,28 @@ The project will have 3 types of pages:
 - ![Car Portal Model List](images/carPortalModelList.png)
     
 
+## Stepping Stone 2: Models, DBs, Migrations
+Django can use a wide range of choices for your persistent and ephemeral backend storage. Generally all that is required to hook your Django project up to storage is a few modifications of your project's `settings.py` file. You can choose from any of the available options but this quickstart will follow a MySQL route. 
+
+### Install database
+- “MySQL Community Edition” is the free version
+- https://dev.mysql.com/downloads/
+- you can skip any registration
+- you can choose the ‘developer default’ installation options
+- if you want to save space, do custom install and select the server, the shell, the python connector, the java connector
+### Install Python DB API driver for mysql 
+- https://pypi.org/project/mysqlclient/
+### Install MySQL database explorer
+- The suggested choice that is user-friendly is DBeaver: https://dbeaver.io/
+- As long as your server is running, you can also access a shell-like interface from any commandline using `mysql -h localhost -p`
+### Connect a new Django project to running database
+- https://docs.djangoproject.com/en/3.2/ref/databases/#connecting-to-the-database
+
+Models are one of the most powerful features in Django, giving developers an API for interacting programmatically with stored data regardless of the way it is stored. They are the "definitive source of information about your data" and each model defined in `models.py` files is used to derive DB schema, relationships between types of data, and  behavior. 
+https://docs.djangoproject.com/en/3.2/topics/db/models/
+
+
+
+
+
+
