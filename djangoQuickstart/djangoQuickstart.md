@@ -269,7 +269,9 @@ https://docs.djangoproject.com/en/3.2/topics/migrations/
 Querysets give a powerful API for requesting records from the DB and can stored and modified themselves without touching the database. 
 https://docs.djangoproject.com/en/3.2/ref/models/querysets/
 
-## Challenge 2A: Food Recommender
+## Challenge 2A: Food Ratings Site
+
+## Challenge 2B: Food Recommender Site
 
 
 
