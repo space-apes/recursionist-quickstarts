@@ -259,20 +259,39 @@ Django can use a wide range of choices for your persistent and ephemeral backend
 
 ### Models 
 Models are one of the most powerful features in Django, giving developers an API for interacting programmatically with stored data regardless of the way it is stored. They are the "definitive source of information about your data" and each model defined in `models.py` files is used to derive DB schema, relationships between types of data, and  behavior. 
+
 https://docs.djangoproject.com/en/3.2/topics/db/models/
 
 ### Migrations
 Migrations are version control for DB schema that ease testing and incremental design. Any time you make modifications to your models, you can generate a new migration using `python manage.py makemigrations`. After that you can roll back or forward your database's schema using migrations using `python manage.py migrate` with various command line options. 
+
 https://docs.djangoproject.com/en/3.2/topics/migrations/
 
 ### Querysets
 Querysets give a powerful API for requesting records from the DB and can stored and modified themselves without touching the database. 
+
 https://docs.djangoproject.com/en/3.2/ref/models/querysets/
 
 ## Challenge 2A: Food Ratings Site
+| FoodItem |
+| :----: |
+| - name : string |
+| - imageUrl : string | 
+| - countryOfOrigin : string | 
+| - typicalMealTime: int | 
+| - avgScore() : float | 
+| - numberOfVotes() : int | 
+
+| Food Rating |
+| :--------------------:  |
+| - foodItem : foreignKey |
+| - score : float  (min 0.0 max 5.0) |      |
+| - date   :  |
 
 ## Challenge 2B: Food Recommender Site
 
-
+extensions from food ratings:
+- users can log in and store data, then retrieve later
+- users can 
 
 
