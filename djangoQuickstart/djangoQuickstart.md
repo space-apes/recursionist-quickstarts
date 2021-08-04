@@ -232,10 +232,10 @@ The project will have 3 types of pages:
     - view raises http404 if no matches
     - ![Car Portal Search Results](images/carPortalSearchResults.png)
 #### 'modelList/\<make\>/'-> views.modelList
-    - search parameters in header should be set to make: given, model: any, beg date: current year, end date: current year
-    - main content contains list of all models for the current year of the given make
-    - each model in list should be clickable and send user to search results page with parameters make: given, model: given, beg year: minimum, end year: maximum
-    - should raise http404 if user enters url with make that is not in set of makes your employer chose
-    - ![Car Portal Model List](images/carPortalModelList.png)
+- search parameters in header should be set to make: given, model: any, beg date: current year, end date: current year
+- main content contains list of all models for the current year of the given make
+- each model in list should be clickable and send user to search results page with parameters make: given, model: given, beg year: minimum, end year: maximum
+- should raise http404 if user enters url with make that is not in set of makes your employer chose
+- ![Car Portal Model List](images/carPortalModelList.png)
     
 
