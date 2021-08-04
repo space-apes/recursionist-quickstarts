@@ -239,10 +239,10 @@ The project will have 3 types of pages:
 - ![Car Portal Model List](images/carPortalModelList.png)
     
 
-## Stepping Stone 2: Models, DBs, Migrations
+## Stepping Stone 2: Models, Migrations, Querysets
 Django can use a wide range of choices for your persistent and ephemeral backend storage. Generally all that is required to hook your Django project up to storage is a few modifications of your project's `settings.py` file. You can choose from any of the available options but this quickstart will follow a MySQL route. 
 
-### Install database
+### Installing database software
 - “MySQL Community Edition” is the free version
 - https://dev.mysql.com/downloads/
 - you can skip any registration
@@ -251,15 +251,25 @@ Django can use a wide range of choices for your persistent and ephemeral backend
 ### Install Python DB API driver for mysql 
 - https://pypi.org/project/mysqlclient/
 ### Install MySQL database explorer
+- this will be useful for us to examine our data directly
 - The suggested choice that is user-friendly is DBeaver: https://dbeaver.io/
-- As long as your server is running, you can also access a shell-like interface from any commandline using `mysql -h localhost -p`
+- alternatively you can use the command-line client https://dev.mysql.com/doc/refman/8.0/en/mysql.html
 ### Connect a new Django project to running database
 - https://docs.djangoproject.com/en/3.2/ref/databases/#connecting-to-the-database
 
+### Models 
 Models are one of the most powerful features in Django, giving developers an API for interacting programmatically with stored data regardless of the way it is stored. They are the "definitive source of information about your data" and each model defined in `models.py` files is used to derive DB schema, relationships between types of data, and  behavior. 
 https://docs.djangoproject.com/en/3.2/topics/db/models/
 
+### Migrations
+Migrations are version control for DB schema that ease testing and incremental design. Any time you make modifications to your models, you can generate a new migration using `python manage.py makemigrations`. After that you can roll back or forward your database's schema using migrations using `python manage.py migrate` with various command line options. 
+https://docs.djangoproject.com/en/3.2/topics/migrations/
 
+### Querysets
+Querysets give a powerful API for requesting records from the DB and can stored and modified themselves without touching the database. 
+https://docs.djangoproject.com/en/3.2/ref/models/querysets/
+
+## Challenge 2A: Food Recommender
 
 
 
