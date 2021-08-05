@@ -273,9 +273,12 @@ Querysets give a powerful API for requesting records from the DB and can stored 
 https://docs.djangoproject.com/en/3.2/ref/models/querysets/
 
 ## Challenge 2A: Food Ratings Site
+For this project, 
+
 | FoodItem |
 | :----: |
 | - name : string |
+| - description : string | 
 | - imageUrl : string | 
 | - countryOfOrigin : string | 
 | - typicalMealTime: int | 
@@ -284,14 +287,16 @@ https://docs.djangoproject.com/en/3.2/ref/models/querysets/
 
 | Food Rating |
 | :--------------------:  |
-| - foodItem : foreignKey |
-| - score : float  (min 0.0 max 5.0) |      |
-| - date   :  |
+| - foodItem : foodItemforeignKey |
+| - score : float  (min 0.0 max 5.0) |      
+| - date   :  date |
 
 ## Challenge 2B: Food Recommender Site
 
 extensions from food ratings:
-- users can log in and store data, then retrieve later
-- users can 
+- users can log in vote, and their data will persist through different logins
+- FoodItems have many to one relationship with recipes
+- Ratings are now on recipes
+- k-nearest neighbors is computed for recipe choices and top recipes are displayed for those neighbors
 
 
