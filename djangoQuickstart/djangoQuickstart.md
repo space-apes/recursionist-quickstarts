@@ -204,7 +204,7 @@ Besides the data from the API, your employer wants the site to serve a lot of th
 
 https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-The user will interact with the site primarily through forms. You can refresh your memory on creating forms in Django here:
+The user will interact with the site primarily through forms. We will go more in depth into forms in later stepping stones but for now you can make some basic forms. You can refresh your memory on creating forms in Django here:
 
 https://docs.djangoproject.com/en/3.2/ref/forms/
 
