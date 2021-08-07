@@ -272,24 +272,35 @@ Querysets give a powerful API for requesting records from the DB and can stored 
 
 https://docs.djangoproject.com/en/3.2/ref/models/querysets/
 
-## Challenge 2A: Food Ratings Site
-For this project, 
+## Challenge 2A: Meal Ratings Site
+In this project you will create a website that allows users to vote on their favorite meals. Users will be able to navigate through available meals, sort the listings in a variety of ways, and to upload their own meals. 
 
-| FoodItem |
+In order to represent and store the data for your site you will need to create a Meal and MealRating model with the following fields and methods:
+
+| Meal |
 | :----: |
 | - name : string |
 | - description : string | 
 | - imageUrl : string | 
 | - countryOfOrigin : string | 
-| - typicalMealTime: int | 
+| - typicalMealTime: int (min 1, max 3) | 
 | - avgScore() : float | 
 | - numberOfVotes() : int | 
 
-| Food Rating |
+| MealRating |
 | :--------------------:  |
-| - foodItem : foodItemforeignKey |
-| - score : float  (min 0.0 max 5.0) |      
-| - date   :  date |
+| - meal : MealForeignKey |
+| - rating : float  (min 0.0 max 5.0) |      
+| - dateOfVote :  date |
+
+# CHECK TO SEE IF THIS IS A GOOD OPTION THIS EARLY ON TO INCLUDE IN FORM ####################################################################################################################################
+Creating model fields with minimum and maximum values will involve the use of validators:
+https://docs.djangoproject.com/en/3.2/ref/validators/
+
+We have provided you with some data to seed the database with. Django uses fixtures in order to populate initial database values:
+https://docs.djangoproject.com/en/3.2/howto/initial-data/
+
+
 
 ## Challenge 2B: Food Recommender Site
 
