@@ -289,7 +289,7 @@ In order to represent and store the data for your site you will need to create a
 | - description : string | 
 | - imageUrl : string | 
 | - countryOfOrigin : string | 
-| - typicalMealTime: int (min 1, max 3) | 
+| - typicalMealTime: int (1: morning, 2: afternoon, 3: evening) | 
 | - avgScore() : float | 
 | - numberOfVotes() : int | 
 
