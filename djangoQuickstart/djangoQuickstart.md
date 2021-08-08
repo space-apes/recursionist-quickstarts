@@ -249,13 +249,19 @@ Django can use a wide range of choices for your persistent and ephemeral backend
 - you can choose the ‘developer default’ installation options
 - if you want to save space, do custom install and select the server, the shell, the python connector, the java connector
 ### Install Python DB API driver for mysql 
+- if you did not install Oracle's MySQL server, you may need to also install mysqlclient
 - https://pypi.org/project/mysqlclient/
 ### Install MySQL database explorer
 - this will be useful for us to examine our data directly
 - The suggested choice that is user-friendly is DBeaver: https://dbeaver.io/
 - alternatively you can use the command-line client https://dev.mysql.com/doc/refman/8.0/en/mysql.html
+### Create New Named database for your Django Project Through Database Explorer
+- Dbeaver: right click 'databases', click 'new' 
+- command-line client: https://docs.djangoproject.com/en/3.2/ref/databases/#creating-your-database
 ### Connect a new Django project to running database
 - https://docs.djangoproject.com/en/3.2/ref/databases/#connecting-to-the-database
+- if you are using python connector from Oracle's MySQL installation: 
+- https://dev.mysql.com/doc/connector-python/en/connector-python-django-backend.html
 
 ### Models 
 Models are one of the most powerful features in Django, giving developers an API for interacting programmatically with stored data regardless of the way it is stored. They are the "definitive source of information about your data" and each model defined in `models.py` files is used to derive DB schema, relationships between types of data, and  behavior. 
@@ -291,13 +297,13 @@ In order to represent and store the data for your site you will need to create a
 | :--------------------:  |
 | - meal : MealForeignKey |
 | - rating : float  (min 0.0 max 5.0) |      
-| - dateOfVote :  date |
+| - dateOfRating :  Date (default today)|
 
 # CHECK TO SEE IF THIS IS A GOOD OPTION THIS EARLY ON TO INCLUDE IN FORM ####################################################################################################################################
 Creating model fields with minimum and maximum values will involve the use of validators:
 https://docs.djangoproject.com/en/3.2/ref/validators/
 
-We have provided you with some data to seed the database with. Django uses fixtures in order to populate initial database values:
+We have provided you with some data to seed the database with. Django uses 'fixtures' in order to populate initial database values:
 https://docs.djangoproject.com/en/3.2/howto/initial-data/
 
 
