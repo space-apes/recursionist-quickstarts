@@ -299,21 +299,25 @@ In order to represent and store the data for your site you will need to create a
 | - rating : float  (min 0.0 max 5.0) |      
 | - dateOfRating :  Date (default today)|
 
-# CHECK TO SEE IF THIS IS A GOOD OPTION THIS EARLY ON TO INCLUDE IN FORM ####################################################################################################################################
-Creating model fields with minimum and maximum values will involve the use of validators:
-https://docs.djangoproject.com/en/3.2/ref/validators/
 
 We have provided you with some data to seed the database with. Django uses 'fixtures' in order to populate initial database values:
 https://docs.djangoproject.com/en/3.2/howto/initial-data/
 
+The site should have the following types of pages:
 
 
 ## Challenge 2B: Food Recommender Site
 
 extensions from food ratings:
 - users can log in vote, and their data will persist through different logins
-- FoodItems have many to one relationship with recipes
-- Ratings are now on recipes
+- each meal now has a many-to-many relationship with a "tag"
+    - vegetarian
+    - spicy
+    - healthy
+    - seafood 
+- users can set tags when submitting a new meal
+- users can look for meals by checking and unchecking tags from sidebar
+- 
 - k-nearest neighbors is computed for recipe choices and top recipes are displayed for those neighbors
 
 
