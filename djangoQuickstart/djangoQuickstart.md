@@ -290,6 +290,7 @@ In order to represent and store the data for your site you will need to create a
 | - imageUrl : string | 
 | - countryOfOrigin : string | 
 | - typicalMealTime: int (1: morning, 2: afternoon, 3: evening) | 
+| - dateAdded: datetime (default: current time) | 
 | - avgScore() : float | 
 | - numberOfVotes() : int | 
 
@@ -297,7 +298,7 @@ In order to represent and store the data for your site you will need to create a
 | :--------------------:  |
 | - meal : MealForeignKey |
 | - rating : float  (min 0.0 max 5.0) |      
-| - dateOfRating :  Date (default today)|
+| - dateOfRating :  Date (default: current time) |
 
 
 We have provided you with some data to seed the database with. Django uses 'fixtures' in order to populate initial database values:
