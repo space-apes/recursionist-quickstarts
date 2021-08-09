@@ -315,7 +315,7 @@ The site should have the following types of pages:
     - top rated foods (>= 4.5 rating)
 - has form on page that allows users to submit a new meal using current date and time for dateAdded field of model then sends user back to landing page
 - 
-![mealSite Landing Page](images/mealSiteLanding.png)
+![mealSite Landing](images/mealSiteLanding.png)
 
 ### Category List Page
 - includes header with links to landing page and category list for each category
@@ -327,14 +327,14 @@ The site should have the following types of pages:
     - highest rated meals 
     - alphabetically by country of origin name
     - 
-![mealSite Landing Page](images/mealSiteCategoryList.png)
+![mealSite Category List](images/mealSiteCategoryList.png)
 
 ### Meal Detail View
 - includes header with links to landing page and category list for each category
 - displays large picture of meal along with all data from mode fields
 - includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view
 
-![mealSite Landing Page](images/mealSiteDetail.png)
+![mealSite Detail](images/mealSiteDetail.png)
 
 ## Challenge 2B: Food Recommender Site
 
