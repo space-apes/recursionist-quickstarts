@@ -344,29 +344,24 @@ As is common in the workplace, your next project project involves taking an exis
 Your Meal Ratings site was successful and you have been tasked with adding some new features. 
 
 Anonymous users can still use your site but your site should now allow users to create accounts and have ratings they have made persist through logins using Django's built-in
-authentication system. Meal rating votes 
-https://docs.djangoproject.com/en/3.2/topics/auth/default/
+authentication system. MealRating votes from anonymous users should still be persisted and count towards a Meal's number of votes and avgRating(). 
+
+https://docs.djangoproject.com/en/3.2/topics/auth/
 
 You may use Django's provided authentication views or write your own in order to handle user registration, logging in, logging out.  
 https://docs.djangoproject.com/en/3.2/topics/auth/default/#module-django.contrib.auth.views
 
-Instead of meals being grouped based on the the time of the day the meal is eaten, meals will now be associated with 0 or more tags that will allow users to narrow down their search from the following set: {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. This should implemented by creating a new Tag model and using many-to-many relationships.
+Instead of meals being grouped based on the the time of the day the meal is eaten, meals will now be associated with 0 or more tags that will allow users to narrow down their search from the following set: {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. For example, a user may now list all Meals that fit both the "spicy" and "afternoon" tags. This should implemented by creating a new Tag model and using many-to-many relationships. 
 
 https://docs.djangoproject.com/en/3.2/topics/db/models/#many-to-many-relationships
 
 
+https://factoryboy.readthedocs.io/en/stable/introduction.html
 
+https://faker.readthedocs.io/en/master/fakerclass.html
 
 extensions from Meal Ratings:
-- users can log in vote, and their data will persist through different logins
-- each meal now has a many-to-many relationship with a "tag"
-    - vegetarian
-    - spicy
-    - healthy
-    - seafood
-    - morning
-    - afternoon
-    - evening 
+
 - users can set tags when submitting a new meal
 - users can look for meals by checking and unchecking tags from sidebar
 - use class-based routes
