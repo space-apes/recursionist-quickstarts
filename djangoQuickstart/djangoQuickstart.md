@@ -279,9 +279,9 @@ Querysets give a powerful API for requesting records from the DB and can stored 
 https://docs.djangoproject.com/en/3.2/ref/models/querysets/
 
 ## Challenge 2A: Meal Ratings Site
-In this project you will create a website that allows users to vote on their favorite meals. Users will be able to navigate through available meals, sort the listings in a variety of ways, and to upload their own meals. 
+In this project you will create a website that allows users to vote on their favorite meals. Anonymous users will be able to navigate through available meals, sort the listings in a variety of ways, and to upload their own meals. 
 
-In order to represent and store the data for your site you will need to create a Meal and MealRating model with the following fields and methods:
+In order to represent and store the data for your site you will need to create a Meal and MealRating model. 
 
 | Meal |
 | :----: |
@@ -291,7 +291,7 @@ In order to represent and store the data for your site you will need to create a
 | - countryOfOrigin : string | 
 | - typicalMealTime: int (1: morning, 2: afternoon, 3: evening) | 
 | - dateAdded: datetime (default: current time) | 
-| - avgScore() : float | 
+| - avgRating() : float (0 if no ratings have been submitted) | 
 | - numberOfVotes() : int | 
 
 | MealRating |
@@ -303,6 +303,9 @@ In order to represent and store the data for your site you will need to create a
 
 We have provided you with some data to seed the database with. Django uses 'fixtures' in order to populate initial database values:
 https://docs.djangoproject.com/en/3.2/howto/initial-data/
+
+
+#insert fixture and images here. make sure to test it before deploying. 
 
 The site should have the following types of pages:
 
@@ -336,17 +339,39 @@ The site should have the following types of pages:
 
 ![mealRatings Detail](images/mealRatingsDetail.png)
 
-## Challenge 2B: Food Recommender Site
+## Challenge 2B: Meal Recommender Site
+As is common in the workplace, your next project project involves taking an existing project and modifying/extending it. 
+Your Meal Ratings site was successful and you have been tasked with adding some new features. 
 
-extensions from food ratings:
+Anonymous users can still use your site but your site should now allow users to create accounts and have ratings they have made persist through logins using Django's built-in
+authentication system. Meal rating votes 
+https://docs.djangoproject.com/en/3.2/topics/auth/default/
+
+You may use Django's provided authentication views or write your own in order to handle user registration, logging in, logging out.  
+https://docs.djangoproject.com/en/3.2/topics/auth/default/#module-django.contrib.auth.views
+
+Instead of meals being grouped based on the the time of the day the meal is eaten, meals will now be associated with 0 or more tags that will allow users to narrow down their search from the following set: {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. This should implemented by creating a new Tag model and using many-to-many relationships.
+
+https://docs.djangoproject.com/en/3.2/topics/db/models/#many-to-many-relationships
+
+
+
+
+extensions from Meal Ratings:
 - users can log in vote, and their data will persist through different logins
 - each meal now has a many-to-many relationship with a "tag"
     - vegetarian
     - spicy
     - healthy
-    - seafood 
+    - seafood
+    - morning
+    - afternoon
+    - evening 
 - users can set tags when submitting a new meal
 - users can look for meals by checking and unchecking tags from sidebar
-- 
+- use class-based routes
+- use forms API 
 - k-nearest neighbors is computed for recipe choices and top recipes are displayed for those neighbors
 
+
+https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#extending-the-existing-user-model
