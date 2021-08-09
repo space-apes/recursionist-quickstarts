@@ -314,7 +314,7 @@ The site should have the following types of pages:
     - recently added (>= 90 days before current date)
     - top rated foods (>= 4.5 rating)
 - has form on page that allows users to submit a new meal using current date and time for dateAdded field of model then sends user back to landing page
-- 
+
 ![mealRatings Landing](images/mealRatingsLanding.png)
 
 ### Category List Page
@@ -326,7 +326,7 @@ The site should have the following types of pages:
     - most recently added meals
     - highest rated meals 
     - alphabetically by country of origin name
-    - 
+ 
 ![mealRatings Category List](images/mealRatingsCategoryList.png)
 
 ### Meal Detail View
