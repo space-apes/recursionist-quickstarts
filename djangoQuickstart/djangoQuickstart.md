@@ -307,19 +307,24 @@ https://docs.djangoproject.com/en/3.2/howto/initial-data/
 The site should have the following types of pages:
 
 ### Landing Page
-- should have links to each category's categoryList page and 3 images from Meals that fit that category
+- should have links to each category's categoryList page and 3 images of meals from that category
     - morning
     - afternoon
     - evening
     - recently added (>= 90 days before current date)
     - top rated foods (>= 4.5 rating)
-- has form on page that allows users to submit a new meal with fields:
-    - name
-    - image url
-    - country of origin
-    - typical time eaten
-    - description
-    - submit button 
+- has form on page that allows users to submit a new meal using current date and time for dateAdded field of model
+![mealSite Landing Page](images/mealSiteLandingPage.png)
+
+### Category List Page
+- displays anchor tag'd image and basic information about all meals that fall under given category
+- include name, avgScore, and number of votes
+- anchor tag leads to detail view for that particular meal
+
+### Meal Detail View
+- displays large picture of meal along with all data from mode fields
+- includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time)
+
 
 ## Challenge 2B: Food Recommender Site
 
