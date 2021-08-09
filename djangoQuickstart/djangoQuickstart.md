@@ -305,6 +305,20 @@ https://docs.djangoproject.com/en/3.2/howto/initial-data/
 
 The site should have the following types of pages:
 
+### Landing Page
+- should have links to each category's categoryList page and 3 images from Meals that fit that category
+    - morning
+    - afternoon
+    - evening
+    - recently added (>= 90 days before current date)
+    - top rated foods (>= 4.5 rating)
+- has form on page that allows users to submit a new meal with fields:
+    - name
+    - image url
+    - country of origin
+    - typical time eaten
+    - description
+    - submit button 
 
 ## Challenge 2B: Food Recommender Site
 
@@ -319,5 +333,4 @@ extensions from food ratings:
 - users can look for meals by checking and unchecking tags from sidebar
 - 
 - k-nearest neighbors is computed for recipe choices and top recipes are displayed for those neighbors
-
 
