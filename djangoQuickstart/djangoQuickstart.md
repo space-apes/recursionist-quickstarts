@@ -313,18 +313,28 @@ The site should have the following types of pages:
     - evening
     - recently added (>= 90 days before current date)
     - top rated foods (>= 4.5 rating)
-- has form on page that allows users to submit a new meal using current date and time for dateAdded field of model
-![mealSite Landing Page](images/mealSiteLandingPage.png)
+- has form on page that allows users to submit a new meal using current date and time for dateAdded field of model then sends user back to landing page
+- 
+![mealSite Landing Page](images/mealSiteLanding.png)
 
 ### Category List Page
+- includes header with links to landing page and category list for each category
 - displays anchor tag'd image and basic information about all meals that fall under given category
 - include name, avgScore, and number of votes
 - anchor tag leads to detail view for that particular meal
+- anchor tags in top right corner should allow users to sort the Meals from that category in the following ways:
+    - most recently added meals
+    - highest rated meals 
+    - alphabetically by country of origin name
+    - 
+![mealSite Landing Page](images/mealSiteCategoryList.png)
 
 ### Meal Detail View
+- includes header with links to landing page and category list for each category
 - displays large picture of meal along with all data from mode fields
-- includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time)
+- includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view
 
+![mealSite Landing Page](images/mealSiteDetail.png)
 
 ## Challenge 2B: Food Recommender Site
 
