@@ -239,7 +239,7 @@ The project will have 3 types of pages:
 - ![Car Portal Model List](images/carPortalModelList.png)
     
 
-## Stepping Stone 2: Models, Migrations, Querysets
+## Stepping Stone 2: Models, Migrations, Querysets, Forms
 Django can use a wide range of choices for your persistent and ephemeral backend storage. Generally all that is required to hook your Django project up to storage is a few modifications of your project's `settings.py` file. You can choose from any of the available options but this quickstart will follow a MySQL route. 
 
 ### Installing database software
@@ -384,7 +384,7 @@ Registered users have the added functionality of getting meal recommendations. W
 ### Types of Pages
 
 #### Landing page
-This is where meals will be listed. For each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. Clicking a meal should take the user to that meal's detail page. Meals can be sorted by average rating, date added, or country of origin with default being recently added. 6 Meals can be displayed at a time and if there are more that fit the selection criteria, provide a scrollbar or 'next/previous' links. Toggle buttons for each tag will allow users to select a different subset of meals that will be listed. If any buttons are toggled, they must remain toggled as the new meals are loaded. The landing page has different functionality based on whether he user is registered or not.
+This is where meals will be listed. For each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. Clicking a meal should take the user to that meal's detail page. Meals can be sorted by average rating, date added, or country of origin with default being recently added. 6 Meals can be displayed at a time and if there are more that fit the selection criteria, provide a scrollbar or 'next/previous' links. Toggle buttons for each tag from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening} will allow users to select a different subset of meals that will be listed. If no meals match the toggles then inform the user that there are no matches. If any buttons are toggled, they must remain toggled after new meals are loaded. The landing page has different functionality based on whether he user is registered or not.
 
 - Anonymous User
     - indication that current user is anonymous
@@ -403,17 +403,23 @@ This is where meals will be listed. For each meal listed, include a thumbnail of
 - "Home" link in header to return to landing page as registered user
 - "See History" link in header that takes to user's history page
 - "Logout" link in header to return to landing page as anonymous user
-- includes form fields for all Meal model fields
-- includes toggle buttons to select which tags meals should be associated from {}
+- includes form fields for Meal model fields 
+- includes toggle buttons to select which tags meals should be associated with from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}
 - on submit, set date to current date and send user back to landing page
-- Use Django Forms API and validators to ensure valid data
+- Use Django ModelForms and validators to generate your form and validate data. invalid submissions should reload form and give error message to user.
     - name: unique, <= 20 characters
-    -  
+    - description: <= 200 characters
+    - dateAdded: <= current datetime
+https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
+https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
+https://docs.djangoproject.com/en/3.2/ref/validators/
 
 #### See History Page (only for registered users)
 - "Home" link in header to return to landing page as registered user
-- "See History" link in header that takes to user's history page
 - "Add Meal" link in header to take user to add meal page
+- "Logout" link in header to return to landing page as anonymous user
+
+
 extensions from Meal Ratings:
 
 - users can set tags when submitting a new meal
