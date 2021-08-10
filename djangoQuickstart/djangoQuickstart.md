@@ -344,7 +344,7 @@ As is common in the workplace, your next project project involves taking an exis
 Your Meal Ratings site was successful and you have been tasked with adding some new features. 
 
 Anonymous users can still use your site but your site should now allow users to create accounts and have ratings they have made persist through logins using Django's built-in
-authentication system. MealRating votes from anonymous users should still be persisted and count towards a Meal's number of votes and avgRating(). 
+authentication system. Anonymous users may not add new meals but MealRating votes from anonymous users should still be persisted and count towards a Meal's number of votes and avgRating(). 
 
 https://docs.djangoproject.com/en/3.2/topics/auth/
 
@@ -355,23 +355,26 @@ https://docs.djangoproject.com/en/3.2/topics/auth/default/#module-django.contrib
 Django does not provide any authentication templates to use, but if you do use the provided authentication views, here is a list of all context variables that are passed in from the view:
 https://docs.djangoproject.com/en/3.2/topics/auth/default/#all-authentication-views
 
-
-In terms of models for this project, you will use the models from the previous project with some adjustments and add some new models as well. Using Django's auth system will add the User model to your project.
+In terms of models, you will use the models from the previous project with some adjustments and add some new models as well. Using Django's auth system will add the User model to your project.
 https://docs.djangoproject.com/en/3.2/topics/auth/default/#user-objects
 
 The Meal model will have the typicalMealTime field removed. Any meal will now be associated with 0 or more tags that will allow users to narrow down their search from the following set: {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. For example, a user may now list all Meals that are associated with the "spicy", "afternoon", and "breakfast" tags. This should implemented by creating a new Tag model and using many-to-many relationships. 
 
 https://docs.djangoproject.com/en/3.2/topics/db/models/#many-to-many-relationships
 
-Registered users should be able to identify which of the ratings and meals they have submitted. 
+Registered users will have the ability to see which meals and ratings they have submitted. 
 
-In order to plan, build, and test proper ORM relationships between your models, you will need to create realistic data to populate your database. In the last project you used provided data from a Django fixture, but that is a cumbersome and largely static solution. In this project you will generate your own data using the Factory Boy and Faker libraries.  
+In order to plan, build, and test proper ORM relationships between your models, you will need to create realistic data to populate your database. In the last project you used provided data from a Django fixture, but that is a largely static solution. In this project you will generate your own data using the Factory Boy and Faker libraries.  
 
-Factory boy is a library to programmatically instantiate objects with particular field values. You could write your own Python script to do this but this solution also meshes well with Django's ORM and models. You can instantiate Meal, MealRating, User, and Tag objects to simulate user data and persist that data to your DB.
+Factory Boy is a library to programmatically instantiate objects with specified field values. You could write your own Python script to do this but Factory Boy also meshes well with Django's ORM and models. You can instantiate Meal, MealRating, User, and Tag objects to simulate user data and persist that data to your DB.
+
+https://pypi.org/project/factory-boy/
 https://factoryboy.readthedocs.io/en/stable/introduction.html
 
-For some of your mode fields you can use Python's random module to generate random numeric values. For your users you will need to generate test data that is non-numeric. The faker library is included with factory boy and is a great source of 'realistic' values for things like usernames, email addresses, etc. 
+For some model fields, it is sufficient to use Python's `random` module to generate random numeric values. For your users you will need to generate test data that is non-numeric. The faker library is included with factory boy and is a great source of 'realistic' values for things like usernames, email addresses, etc. You can learn more about the `faker` library here: 
+
 https://faker.readthedocs.io/en/master/fakerclass.html
+
 
 
 extensions from Meal Ratings:
@@ -381,5 +384,3 @@ extensions from Meal Ratings:
 - use forms API 
 - k-nearest neighbors is computed for recipe choices and top recipes are displayed for those neighbors
 
-
-https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#extending-the-existing-user-model
