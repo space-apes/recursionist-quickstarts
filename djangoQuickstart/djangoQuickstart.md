@@ -349,21 +349,34 @@ authentication system. MealRating votes from anonymous users should still be per
 https://docs.djangoproject.com/en/3.2/topics/auth/
 
 You may use Django's provided authentication views or write your own in order to handle user registration, logging in, logging out.  
+
 https://docs.djangoproject.com/en/3.2/topics/auth/default/#module-django.contrib.auth.views
 
-Instead of meals being grouped based on the the time of the day the meal is eaten, meals will now be associated with 0 or more tags that will allow users to narrow down their search from the following set: {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. For example, a user may now list all Meals that fit both the "spicy" and "afternoon" tags. This should implemented by creating a new Tag model and using many-to-many relationships. 
+Django does not provide any authentication templates to use, but if you do use the provided authentication views, here is a list of all context variables that are passed in from the view:
+https://docs.djangoproject.com/en/3.2/topics/auth/default/#all-authentication-views
+
+
+In terms of models for this project, you will use the models from the previous project with some adjustments and add some new models as well. Using Django's auth system will add the User model to your project.
+https://docs.djangoproject.com/en/3.2/topics/auth/default/#user-objects
+
+The Meal model will have the typicalMealTime field removed. Any meal will now be associated with 0 or more tags that will allow users to narrow down their search from the following set: {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. For example, a user may now list all Meals that are associated with the "spicy", "afternoon", and "breakfast" tags. This should implemented by creating a new Tag model and using many-to-many relationships. 
 
 https://docs.djangoproject.com/en/3.2/topics/db/models/#many-to-many-relationships
 
+Registered users should be able to identify which of the ratings and meals they have submitted. 
 
+In order to plan, build, and test proper ORM relationships between your models, you will need to create realistic data to populate your database. In the last project you used provided data from a Django fixture, but that is a cumbersome and largely static solution. In this project you will generate your own data using the Factory Boy and Faker libraries.  
+
+Factory boy is a library to programmatically instantiate objects with particular field values. You could write your own Python script to do this but this solution also meshes well with Django's ORM and models. You can instantiate Meal, MealRating, User, and Tag objects to simulate user data and persist that data to your DB.
 https://factoryboy.readthedocs.io/en/stable/introduction.html
 
+For some of your mode fields you can use Python's random module to generate random numeric values. For your users you will need to generate test data that is non-numeric. The faker library is included with factory boy and is a great source of 'realistic' values for things like usernames, email addresses, etc. 
 https://faker.readthedocs.io/en/master/fakerclass.html
+
 
 extensions from Meal Ratings:
 
 - users can set tags when submitting a new meal
-- users can look for meals by checking and unchecking tags from sidebar
 - use class-based routes
 - use forms API 
 - k-nearest neighbors is computed for recipe choices and top recipes are displayed for those neighbors
