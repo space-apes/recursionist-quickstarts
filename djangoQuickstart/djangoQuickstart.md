@@ -378,17 +378,42 @@ For some model fields, it is sufficient to use Python's `random` module to gener
 
 https://faker.readthedocs.io/en/master/fakerclass.html
 
+### Recommendation
+Registered users have the added functionality of getting meal recommendations. When listing meals that match tags, they can also select an option to further narrow down and or sort meals that are recommended for them based off of the ratings of users with similar submitted ratings. For example, registered users can select "Evening", "Vegetarian", "Recommended", to see meals that match the tags and liked by similar users.  
+
 ### Types of Pages
 
 #### Landing page
-This is where meals will be listed. For each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. Toggle buttons for each tag will allow users to select a different subset of meals that will be listed. If any buttons are toggled, they must remain toggled as the new meals are loaded. If no buttons are toggled, then the default buttons should be toggled: "Top Rated" and "Recently Added". The landing page has different functionality based on whether he user is registered or not.
-##### Anonymous User
-- indication that current user is anonymous
-- form to sign in
-- links for registration or forgotten password
+This is where meals will be listed. For each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. Clicking a meal should take the user to that meal's detail page. Meals can be sorted by average rating, date added, or country of origin with default being recently added. 6 Meals can be displayed at a time and if there are more that fit the selection criteria, provide a scrollbar or 'next/previous' links. Toggle buttons for each tag will allow users to select a different subset of meals that will be listed. If any buttons are toggled, they must remain toggled as the new meals are loaded. The landing page has different functionality based on whether he user is registered or not.
 
+- Anonymous User
+    - indication that current user is anonymous
+    - small form to sign in using username and password
+    - links to registration page and forgotten password page
 
+- Registered User
+    - indication in header that current user is signed in along with their username
+    - "See History" link in header that takes to user's history page
+    - "logout" link in header to return to landing page as anonymous user
+    - "Add Meal" link in header to take user to add meal page
+    - "Recommended" toggle button added to set of buttons
 
+#### Add Meal Page (only for registered users)
+
+- "Home" link in header to return to landing page as registered user
+- "See History" link in header that takes to user's history page
+- "Logout" link in header to return to landing page as anonymous user
+- includes form fields for all Meal model fields
+- includes toggle buttons to select which tags meals should be associated from {}
+- on submit, set date to current date and send user back to landing page
+- Use Django Forms API and validators to ensure valid data
+    - name: unique, <= 20 characters
+    -  
+
+#### See History Page (only for registered users)
+- "Home" link in header to return to landing page as registered user
+- "See History" link in header that takes to user's history page
+- "Add Meal" link in header to take user to add meal page
 extensions from Meal Ratings:
 
 - users can set tags when submitting a new meal
