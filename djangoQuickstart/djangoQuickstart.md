@@ -343,7 +343,7 @@ The site should have the following types of pages:
 As is common in the workplace, your next project project involves taking an existing project and modifying/extending it. 
 Your Meal Ratings site was successful and you have been tasked with adding some new features. 
 
-### High Level Requirements
+### Users and Authentication
 Anonymous users can still use your site but your site should now allow users to create accounts and have ratings they have made persist through logins using Django's built-in
 authentication system. Anonymous users may not add new meals but MealRating votes from anonymous users should still be persisted and count towards a Meal's number of votes and avgRating(). 
 
@@ -379,6 +379,13 @@ For some model fields, it is sufficient to use Python's `random` module to gener
 https://faker.readthedocs.io/en/master/fakerclass.html
 
 ### Types of Pages
+
+#### Landing page
+This is where meals will be listed. For each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. Toggle buttons for each tag will allow users to select a different subset of meals that will be listed. If any buttons are toggled, they must remain toggled as the new meals are loaded. If no buttons are toggled, then the default buttons should be toggled: "Top Rated" and "Recently Added". The landing page has different functionality based on whether he user is registered or not.
+##### Anonymous User
+- indication that current user is anonymous
+- form to sign in
+- links for registration or forgotten password
 
 
 
