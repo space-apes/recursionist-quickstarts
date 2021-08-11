@@ -417,7 +417,7 @@ Registered users have the added functionality of getting meal recommendations. W
 - link to landing page
 - form with fields for: first name, last name, email, username, password
 - submit button
-- ![mealRecommenderRegistration](images/mealRecommender/mealRecommenderRegistration.png)
+- ![mealRecommenderRegistration](images/mealRecommender/mealRecommenderRegister.png)
 
 #### Add Meal Page (only registered users)
 - indication in header that current user is signed in along with their username
