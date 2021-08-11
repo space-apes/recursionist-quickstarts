@@ -453,6 +453,62 @@ Registered users have the added functionality of getting meal recommendations. W
         
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
+The previous stepping stone incorporated the use of forms to get data from users as well as setting some constraints on that data. Developers using Django can always write their own combination of views and templates to ensure that data is valid but risk making mistakes. Django includes some useful features that automate aspects of getting data from users and 
+
 https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
 https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
 https://docs.djangoproject.com/en/3.2/ref/validators/
+
+https://docs.djangoproject.com/en/3.2/topics/security/#sql-injection-protection
+https://docs.djangoproject.com/en/3.2/topics/security/#cross-site-request-forgery-csrf-protection
+https://docs.djangoproject.com/en/3.2/topics/security/#referrer-policy
+
+# Incremental Multi-App Project for Remaining Stepping Stones: CodeBowl
+Turn-based, tile-based game with RPG elements based loosely around soccer but with ability to knock players out. Based on classic board game: Blood Bowl. 
+- users can log in and persist their data
+- users can compete in 1v1 matches with a live chat client 
+- teams of 7vs7 spread out on 20x20 grid
+- players have stats including
+    - movement per turn
+    - strength
+    - agility
+    - hasBall
+    - experience
+- there is a ball in center of grid and attempt to get the ball and move it to opponents goal
+- goal is to get ball into opponent's goal or kill all opponent team members
+
+### User Interaction Flows
+- login  -> control panel -> manage team -> restart team -> control panel
+                          \-> search for game -> game start -> control panel
+- register -> create team -> control panel
+
+### Game Flow
+1. players for each team are spread out in preset way on either side (maybe add user placement eventually). 
+2. coin toss occurs to see which team 'attacks' first
+3. attacking team has ball put on random square on their side
+4. attacking team moves or attacks until they get knocked down, drop the ball, or use all turns
+5. defending team moves or attacks until they get knocked down, or use all turns
+6. game play continues until turn limit is reached, or all players of a team are dead
+
+### movement mechanics
+- a player may only attack adjacent enemies
+
+### combat mechanics
+
+### Mapping of CodeBowl elements to quick start stepping stone concepts
+- SS3(Forms API, Validation) 
+    - registration page
+        - username, first name, last name (char limit)
+        - password (requires special characters? MUST WRITE OWN VALIDATOR)
+        - email(real email?)
+    - team creation page 
+        - race (from valid set: strong, agile, balanced)
+        - name (char limit)
+        - image upload (size, filetype, filename) 
+    - team management page
+        -  
+- SS3(Middleware, Security) -> sessions 
+    - CSRF token
+    - auto-login registered 
+    - remember CSS 'theme' ?
+    - preload user's images (team image, player images)
