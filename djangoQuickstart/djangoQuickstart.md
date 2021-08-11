@@ -453,18 +453,38 @@ Registered users have the added functionality of getting meal recommendations. W
         
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
-The previous stepping stone incorporated the use of forms to get data from users as well as setting some constraints on that data. Developers using Django can always write their own combination of views and templates to ensure that data is valid but risk making mistakes. Django includes some useful features that automate aspects of getting data from users and 
 
-FORMS/VALIDATION
-https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
-https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
-https://docs.djangoproject.com/en/3.2/ref/validators/
+### FORMS/VALIDATION
+- https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
+- https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
+- https://docs.djangoproject.com/en/3.2/ref/validators/
 
-SECURITY
-https://docs.djangoproject.com/en/3.2/topics/security/#sql-injection-protection
-https://docs.djangoproject.com/en/3.2/topics/security/#cross-site-request-forgery-csrf-protection
-https://docs.djangoproject.com/en/3.2/topics/security/#referrer-policy
-https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
+### MIDDLEWARE
+- https://docs.djangoproject.com/en/3.2/ref/middleware/
+- https://docs.djangoproject.com/en/3.2/topics/http/sessions/
+
+### SECURITY
+- https://docs.djangoproject.com/en/3.2/topics/security/#sql-injection-protection
+- https://docs.djangoproject.com/en/3.2/topics/security/#cross-site-request-forgery-csrf-protection
+- https://docs.djangoproject.com/en/3.2/topics/security/#referrer-policy
+- https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
+
+# Stepping Stone 4: Drivers, Queues/Workers, CDN
+
+### Drivers
+- https://docs.djangoproject.com/en/3.2/topics/http/file-uploads/
+- https://channels.readthedocs.io/en/stable/introduction.html
+
+### Asynchronous Workers
+- https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/uwsgi/
+- https://medium.com/@bencleary/django-scheduled-tasks-queues-part-1-62d6b6dc24f8
+- https://gunicorn.org/
+- https://docs.gunicorn.org/en/latest/design.html
+- https://docs.celeryproject.org/en/stable/django/index.html
+
+### CDN
+- https://docs.djangoproject.com/en/3.2/howto/static-files/deployment/#serving-static-files-from-a-cloud-service-or-cdn
+
 
 # Incremental Multi-App Project for Remaining Stepping Stones: CodeBowl
 Turn-based, tile-based game with RPG elements based loosely around soccer but with ability to knock players out. Based on classic board game: Blood Bowl. 
@@ -515,6 +535,8 @@ Turn-based, tile-based game with RPG elements based loosely around soccer but wi
    - int: strength
    - int: agility
    - int : movement 
+   - bool: isKnockedDown
+   - bool: isDead
 - Game
    - Tiles[][] grid
    - int round
@@ -527,7 +549,6 @@ Turn-based, tile-based game with RPG elements based loosely around soccer but wi
  - ?Player player
  - boolean: hasBall
     
-
 ### User Interaction Flows
 - login  -> control panel -> manage team -> restart team -> control panel
                           \-> search for game -> game start -> control panel
@@ -537,16 +558,23 @@ Turn-based, tile-based game with RPG elements based loosely around soccer but wi
 1. players for each team are spread out in preset way on either side (maybe add user placement eventually). 
 2. coin toss occurs to see which team 'attacks' first
 3. attacking team has ball put on random square on their side
-4. attacking team moves or attacks until they get knocked down, drop the ball, or use all turns
-5. defending team moves or attacks until they get knocked down, or use all turns
+4. attacking team players each perform an action (move or attack) until they get knocked down, drop the ball, or use all turns
+5. defending team players each perform an action (move or attack) until they get knocked down, or use all turns
 6. game play continues until turn limit is reached, or all players of a team are dead
 
 ### Movement Mechanics
 - user may select any of their players that has not finished movement/action to move
-- 
+- movement begins with a left click of a
 
 ### Combat Mechanics
 - a player may only attack adjacent enemies
+- if players have equal strength: (50% knock opponent down, 25% no effect, 25% self gets knocked down)
+- for each net point advantage, +10% knock down opponent, -5% no effect, -5% self gets knocked down)
+- if multiple allies are adjacent to target enemy, chances for successful knockdown go up 
+    - add 1 net point advantage for every ally with equal strength to target
+    - add 2 net point advantage for every ally with higher strength to target 
+    - add .5 net advantage for every ally with lower strength than target (final net advantage points are math.floor()'d)
+- upon successful knockdown, rolls for death. target has 10% chance to die. dead players leave the game but return next game. 
 
 ### Ball Mechanics
 
