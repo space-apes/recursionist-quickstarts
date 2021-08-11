@@ -209,7 +209,7 @@ The user will interact with the site primarily through forms. We will go more in
 https://docs.djangoproject.com/en/3.2/ref/forms/
 
 This Django project will feel like a single-page app and will reuse a header on all pages that has these elements:
-![Car Information Portal Header](images/carPortalHeader.png)
+![Car Information Portal Header](images/carPortal/carPortalHeader.png)
 - MAKE: dropdown menu with options populated by the set of car makes you decided to use and defaults to the first choice from the set
 - MODEL: dropdown menu with options populated by API call if a car make has been selected and submitted. it also includes an 'any' option which is default if no make is selected. You may also load these choices asynchronously using AJAX
 https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
@@ -223,20 +223,20 @@ The project will have 3 types of pages:
 - HTTP GET
     - header with default search values
     - display available makes including images of logos of each and links that lead to modelList/\<make\>/ of each make for current year to current year
-    - ![Car Portal Landing Page](images/carPortalLandingPage.png)
+    - ![Car Portal Landing Page](images/carPortal/carPortalLandingPage.png)
 - HTTP POST
     - header must maintain search values that were submitted
     - list items for all matching entries with at least 4 values (EX: year, model, engine power, top speed) from API entry
     List of available variables per entry: 
     https://vpic.nhtsa.dot.gov/api//vehicles/GetVehicleVariableList?format=json
     - view raises http404 if no matches
-    - ![Car Portal Search Results](images/carPortalSearchResults.png)
+    - ![Car Portal Search Results](images/carPortal/carPortalSearchResults.png)
 #### 'modelList/\<make\>/'-> views.modelList
 - search parameters in header should be set to make: given, model: any, beg date: current year, end date: current year
 - main content contains list of all models for the current year of the given make
 - each model in list should be clickable and send user to search results page with parameters make: given, model: given, beg year: minimum, end year: maximum
 - should raise http404 if user enters url with make that is not in set of makes your employer chose
-- ![Car Portal Model List](images/carPortalModelList.png)
+- ![Car Portal Model List](images/carPortal/carPortalModelList.png)
     
 
 ## Stepping Stone 2: Models, Migrations, Generating Data, Querysets
@@ -329,7 +329,7 @@ The site should have the following types of pages:
     - top rated foods (>= 4.5 rating)
 - has form on page that allows users to submit a new meal using current date and time for dateAdded field of model then sends user back to landing page
 
-![mealRatings Landing](images/mealRatingsLanding.png)
+![mealRatings Landing](images/mealratings/mealRatingsLanding.png)
 
 ### Category List Page
 - includes header with links to landing page and category list for each category
@@ -341,14 +341,15 @@ The site should have the following types of pages:
     - highest rated meals 
     - alphabetically by country of origin name
  
-![mealRatings Category List](images/mealRatingsCategoryList.png)
+![mealRatings Category List](images/mealRatings/mealRatingsCategoryList.png)
 
 ### Meal Detail View
 - includes header with links to landing page and category list for each category
 - displays large picture of meal along with all data from mode fields
 - includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view
+- raise 404 if no meal at that URL
 
-![mealRatings Detail](images/mealRatingsDetail.png)
+![mealRatings Detail](images/mealRatings/mealRatingsDetail.png)
 
 ## Challenge 2B: Meal Recommender Site
 As is common in the workplace, your next project project involves taking an existing project and modifying/extending it. 
@@ -401,9 +402,11 @@ Registered users have the added functionality of getting meal recommendations. W
     - indication that current user is anonymous
     - small form to sign in with fields for username, password, and submit button
     - link to registration page
+    - ![mealRecommenderLandingAnonymousUser](images/mealRecommender/mealRecommenderLandingAnonymousUser.png)
 - Registered User
     - indication in header that current user is signed in along with their username
     - includes links to landing page, user's history page, user's add a meal page, and logout
+    - ![mealRecommenderLandingRegisteredUser](images/mealRecommender/mealRecommenderLandingRegisteredUser.png)
  
 #### Logout (only registered users)
 - log out user
@@ -414,6 +417,7 @@ Registered users have the added functionality of getting meal recommendations. W
 - link to landing page
 - form with fields for: first name, last name, email, username, password
 - submit button
+- ![mealRecommenderRegistration](images/mealRecommender/mealRecommenderRegistration.png)
 
 #### Add Meal Page (only registered users)
 - indication in header that current user is signed in along with their username
@@ -421,12 +425,14 @@ Registered users have the added functionality of getting meal recommendations. W
 - includes form fields for Meal model fields 
 - includes toggle buttons to select which tags meals should be associated with from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}
 - on submit, associate current user with meal added and set date to current date and send user back to landing page
+- ![mealRecommenderAddAMeal](images/mealRecommender/mealRecommenderAddAMeal.png)
 
 #### See History Page (only registered users)
 - indication in header that current user is signed in along with their username
 - includes links to landing page, user's history page, user's add a meal page, and logout
 - displays list of all meals added by logged in user (image, name, avgRating, votes, dateAdded) sorted by date added that each link to detailed view for meal
 - displays list of all meals voted on by logged in user (image, name, avgRating, votes, dateRated) sorted by date rated that link to detailed view for meal
+- ![mealRecommenderHistory](images/mealRecommender/mealRecommenderHistory.png)
 
 #### Meal Detail Page(registered user or anonymous user)
 - displays large picture of meal along with all data from model fields
@@ -437,10 +443,12 @@ Registered users have the added functionality of getting meal recommendations. W
     - includes same simple login form from landing page
     - includes link to landing page and registration page
     - on submit, meal rating  is not associated with any user 
+    - ![mealRecommenderDetailAnonymousUser](images/mealRecommender/mealRecommenderDetailAnonymousUser.png)
 - Registered User: 
     - indication in header that current user is signed in along with their username
     - includes links to landing page, user's history page, user's add a meal page, and logout
     - rating submission associated with currently logged in user
+    - ![mealRecommenderDetailRegisteredUser](images/mealRecommender/mealRecommenderDetailRegisteredUser.png)
         
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
