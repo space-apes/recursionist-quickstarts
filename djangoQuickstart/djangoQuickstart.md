@@ -239,7 +239,7 @@ The project will have 3 types of pages:
 - ![Car Portal Model List](images/carPortalModelList.png)
     
 
-## Stepping Stone 2: Models, Migrations, Querysets, Forms
+## Stepping Stone 2: Models, Migrations, Generating Data, Querysets
 Django can use a wide range of choices for your persistent and ephemeral backend storage. Generally all that is required to hook your Django project up to storage is a few modifications of your project's `settings.py` file. You can choose from any of the available options but this quickstart will follow a MySQL route. 
 
 ### Installing database software
@@ -269,9 +269,15 @@ Models are one of the most powerful features in Django, giving developers an API
 https://docs.djangoproject.com/en/3.2/topics/db/models/
 
 ### Migrations
-Migrations are version control for DB schema that ease testing and incremental design. Any time you make modifications to your models, you can generate a new migration using `python manage.py makemigrations`. After that you can roll back or forward your database's schema using migrations using `python manage.py migrate` with various command line options. 
+Migrations are version control for DB schema that ease testing and incremental design. Any time you make modifications to your models, you should generate a new migration using `python manage.py makemigrations`. After that you can roll back or forward your database's schema using migrations using `python manage.py migrate` with various command line options. 
 
 https://docs.djangoproject.com/en/3.2/topics/migrations/
+
+### Generating Data
+It is useful to have a way to programatically create instances of models as you design, plan, and test them and the relationships between them. Django provides 'fixtures' as a static way to generate data and populate your database. You can also write your own scripts and use "factories" to generate data more dynamically. You will use fixtures and a factory library called Factory Boy in this stepping stone.
+
+https://docs.djangoproject.com/en/3.2/howto/initial-data/
+https://factoryboy.readthedocs.io/en/stable/introduction.html
 
 ### Querysets
 Querysets give a powerful API for requesting records from the DB and can stored and modified themselves without touching the database. 
@@ -301,11 +307,15 @@ In order to represent and store the data for your site you will need to create a
 | - dateOfRating : datetime (default: current time) |
 
 
-We have provided you with some data to seed the database with. Django uses 'fixtures' in order to populate initial database values:
-https://docs.djangoproject.com/en/3.2/howto/initial-data/
+Notice there are some restrictions on the data for some of the fields. You can enforce this in a variety of ways but we will go into more detail about proper validation later in the quickstart. 
 
+We have provided a fixture to seed the initial data for 18 meals and some meal ratings here:
+![Initial Meals and MealRatings](projectFiles/mealRatings/initialMealsAndRatings.json)
 
-#insert fixture and images here. make sure to test it before deploying. 
+And some images to go along with the 18 initial Meals. Take note of the relationship between the image name and the primary key of the Meal:
+![Initial Meal Images](projectFiles/mealRatings/images)
+
+# ####################################MAKE SURE TO TEST IMAGES AND FIXTURE BEFORE DEPLOYING####################################################################################################
 
 The site should have the following types of pages:
 
