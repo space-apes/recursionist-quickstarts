@@ -438,6 +438,7 @@ Registered users have the added functionality of getting meal recommendations. W
 - displays large picture of meal along with all data from model fields
 - includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view for same meal.
 - values for rating must be between 0.0 and 5.0
+- raise 404 if no meal at that URL
 - Anonymous User:
     - indication in header that user is anonymous
     - includes same simple login form from landing page
