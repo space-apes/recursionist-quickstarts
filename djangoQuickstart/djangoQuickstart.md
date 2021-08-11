@@ -390,22 +390,31 @@ Registered users have the added functionality of getting meal recommendations. W
 ### Types of Pages
 
 #### Landing page(registered user or anonymous user)
-- List meals based on which buttons have been toggled from the set {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. 
+- List meals based on buttons that can be selected or unselected from the set of Tags {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. 
+- when selecting any Tag button, reload meals listed to reflect new subset of mealsd and maintain state of all previously toggled buttons
 - If no meals match the toggles then inform the user that there are no matches.
-- each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. 
+- for each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. 
 - clicking a meal should take the user to that meal's detail page.
-- Links allow user to sort Meals can be sorted by average rating, date added, or country of origin with default being recently added. 
-- 6 Meals can be displayed at a time and if there are more that fit the selection criteria, provide a scrollbar or 'next/previous' links. Toggle buttons for each tag from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening} will allow users to select a different subset of meals that will be listed.  If any buttons are toggled, they must remain toggled after new meals are loaded. The landing page has different appearance and functionality based on whether he user is registered or not.
-
+- links allow user to sort listed meals by average rating, date added, or country of origin with default being date added. 
+- ensure there is some way to iterate through all meals that match   
 - Anonymous User
     - indication that current user is anonymous
     - small form to sign in with fields for username, password, and submit button
-    - links to registration page and forgotten password page
-
+    - link to registration page
 - Registered User
     - indication in header that current user is signed in along with their username
     - includes links to landing page, user's history page, user's add a meal page, and logout
  
+#### Logout 
+- log out user
+- return to landing page as anonymous
+
+#### Registration Page
+- indication that current user is anonymous
+- link to landing page
+- form with fields for: first name, last name, email, username, password
+- submit button
+
 #### Add Meal Page (only registered users)
 - indication in header that current user is signed in along with their username
 - includes links to landing page, user's history page, user's add a meal page, and logout
@@ -416,8 +425,8 @@ Registered users have the added functionality of getting meal recommendations. W
 #### See History Page (only registered users)
 - indication in header that current user is signed in along with their username
 - includes links to landing page, user's history page, user's add a meal page, and logout
-- displays list of all meals added (image, name, avgRating, votes, dateAdded) sorted by date added that each link to detailed view for meal
-- displays list of all meals voted on (image, name, avgRating, votes, dateRated) sorted by date rated that link to detailed view for meal
+- displays list of all meals added by logged in user (image, name, avgRating, votes, dateAdded) sorted by date added that each link to detailed view for meal
+- displays list of all meals voted on by logged in user (image, name, avgRating, votes, dateRated) sorted by date rated that link to detailed view for meal
 
 #### Meal Detail View(registered user or anonymous user)
 - displays large picture of meal along with all data from model fields
@@ -426,13 +435,12 @@ Registered users have the added functionality of getting meal recommendations. W
 - Anonymous User:
     - indication in header that user is anonymous
     - includes same simple login form from landing page
-    - includes link to landing page
-    - rating submission is not associated with any user 
+    - includes link to landing page and registration page
+    - on submit, meal rating  is not associated with any user 
 - Registered User: 
     - indication in header that current user is signed in along with their username
     - includes links to landing page, user's history page, user's add a meal page, and logout
     - rating submission associated with currently logged in user
-
 
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
