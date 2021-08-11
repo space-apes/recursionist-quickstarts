@@ -416,7 +416,7 @@ Registered users have the added functionality of getting meal recommendations. W
 - indication that current user is anonymous
 - link to landing page
 - form with fields for: first name, last name, email, username, password
-- submit button
+- submit button that sends user to landing page
 - ![mealRecommenderRegistration](images/mealRecommender/mealRecommenderRegister.png)
 
 #### Add Meal Page (only registered users)
