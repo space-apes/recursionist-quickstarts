@@ -389,12 +389,12 @@ Registered users have the added functionality of getting meal recommendations. W
 
 ### Types of Pages
 
-#### Landing page
-This is where meals will be listed. For each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. Clicking a meal should take the user to that meal's detail page. Meals can be sorted by average rating, date added, or country of origin with default being recently added. 6 Meals can be displayed at a time and if there are more that fit the selection criteria, provide a scrollbar or 'next/previous' links. Toggle buttons for each tag from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening} will allow users to select a different subset of meals that will be listed. If no meals match the toggles then inform the user that there are no matches. If any buttons are toggled, they must remain toggled after new meals are loaded. The landing page has different functionality based on whether he user is registered or not.
+#### Landing page(registered user or anonymous user)
+This is where meals will be listed. For each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. Clicking a meal should take the user to that meal's detail page. Meals can be sorted by average rating, date added, or country of origin with default being recently added. 6 Meals can be displayed at a time and if there are more that fit the selection criteria, provide a scrollbar or 'next/previous' links. Toggle buttons for each tag from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening} will allow users to select a different subset of meals that will be listed. If no meals match the toggles then inform the user that there are no matches. If any buttons are toggled, they must remain toggled after new meals are loaded. The landing page has different appearance and functionality based on whether he user is registered or not.
 
 - Anonymous User
     - indication that current user is anonymous
-    - small form to sign in using username and password
+    - small form to sign in with fields for username, password, and submit button
     - links to registration page and forgotten password page
 
 - Registered User
@@ -405,10 +405,8 @@ This is where meals will be listed. For each meal listed, include a thumbnail of
     - "Recommended" toggle button added to set of buttons
 
 #### Add Meal Page (only for registered users)
-
-- "Home" link in header to return to landing page as registered user
-- "See History" link in header that takes to user's history page
-- "Logout" link in header to return to landing page as anonymous user
+- shows currently logged in username
+- includes links to landing page, user's history page, user's add a meal page, and logout
 - includes form fields for Meal model fields 
 - includes toggle buttons to select which tags meals should be associated with from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}
 - on submit, set date to current date and send user back to landing page
@@ -416,15 +414,23 @@ This is where meals will be listed. For each meal listed, include a thumbnail of
 
 
 #### See History Page (only for registered users)
-- "Home" link in header to return to landing page as registered user
-- "Add Meal" link in header to take user to add meal page
-- "Logout" link in header to return to landing page as anonymous user
+- shows currently logged in username
+- includes links to landing page, user's history page, user's add a meal page, and logout
+- displays list of all meals added (image, name, avgRating, votes, dateAdded) sorted by date added that each link to detailed view for meal
+- displays list of all meals voted on (image, name, avgRating, votes, dateRated) sorted by date rated that link to detailed view for meal
 
-### Meal Detail View
-- includes header with links to landing page and category list for each category
-- displays large picture of meal along with all data from mode fields
-- includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view
-extensions from Meal Ratings:
+### Meal Detail View(registered user or anonymous user)
+- shows indication of current user logged in or anonymous
+- displays large picture of meal along with all data from model fields
+- includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view for same meal.
+- Anonymous User:
+    - includes same simple login form from landing page
+    - includes link to landing page
+    - rating submission is not associated with any user 
+- Registered User: 
+    - includes links to landing page, user's history page, user's add a meal page, and logout
+    - rating submission associated with currently logged in user
+
 
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
