@@ -213,8 +213,8 @@ This Django project will feel like a single-page app and will reuse a header on 
 - MAKE: dropdown menu with options populated by the set of car makes you decided to use and defaults to the first choice from the set
 - MODEL: dropdown menu with options populated by API call if a car make has been selected and submitted. it also includes an 'any' option which is default if no make is selected. You may also load these choices asynchronously using AJAX
 https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
-- BEG DATE: input type number that has minimum of 1886, maximum of the current year and defaults to current year
-- END DATE: input type number that has minimum of 1886, maximum of the current year and defaults to current year
+- BEG DATE: input type number that has minimum of 1886, maximum of the current year and defaults to current year. can set this using HTML parameters for now
+- END DATE: input type number that has minimum of 1886, maximum of the current year and defaults to current year. can set this using HTML parameters for now
 - SUBMIT: button or anchor to submit form data
 
 The project will have 3 types of pages: 
@@ -278,6 +278,7 @@ It is useful to have a way to programatically create instances of models as you 
 
 https://docs.djangoproject.com/en/3.2/howto/initial-data/
 https://factoryboy.readthedocs.io/en/stable/introduction.html
+https://pypi.org/project/factory-boy/
 
 ### Querysets
 Querysets give a powerful API for requesting records from the DB and can stored and modified themselves without touching the database. 
@@ -307,7 +308,7 @@ In order to represent and store the data for your site you will need to create a
 | - dateOfRating : datetime (default: current time) |
 
 
-Notice there are some restrictions on the data for some of the fields. You can enforce this in a variety of ways but we will go into more detail about proper validation later in the quickstart. 
+Notice there are some restrictions on the data for some of the fields. There are a variety of ways to enforce this, including HTML parameters, so you may select your preferred method for now. Proper validation using Django validators will be discussed later in the quickstart. 
 
 We have provided a fixture to seed the initial data for 18 meals and some meal ratings here:
 ![Initial Meals and MealRatings](projectFiles/mealRatings/initialMealsAndRatings.json)
@@ -377,18 +378,13 @@ https://docs.djangoproject.com/en/3.2/topics/db/models/#many-to-many-relationshi
 Registered users will have the ability to see which meals and ratings they have submitted. 
 
 ### Generating Data
-In order to plan, build, and test proper ORM relationships between your models, you will need to create realistic data to populate your database. In the last project you used provided data from a Django fixture, but that is a largely static solution. In this project you will generate your own data using the Factory Boy and Faker libraries.  
+In order to plan, build, and test proper ORM relationships between your models, you will need to create realistic data to populate your database. In the last project you used provided data from a Django fixture, but that is a largely static solution. In this project you will generate your own instances of Meal, MealRating, User, and Tag data by writing a Python script that uses the Factory Boy and Faker libraries.  
 
-Factory Boy is a library to programmatically instantiate objects with specified field values. You could write your own Python script to do this but Factory Boy also meshes well with Django's ORM and models. You can instantiate Meal, MealRating, User, and Tag objects to simulate user data and persist that data to your DB.
-
-https://pypi.org/project/factory-boy/
-https://factoryboy.readthedocs.io/en/stable/introduction.html
-
-For some model fields, it is sufficient to use Python's `random` module to generate random numeric values. For your users you will need to generate test data that is non-numeric. The faker library is included with factory boy and is a great source of 'realistic' values for things like usernames, email addresses, etc. You can learn more about the `faker` library here: 
+For some model fields, it is sufficient to use Python's random module to generate random numeric values. For your User model you will need to generate test data that is non-numeric. The faker library is included with factory boy and is a great source of realistic usernames, email addresses, etc. You can learn more about the faker library here: 
 
 https://faker.readthedocs.io/en/master/fakerclass.html
 
-### Recommendation
+### Recommendation Function
 Registered users have the added functionality of getting meal recommendations. When listing meals that match tags, they can also select an option to further narrow down and or sort meals that are recommended for them based off of the ratings of users with similar submitted ratings. For example, registered users can select "Evening", "Vegetarian", "Recommended", to see meals that match the tags and liked by similar users.  
 
 ### Types of Pages
@@ -417,23 +413,21 @@ This is where meals will be listed. For each meal listed, include a thumbnail of
 - includes toggle buttons to select which tags meals should be associated with from {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}
 - on submit, set date to current date and send user back to landing page
 - Use Django ModelForms and validators to generate your form and validate data. invalid submissions should reload form and give error message to user.
-    - name: unique, <= 20 characters
-    - description: <= 200 characters
-    - dateAdded: <= current datetime
-https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
-https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
-https://docs.djangoproject.com/en/3.2/ref/validators/
+
 
 #### See History Page (only for registered users)
 - "Home" link in header to return to landing page as registered user
 - "Add Meal" link in header to take user to add meal page
 - "Logout" link in header to return to landing page as anonymous user
 
-
+### Meal Detail View
+- includes header with links to landing page and category list for each category
+- displays large picture of meal along with all data from mode fields
+- includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view
 extensions from Meal Ratings:
 
-- users can set tags when submitting a new meal
-- use class-based routes
-- use forms API 
-- k-nearest neighbors is computed for recipe choices and top recipes are displayed for those neighbors
 
+# Stepping Stone 3: Forms API, Validation, Middleware, Security
+https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
+https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
+https://docs.djangoproject.com/en/3.2/ref/validators/
