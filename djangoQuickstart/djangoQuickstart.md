@@ -329,7 +329,7 @@ The site should have the following types of pages:
     - top rated foods (>= 4.5 rating)
 - has form on page that allows users to submit a new meal using current date and time for dateAdded field of model then sends user back to landing page
 
-![mealRatings Landing](images/mealratings/mealRatingsLanding.png)
+![mealRatings Landing](images/mealRatings/mealRatingsLanding.png)
 
 ### Category List Page
 - includes header with links to landing page and category list for each category
