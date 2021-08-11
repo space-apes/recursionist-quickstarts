@@ -405,11 +405,11 @@ Registered users have the added functionality of getting meal recommendations. W
     - indication in header that current user is signed in along with their username
     - includes links to landing page, user's history page, user's add a meal page, and logout
  
-#### Logout 
+#### Logout (only registered users)
 - log out user
 - return to landing page as anonymous
 
-#### Registration Page
+#### Registration Page(only anonymous users)
 - indication that current user is anonymous
 - link to landing page
 - form with fields for: first name, last name, email, username, password
@@ -428,7 +428,7 @@ Registered users have the added functionality of getting meal recommendations. W
 - displays list of all meals added by logged in user (image, name, avgRating, votes, dateAdded) sorted by date added that each link to detailed view for meal
 - displays list of all meals voted on by logged in user (image, name, avgRating, votes, dateRated) sorted by date rated that link to detailed view for meal
 
-#### Meal Detail View(registered user or anonymous user)
+#### Meal Detail Page(registered user or anonymous user)
 - displays large picture of meal along with all data from model fields
 - includes slider and submit button to submit a rating for that meal (setting dateOfRating to current date and time) then sends user back to detail view for same meal.
 - values for rating must be between 0.0 and 5.0
@@ -441,7 +441,7 @@ Registered users have the added functionality of getting meal recommendations. W
     - indication in header that current user is signed in along with their username
     - includes links to landing page, user's history page, user's add a meal page, and logout
     - rating submission associated with currently logged in user
-
+        
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
 https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
