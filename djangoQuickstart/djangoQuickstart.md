@@ -469,13 +469,15 @@ Registered users have the added functionality of getting meal recommendations. W
 - https://docs.djangoproject.com/en/3.2/topics/security/#referrer-policy
 - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
 
-# Stepping Stone 4: Drivers, Queues/Workers, CDN
+# Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
-### Drivers
+### DRIVERS
 - https://docs.djangoproject.com/en/3.2/topics/http/file-uploads/
 - https://channels.readthedocs.io/en/stable/introduction.html
+- https://medium.com/@ksarthak4ever/django-websockets-and-channels-85b7d5e59dda
+- https://www.youtube.com/watch?v=8hxr3T5cUbo&t=1510s 
 
-### Asynchronous Workers
+### ASYNCHRONOUS WORKERS
 - https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/uwsgi/
 - https://medium.com/@bencleary/django-scheduled-tasks-queues-part-1-62d6b6dc24f8
 - https://gunicorn.org/
@@ -485,6 +487,8 @@ Registered users have the added functionality of getting meal recommendations. W
 ### CDN
 - https://docs.djangoproject.com/en/3.2/howto/static-files/deployment/#serving-static-files-from-a-cloud-service-or-cdn
 
+### EMAIL
+- https://docs.djangoproject.com/en/3.2/topics/email/
 
 # Incremental Multi-App Project for Remaining Stepping Stones: CodeBowl
 Turn-based, tile-based game with RPG elements based loosely around soccer but with ability to knock players out. Based on classic board game: Blood Bowl. 
@@ -511,9 +515,10 @@ Turn-based, tile-based game with RPG elements based loosely around soccer but wi
     - CSRF tokens for all forms
     - restrictions on user-uploaded content
 - SS4 (Drivers, Workers...)
-    - synchronous chatroom using websockets
+    - synchronous chatroom on landing page to organize games using websockets
         - https://www.youtube.com/watch?v=8hxr3T5cUbo&t=1510s 
-    - queue for handling turn-actions
+        - chatroom for 2 players in middle of game also
+    - queue for handling multiple actions on a turn that might arrive
     - email system for forgotten password
     - use amazon s3 for CDN for images?
   
@@ -558,13 +563,19 @@ Turn-based, tile-based game with RPG elements based loosely around soccer but wi
 1. players for each team are spread out in preset way on either side (maybe add user placement eventually). 
 2. coin toss occurs to see which team 'attacks' first
 3. attacking team has ball put on random square on their side
-4. attacking team players each perform an action (move or attack) until they get knocked down, drop the ball, or use all turns
-5. defending team players each perform an action (move or attack) until they get knocked down, or use all turns
-6. game play continues until turn limit is reached, or all players of a team are dead
+4. attacking team players each perform an action (move or attack) until they get knocked down, drop the ball, use all turns, score a point, or end turn early with button
+5. defending team players each perform an action (move or attack) until they get knocked down, or use all turns, have point scored by enemy team, or end turn early with button
+6. game play continues until round limit (10) is reached with 1 turn for each team per round, or all players of a team are dead
+7. winner is team with higher score when game ends
 
 ### Movement Mechanics
 - user may select any of their players that has not finished movement/action to move
-- movement begins with a left click of a
+- movement begins with a left click of a friendly player to select it then left clicks on squares you wish to move within the movement allowance, then end with a click of submit
+- right click cancels movement if not submitted and refreshes squares selected
+- if you move OUT OF a square that is adjacent to an enemy you have a chance to get knocked down
+    - if players have equal agility: (60% safe, 40% knocked down) 
+    - for each point higher in agility +10% safe, -10% knocked down)
+    - for each point lower in agilty than target -10% safe, +10% knocked down 
 
 ### Combat Mechanics
 - a player may only attack adjacent enemies
@@ -577,4 +588,6 @@ Turn-based, tile-based game with RPG elements based loosely around soccer but wi
 - upon successful knockdown, rolls for death. target has 10% chance to die. dead players leave the game but return next game. 
 
 ### Ball Mechanics
-
+- picking up a ball is based on agility. 3 agility gives 60% chance with. for each point of agility higher than 3, add +10% chance. for each point lower than 3 -10% chance. 
+- if player holding ball is knocked down, ball scatters randomly within 3x3 grid
+- if player attempts to pick ball up and fails, ball scatters randomly 1 adjacent square
