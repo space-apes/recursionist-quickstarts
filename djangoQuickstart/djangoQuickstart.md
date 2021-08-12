@@ -391,8 +391,8 @@ Registered users have the added functionality of getting meal recommendations. W
 ### Types of Pages
 
 #### Landing page(registered user or anonymous user)
-- List meals based on buttons that can be selected or unselected from the set of Tags {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. 
-- when selecting any Tag button, reload meals listed to reflect new subset of mealsd and maintain state of all previously toggled buttons
+- List meals based on buttons that can be selected or unselected from the set of Tags {vegetarian, spicy, healthy, seafood, morning, afternoon, evening}. Feel free to generate them dynamically and use a multi-selector https://select2.org/
+- when selecting any Tag button, reload meals listed to reflect new subset of meals and maintain state of all previously toggled buttons. 
 - If no meals match the toggles then inform the user that there are no matches.
 - for each meal listed, include a thumbnail of the image, the name, the country of origin, the average rating, and the number of ratings. 
 - clicking a meal should take the user to that meal's detail page.
