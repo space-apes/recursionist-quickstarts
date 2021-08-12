@@ -568,6 +568,14 @@ Turn-based, tile-based game with RPG elements based loosely around soccer but wi
 6. game play continues until round limit (10) is reached with 1 turn for each team per round, or all players of a team are dead
 7. winner is team with higher score when game ends
 
+### Team Creation
+- pick name
+- upload team image
+- create 7 players
+    - upload image
+    - pick name
+    - distribute 12 points among 3 stats: Strength, Agility, Movement 
+
 ### Movement Mechanics
 - user may select any of their players that has not finished movement/action to move
 - movement begins with a left click of a friendly player to select it then left clicks on squares you wish to move within the movement allowance, then end with a click of submit
