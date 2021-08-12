@@ -406,6 +406,7 @@ Registered users have the added functionality of getting meal recommendations. W
 - Registered User
     - indication in header that current user is signed in along with their username
     - includes links to landing page, user's history page, user's add a meal page, and logout
+    - includes a button that triggers the 'recommended' functionality, narrowing down / sorting the listed results
     - ![mealRecommenderLandingRegisteredUser](images/mealRecommender/mealRecommenderLandingRegisteredUser.png)
  
 #### Logout (only registered users)
