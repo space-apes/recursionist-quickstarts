@@ -454,7 +454,7 @@ Registered users have the added functionality of getting meal recommendations. W
         
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
-Django describes itself as "batteries included" meaning that many additional features beyond the base web framework that would commonly be used in web applications come packaged with Django by default. This stepping stone focuses on many of those features that could be written by developers like you, but by using Django's implementations, makes development faster and often more secure.
+Django describes itself as "batteries included" meaning that many additional features beyond the base web framework that would commonly be used in web applications come packaged with Django by default. This stepping stone focuses on many of those features that could be written by developers like you, but by using Django's implementations you can speed up development and often achieve a higher level of security. 
 
 ### FORMS/VALIDATION
 Though you have written a couple forms yourself, Django has an actual forms API for working more programatically with forms. 
@@ -469,15 +469,20 @@ This includes:
     - https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
 
 ### MIDDLEWARE
-Middleware 
-- https://docs.djangoproject.com/en/3.2/ref/middleware/
-- https://docs.djangoproject.com/en/3.2/topics/http/sessions/
+- Having a layer between the requests coming in from the client and your Django project can be useful in many situations.
+    - https://docs.djangoproject.com/en/3.2/ref/middleware/
+- Sessions are a frequently used middleware that allows users to associate users with some stored data. 
+    - https://docs.djangoproject.com/en/3.2/topics/http/sessions/
 
 ### SECURITY
-- https://docs.djangoproject.com/en/3.2/topics/security/#sql-injection-protection
-- https://docs.djangoproject.com/en/3.2/topics/security/#cross-site-request-forgery-csrf-protection
-- https://docs.djangoproject.com/en/3.2/topics/security/#referrer-policy
-- https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
+Writing applications while protecting valuable resources is challenging but should never be an afterthought. Django was specifically written with web application security considerations in mind. 
+- https://docs.djangoproject.com/en/3.2/topics/security/ 
+
+# Challenge 3A: Social Media Meetup Site Basic
+The next challenge will be to create a social media website aimed towards organizing groups and in-person meetings between people with similar interests. The overarching aims of this site are to offer an exceptional user experience, maintain security, and allow easy communication between users.
+
+Due to the fact that there will be multiple surfaces users will be submitting data through and due to the personal nature of some of the data, this project must adhere to more strict data validation and security procedures. 
+
 
 # Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
@@ -501,11 +506,6 @@ Middleware
 - https://docs.djangoproject.com/en/3.2/topics/email/
 
 
-# Challenge 3A: Social Media Meetup Site Basic
-The next challenge will be to create a social media website aimed towards organizing groups and in-person meetings between people with similar interests. The overarching aims of this site are to offer an exceptional user experience, maintain security, and allow easy communication between users.
-
-
-Due to the fact that there will be multiple surfaces users will be submitting data through and due to the personal nature of some of the data, this project must adhere to more strict data validation and security procedures. 
 
 ### Mapping of CodeBowl elements to quick start stepping stone concepts
 - SS3(Forms API, Validation) 
