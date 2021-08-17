@@ -454,13 +454,22 @@ Registered users have the added functionality of getting meal recommendations. W
         
 
 # Stepping Stone 3: Forms API, Validation, Middleware, Security
+Django describes itself as "batteries included" meaning that many additional features beyond the base web framework that would commonly be used in web applications come packaged with Django by default. This stepping stone focuses on many of those features that could be written by developers like you, but by using Django's implementations, makes development faster and often more secure.
 
 ### FORMS/VALIDATION
-- https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
-- https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
-- https://docs.djangoproject.com/en/3.2/ref/validators/
+Though you have written a couple forms yourself, Django has an actual forms API for working more programatically with forms. 
+This includes:
+
+- associating forms with a particular model
+    - https://docs.djangoproject.com/en/3.2/topics/forms/modelforms/
+- generating forms in templates based on models
+    - https://docs.djangoproject.com/en/3.2/ref/forms/renderers/ 
+- doing proper data validation
+    - https://docs.djangoproject.com/en/3.2/ref/validators/
+    - https://docs.djangoproject.com/en/3.2/ref/forms/api/#using-forms-to-validate-data
 
 ### MIDDLEWARE
+Middleware 
 - https://docs.djangoproject.com/en/3.2/ref/middleware/
 - https://docs.djangoproject.com/en/3.2/topics/http/sessions/
 
@@ -491,6 +500,12 @@ Registered users have the added functionality of getting meal recommendations. W
 ### EMAIL
 - https://docs.djangoproject.com/en/3.2/topics/email/
 
+
+# Challenge 3A: Social Media Meetup Site Basic
+The next challenge will be to create a social media website aimed towards organizing groups and in-person meetings between people with similar interests. The overarching aims of this site are to offer an exceptional user experience, maintain security, and allow easy communication between users.
+
+
+Due to the fact that there will be multiple surfaces users will be submitting data through and due to the personal nature of some of the data, this project must adhere to more strict data validation and security procedures. 
 
 ### Mapping of CodeBowl elements to quick start stepping stone concepts
 - SS3(Forms API, Validation) 
