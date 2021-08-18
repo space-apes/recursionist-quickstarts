@@ -491,9 +491,10 @@ Due to the fact that there will be multiple surfaces users will be submitting da
     - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content-security
 
 ### User Types and Privileges
-The site will have many types of users with access to different features, but there will be data stored on the backend for all of them by using a combination of models and Django sessions.
+The site will have different types of users with access to different features, but there will be data stored on the backend for all of them by using a combination of models and Django sessions.
 - Guests are not registered users, but still may view parts of the site without making any changes. 
 - Registered users can do a variety of things and be associated with different groups and events. 
+- Group members are registered users that can create and join events.
 - Group admins are registered users with the power to disband the groups. 
 - Event hosts are registered users with the power to disband events. 
 
@@ -509,19 +510,19 @@ This should be the landing page and has primary function of searching for / list
         - a group with the group name "Fun Rollerskating"
         - a group with group name "Chicago Cooks" that has tags "Pastries, Cooking, Baking"
         - a group with the group name "Fun In the Kitchen" that has tags "Pastries, Cooking, Baking"
-    - previous 3 searches should be available to click on for all types of users. clicking any of them reloads the listed groups
+    - previous 3 searches should be available to click on for all types of users, including guests. clicking any of them reloads the listed groups by doing a search using the previous search term.
 - Each group listing should contain the group logo, the group name, and the group short description and, when clicked, should take the user to the `groupHome` page for that group
-- if user is a guest:
+- if user is a guest include in header:
     - form to log in. successful login logs user in and takes user back to `landing` page.
     - link to `registration` page 
-- if user is registered
+- if user is registered, include in header:
     - link to `logout`
     - button to list groups the user is a member of 
     - link to take user to `createGroup` page 
 
 ### Registration Page(Guests)
 This page allows guests to become registered users.
-- link back to `landing` page
+- header with link back to `landing` page
 - form with inputs to all model fields
 - input for integer age. age must be >= 0 
 - input to select an image file to use as a profile picture. 
@@ -530,7 +531,6 @@ This page allows guests to become registered users.
     - images must be <= 1mb
     - images must have .jpg or .gif extension only (see the security notes on using .png files)
     - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
-    
 - registered users must have unique username
 - successful registration leads back to `landing` page
 
@@ -546,6 +546,63 @@ This page allows guests to become registered users.
     - group logo image upload
         - images must be <= 1mb
         - images must have .jpg or .gif extension only (see the security notes on using .png files)
+- upon successful submission, current user becomes group admin for that groupis taken to that group's `groupHome` page. 
+
+### Group Home (Registered Users, Guests)
+This is the home page for a particular group. Details about the group and associated events and users can be seen here. 
+- group name and logo
+- profile image and name of group admin
+- profile images and names of group members
+- list of tags associated with group. clicking any of these takes user back to `landing` page using tag as search term. 
+- list of previous events including date, and name of event. clicking any of these takes user to `eventHome` page for that event. 
+- list of previous events including date, and name of event. clicking any of these takes user to `eventHome` page for that event. 
+- if user is Guest:
+    - header includes login form, registration link, landing page link
+- if user is Registered:
+    - header includes home link, logout link
+    - button to toggle join/leave group. Keeps user on that `groupHome` page.  
+- if user is a Group Member:
+    - button to add new event that takes user to `createEvent` page for that group   
+- if the user is Group Admin
+    - button to add new event that takes user to `createEvent` page for that group
+    - button to disband group, which removes the group and removes all associated data except the users.  
+
+### Create Event Page (Group Members, Group Admin)
+This is the page for group members to create new events for a given group. 
+- header with links to `landing`, `groupHome`, `logout`
+- some reference to the associated group
+- form inputs for
+    - event name: <= 20 characters
+    - datetime: must be after current datetime
+    - address: <= 30 characters
+    - description of event: <= 100 characters
+    - image upload for event logo
+        - images must be <= 1mb
+        - images must have .jpg or .gif extension only (see the security notes on using .png files)
+    - submit button
+- successful submission:
+    - sets current user as event host
+    - adds event to list of upcoming events for group
+    - takes user to `eventHome` page for the event
+
+### Event Home Page (Registered Users, Guests)
+This is a page for users to find details about events that have occurred in the past or future and to communicate with group members about the event. 
+- reference to the associated group and group logo
+- name of event event logo, and description of event
+- profile image and name of event host
+- profile images and names of participant group members
+- if user is guest:
+    - header includes login form, registration link, landing page link
+- if user is a registered user:
+    - header with links to `landing`, `groupHome` for associated group, `logout`
+- if user is group member
+    - details including date, time, address
+    - toggle button to participate in event / leave event
+    - message board with entries:
+        - profile image, user name, message 
+    - input field for message <= 50 charcters and submit button
+
+
 # Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
 ### DRIVERS
