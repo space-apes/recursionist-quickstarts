@@ -506,7 +506,7 @@ This should be the landing page and has primary function of searching for / list
     - light theme: light background, dark text
     - dark theme: dark background, light text 
 - Search field and submit button to search for groups. The results should be formed by matching each space-separated word in the search term against both the names and tags of all groups.  
-    - EX: "Fun Pastries" should match: 
+    - EX: a search with search term "Fun Pastries" should match: 
         - a group with the group name "Fun Rollerskating"
         - a group with group name "Chicago Cooks" that has tags "Pastries, Cooking, Baking"
         - a group with the group name "Fun In the Kitchen" that has tags "Pastries, Cooking, Baking"
