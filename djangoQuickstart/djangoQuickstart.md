@@ -490,12 +490,32 @@ Due to the fact that there will be multiple surfaces users will be submitting da
 - Any file uploads should follow suggestions here:
     - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content-security
 
-### User Privileges and Sessions
-The site will have many types of users with access to different features, but there will be data stored on the backend for all of them. 
+### User Types and Privileges
+The site will have many types of users with access to different features, but there will be data stored on the backend for all of them by using a combination of models and Django sessions.
 - Guests are not registered users, but still may view parts of the site without making any changes. 
 - Registered users can do a variety of things and be associated with different groups and events. 
 - Group admins are registered users with the power to disband the groups. 
 - Event hosts are registered users with the power to disband events. 
+
+### Types of Pages
+
+### Landing / Group Listing(Guests, Registered Users)
+This should be the landing page and has primary function of searching for / listing available groups. 
+- binary toggle to switch between light and dark themes. this should change the CSS on all pages on the site and should be remembered through page reloads for all types of users. 
+- Search field and submit button to search for groups. The results should be formed by matching each space-separated word in the search term against both the names and tags of all groups.  
+    - EX: "Fun Pastries" should match: 
+        - a group with the group name "Fun Rollerskating"
+        - a group with group name "Chicago Cooks" that has tags "Pastries, Cooking, Baking"
+        - a group with the group name "Fun In the Kitchen" that has tags "Pastries, Cooking, Baking"
+    - previous 3 searches should be available to click on for all types of users. clicking any of them reloads the listed groups
+- Each group listing should contain the group logo, the group name, and the group short description and, when clicked, should take the user to the `groupHome` page for that group
+- if user is a guest:
+    - form to log in. successful login logs user in and takes user back to `landing` page.
+    - link to `registration` page 
+- if user is registered
+    - link to `logout`
+    - button to list groups the user is a member of 
+    - link to take user to `createGroup` page 
 
 # Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
