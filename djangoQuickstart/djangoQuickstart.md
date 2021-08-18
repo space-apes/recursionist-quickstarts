@@ -610,52 +610,35 @@ This is a page for users to find details about events that have occurred in the 
     - button that allows event to be disbanded. disbanded events are no different than regular events except a large message indicating they are disbanded is displayed. 
 ![meetupEventHome](images/meetupBasic/meetupEventHome.png)
 
-# Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
+# Stepping Stone 4: Email, Queues/Workers, Web Sockets, CDN, Location-Based Services
+At this point, the core Django framework and many of the most typically used extended features have been explored. This stepping stone will introduce some advanced 
+functionality and libraries that may be useful to you when developing projects in Django. 
 
-### DRIVERS
-- https://docs.djangoproject.com/en/3.2/topics/http/file-uploads/
-- https://channels.readthedocs.io/en/stable/introduction.html
-- https://medium.com/@ksarthak4ever/django-websockets-and-channels-85b7d5e59dda
-- https://www.youtube.com/watch?v=8hxr3T5cUbo&t=1510s 
-
-### ASYNCHRONOUS WORKERS
-- https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/uwsgi/
-- https://medium.com/@bencleary/django-scheduled-tasks-queues-part-1-62d6b6dc24f8
-- https://gunicorn.org/
-- https://docs.gunicorn.org/en/latest/design.html
-- https://docs.celeryproject.org/en/stable/django/index.html
-
-### CDN
-- https://docs.djangoproject.com/en/3.2/howto/static-files/deployment/#serving-static-files-from-a-cloud-service-or-cdn
-
-### EMAIL
+### Email
+Generating emails is an important way to reach out to users and to provide further authentication among other things. 
 - https://docs.djangoproject.com/en/3.2/topics/email/
 
+### Queues/Workers
+Queues can be used to automate tasks that occur outside the normal request-response cycle or to handle requests that take a long time to process. 
+- (celery is the most commonly used Python library for handling asynchronous tasks): https://docs.celeryproject.org/en/stable/django/first-steps-with-django.html
+- (gunicorn is a very common web server used in Django projects that follows a "pre-fork worker" architecture: https://gunicorn.org/
+- (explanation of the "pre-fork worker" architecture: https://docs.gunicorn.org/en/stable/design.html
+- 
+### Web Sockets
+Opening a stream of data between client and host can open up a lot of options. 
+- (Django Channels extends Djangos capabilities to handling things beyond HTTP): https://channels.readthedocs.io/en/stable/
+
+### Content Delivery Networks
+Most media is not served directly from the host web server. Typically, CDNs are used to ensure that a server that is geographically close to the client can be used, for redundancy and speed.
+- https://docs.djangoproject.com/en/3.2/howto/static-files/deployment/#serving-static-files-from-a-cloud-service-or-cdn
+
+### Location-based Services
+Dealing with distances and locations in the world requires a massive amount of information. Here are some options for adding location awareness to your projects
+- (Google Maps API is the a first obvious choice): https://developers.google.com/maps
+- (GeoDjango is a great more Django native option): https://docs.djangoproject.com/en/3.2/ref/contrib/gis/tutorial/
+
+# Challenge 4: Meetup Site with Advanced Features
 
 
-### Mapping of CodeBowl elements to quick start stepping stone concepts
-- SS3(Forms API, Validation) 
-    - registration page
-        - username, first name, last name (char limit)
-        - password (requires special characters? MUST WRITE OWN VALIDATOR)
-        - email(real email?)
-    - team creation page 
-        - player stats must add to 12 (from set: strong, agile, balanced)
-        - name (char limit)
-        - image upload (size, filetype, filename) 
-- SS3(Middleware, Security) -> sessions 
-    - auto-login middleware for registered users using sessions
-    - remember CSS 'theme' ?
-    - preload user's images (team image, player images)
-    - SQL-injection prevention for all text fields
-    - CSRF tokens for all forms
-    - restrictions on user-uploaded content
-- SS4 (Drivers, Workers...)
-    - synchronous chatroom on landing page to organize games using websockets
-        - https://www.youtube.com/watch?v=8hxr3T5cUbo&t=1510s 
-        - chatroom for 2 players in middle of game also
-    - queue for handling multiple actions on a turn that might arrive
-    - email system for forgotten password
-    - use amazon s3 for CDN for images?
   
 
