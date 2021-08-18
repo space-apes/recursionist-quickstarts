@@ -592,17 +592,18 @@ This is a page for users to find details about events that have occurred in the 
 - profile image and name of event host
 - profile images and names of participant group members
 - if user is guest:
-    - header includes login form, registration link, landing page link
+    - header includes login form, and links to `registration`, `landing` 
 - if user is a registered user:
     - header with links to `landing`, `groupHome` for associated group, `logout`
 - if user is group member
     - details including date, time, address
     - toggle button to participate in event / leave event
-    - message board with entries:
-        - profile image, user name, message 
-    - input field for message <= 50 charcters and submit button
-
-
+    - message board all group members can submit to with entries including:
+        - profile image, username, message for all previously submitted messages
+        - input field for message <= 50 charcters and submit button for new messages
+- if user is event host:  
+    - button that allows event to be disbanded. disbanded events are no different than regular events except a large message indicating they are disbanded is displayed. 
+   
 # Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
 ### DRIVERS
