@@ -519,7 +519,7 @@ This should be the landing page and has primary function of searching for / list
     - link to `logout`
     - button to list groups the user is a member of 
     - link to take user to `createGroup` page 
-![Landing/GroupList Guest](images/meetupBasic/meetupLandingGuest.png) ![Landing/GroupList Registered](images/meetupBasic/meetupLandingRegistered.png)
+![Landing/GroupList Guest](images/meetupBasic/meetupGroupListGuest.png) ![Landing/GroupList Registered](images/meetupBasic/meetupGroupListRegistered.png)
 ### Registration Page(Guests)
 This page allows guests to become registered users.
 - header with link back to `landing` page
