@@ -481,8 +481,21 @@ Writing applications while protecting valuable resources is challenging but shou
 # Challenge 3A: Social Media Meetup Site Basic
 The next challenge will be to create a social media website aimed towards organizing groups and in-person meetings between people with similar interests. The overarching aims of this site are to offer an exceptional user experience, maintain security, and allow easy communication between users.
 
-Due to the fact that there will be multiple surfaces users will be submitting data through and due to the personal nature of some of the data, this project must adhere to more strict data validation and security procedures. 
+### Validation/Security Considerations
+Due to the fact that there will be multiple surfaces users will be submitting data through and due to the personal nature of some of the data, this project must follow more strict data validation and security procedures. 
+- All forms should use the ModelForms API wherever appropriate and validation wherever there are requirements on submitted data. 
+- Any forms with invalid data should not be submitted, keep the user on the same page, and display an informative error message. 
+- Any forms should have cross site request forgery protection
+- Any forms should have clickjacking protection
+- Any file uploads should follow suggestions here:
+    - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content-security
 
+### User Privileges and Sessions
+The site will have many types of users with access to different features, but there will be data stored on the backend for all of them. 
+- Guests are not registered users, but still may view parts of the site without making any changes. 
+- Registered users can do a variety of things and be associated with different groups and events. 
+- Group admins are registered users with the power to disband the groups. 
+- Event hosts are registered users with the power to disband events. 
 
 # Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
