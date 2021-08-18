@@ -519,7 +519,8 @@ This should be the landing page and has primary function of searching for / list
     - link to `logout`
     - button to list groups the user is a member of 
     - link to take user to `createGroup` page 
-![Landing/GroupList Guest](images/meetupBasic/meetupGroupListGuest.png) ![Landing/GroupList Registered](images/meetupBasic/meetupGroupListRegistered.png)
+![meetupLanding/GroupList Guest](images/meetupBasic/meetupGroupListGuest.png) ![meetupLanding/GroupList Registered](images/meetupBasic/meetupGroupListRegistered.png)
+
 ### Registration Page(Guests)
 This page allows guests to become registered users.
 - header with link back to `landing` page
@@ -533,6 +534,7 @@ This page allows guests to become registered users.
     - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
 - registered users must have unique username
 - successful registration leads back to `landing` page
+![meetupRegister](images/meetupBasic/meetupRegister.png)
 
 ### Group Creation Page(Registered Users)
 - links to `home` and `logout`
@@ -547,6 +549,7 @@ This page allows guests to become registered users.
         - images must be <= 1mb
         - images must have .jpg or .gif extension only (see the security notes on using .png files)
 - upon successful submission, current user becomes group admin for that groupis taken to that group's `groupHome` page. 
+![meetupCreateGroup](images/meetupBasic/meetupCreateGroup.png)
 
 ### Group Home (Registered Users, Guests)
 This is the home page for a particular group. Details about the group and associated events and users can be seen here. 
@@ -566,6 +569,7 @@ This is the home page for a particular group. Details about the group and associ
 - if the user is Group Admin
     - button to add new event that takes user to `createEvent` page for that group
     - button to disband group, which removes the group and removes all associated data except the users.  
+![meetupGroupHome](images/meetupBasic/meetupGroupHome.png)
 
 ### Create Event Page (Group Members, Group Admin)
 This is the page for group members to create new events for a given group. 
@@ -584,6 +588,7 @@ This is the page for group members to create new events for a given group.
     - sets current user as event host
     - adds event to list of upcoming events for group
     - takes user to `eventHome` page for the event
+![meetupCreateEvent](images/meetupBasic/meetupCreateEvent.png)
 
 ### Event Home Page (Registered Users, Guests)
 This is a page for users to find details about events that have occurred in the past or future and to communicate with group members about the event. 
@@ -603,7 +608,8 @@ This is a page for users to find details about events that have occurred in the 
         - input field for message <= 50 charcters and submit button for new messages
 - if user is event host:  
     - button that allows event to be disbanded. disbanded events are no different than regular events except a large message indicating they are disbanded is displayed. 
-   
+![meetupEventHome](images/meetupBasic/meetupEventHome.png)
+
 # Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
 ### DRIVERS
