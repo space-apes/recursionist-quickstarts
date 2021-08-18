@@ -499,9 +499,11 @@ The site will have many types of users with access to different features, but th
 
 ### Types of Pages
 
-### Landing / Group Listing(Guests, Registered Users)
+### Landing / Group Listing Page(Guests, Registered Users)
 This should be the landing page and has primary function of searching for / listing available groups. 
-- binary toggle to switch between light and dark themes. this should change the CSS on all pages on the site and should be remembered through page reloads for all types of users. 
+- binary toggle to switch between light and dark themes. this should change the CSS on all pages on the site and should be remembered through page reloads for all types of users.
+    - light theme: light background, dark text
+    - dark theme: dark background, light text 
 - Search field and submit button to search for groups. The results should be formed by matching each space-separated word in the search term against both the names and tags of all groups.  
     - EX: "Fun Pastries" should match: 
         - a group with the group name "Fun Rollerskating"
@@ -517,6 +519,33 @@ This should be the landing page and has primary function of searching for / list
     - button to list groups the user is a member of 
     - link to take user to `createGroup` page 
 
+### Registration Page(Guests)
+This page allows guests to become registered users.
+- link back to `landing` page
+- form with inputs to all model fields
+- input for integer age. age must be >= 0 
+- input to select an image file to use as a profile picture. 
+    - https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#extending-the-existing-user-model 
+    - https://docs.djangoproject.com/en/3.2/topics/http/file-uploads/ 
+    - images must be <= 1mb
+    - images must have .jpg or .gif extension only (see the security notes on using .png files)
+    - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
+    
+- registered users must have unique username
+- successful registration leads back to `landing` page
+
+### Group Creation Page(Registered Users)
+- links to `home` and `logout`
+- form inputs for:
+    - group name: <= 20 characters to limit search time
+    - group short description: <= 50 characters
+    - comma separated list of tags
+        - <= 50 characters total
+        - <= 10 tags total 
+        - https://docs.djangoproject.com/en/3.2/ref/validators/#writing-validators  
+    - group logo image upload
+        - images must be <= 1mb
+        - images must have .jpg or .gif extension only (see the security notes on using .png files)
 # Stepping Stone 4: Drivers, Queues/Workers, CDN, EMAIL
 
 ### DRIVERS
