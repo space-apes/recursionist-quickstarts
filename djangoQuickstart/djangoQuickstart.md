@@ -623,10 +623,10 @@ Queues can be used to automate tasks that occur outside the normal request-respo
 - (celery is the most commonly used Python library for handling asynchronous tasks): https://docs.celeryproject.org/en/stable/django/first-steps-with-django.html
 - (gunicorn is a very common web server used in Django projects that follows a "pre-fork worker" architecture: https://gunicorn.org/
 - (explanation of the "pre-fork worker" architecture: https://docs.gunicorn.org/en/stable/design.html
-- 
+
 ### Web Sockets
-Opening a stream of data between client and host can open up a lot of options. 
-- (Django Channels extends Djangos capabilities to handling things beyond HTTP): https://channels.readthedocs.io/en/stable/
+Opening a stream of data between client and host can open up many options beyond event-based HTTP interactions. 
+- (Django Channels extends Djangos communication capabilities): https://channels.readthedocs.io/en/stable/
 
 ### Content Delivery Networks
 Most media is not served directly from the host web server. Typically, CDNs are used to ensure that a server that is geographically close to the client can be used, for redundancy and speed.
@@ -637,8 +637,20 @@ Dealing with distances and locations in the world requires a massive amount of i
 - (Google Maps API is the a first obvious choice): https://developers.google.com/maps
 - (GeoDjango is a great more Django native option): https://docs.djangoproject.com/en/3.2/ref/contrib/gis/tutorial/
 
-# Challenge 4: Meetup Site with Advanced Features
+# Challenge 4: Social Media Meetup Site With Advanced Features
+The meetup site has given users a useful tool to coordinate groups and events. The previous iterations of the site made good progress towards the overall aims, especially the security aim. By adding some advanced features, you will be able to support the aims of exceptional user experience and easy communication between users. 
 
+### Forgotten Password Page
+Gives guest users the ability to submit a username and email address and receive a password reset link
+- usernames and email addresses must now be unique when creating users
+- if username does not match password, show error message and do not submit anything
+- if username matches password, use email subsystem to send an email containing link to user with unique URL: hostname/passwordReset/<hash>
+- can use python's hashlib: https://docs.python.org/3/library/hashlib.html
+- ensure a lifetime of 5 minutes for the reset link to work. 
 
-  
+### Password Reset Page
+Basic form allowing users to submit a new password.
+- research and follow some best practices for passwords such as a minimum number of characters, inclusion of particular types of characters, etc
+- use 2 input fields to make sure user types in password they expect to have typed in
+- write your own validator to test incoming password against your criteria
 
