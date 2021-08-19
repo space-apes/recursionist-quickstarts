@@ -647,6 +647,8 @@ Link to page added to all guest pages in header. Gives guests ability to submit 
 - if username matches password, use email subsystem to send an email containing link to user with unique URL: hostname/passwordReset/<hash>
 - can use python's hashlib: https://docs.python.org/3/library/hashlib.html
 - ensure a lifetime of 5 minutes for the reset link to work. 
+![meetupForgotPassword](images/meetupAdvanced/meetupForgotPassword.png)
+        
 
 ### Password Reset Page
 Basic form allowing users to submit a new password.
@@ -655,17 +657,18 @@ Basic form allowing users to submit a new password.
 - write your own validator to test incoming password against your criteria
 - invalid password does not change password and displays error message
 - valid password changes password, logs user in, and takes user to `landing`
-        
+![meetupPasswordReset](images/meetupAdvanced/meetupPasswordReset.png)        
 ### Creating new event sends email to all group members
 - include details of event and link to the event
 
 ### Live chat client
 On all pages, registered users can now see a list of all other users that are currently logged in. Clicking any logged in user opens up a chat window that allows messages to be exchanged without needing to reload the page. Clicking on a different logged in user selects a different ongoing chat. Users can only chat with 1 logged in user at a time. Feel free to extend this how you like. 
-
+![meetupLocationAndChat](images/meetupAdvanced/meetupLocationAndChat.png)
+        
 ### Use a CDN to serve all media
 Make a free account on Amazon Cloudfront and change all media being served to using it.
 https://aws.amazon.com/cloudfront/
 
 ### Search by zipcode
 Users now submit a zipcode also when they register. On the group list / landing page, a new field is added next to the search term to limit the groups to those that have events within x kilometers. Users also have the option to submit a separate zipcode and limit results within x km from that zipcode. 
-
+![meetupLocationAndChat](images/meetupAdvanced/meetupLocationAndChat.png)
