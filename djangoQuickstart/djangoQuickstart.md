@@ -632,7 +632,7 @@ Opening a stream of data between client and host can open up many options beyond
 Most media is not served directly from the host web server. Typically, CDNs are used to ensure that a server that is geographically close to the client can be used, for redundancy and speed.
 - https://docs.djangoproject.com/en/3.2/howto/static-files/deployment/#serving-static-files-from-a-cloud-service-or-cdn
 
-### Location-based Services
+### Location-Based Services
 Dealing with distances and locations in the world requires a massive amount of information. Here are some options for adding location awareness to your projects
 - (Google Maps API is the a first obvious choice): https://developers.google.com/maps
 - (GeoDjango is a great more Django native option): https://docs.djangoproject.com/en/3.2/ref/contrib/gis/tutorial/
@@ -641,7 +641,7 @@ Dealing with distances and locations in the world requires a massive amount of i
 The meetup site has given users a useful tool to coordinate groups and events. The previous iterations of the site made good progress towards the overall aims, especially the security aim. By adding some advanced features, you will be able to support the aims of exceptional user experience and easy communication between users. 
 
 ### Forgotten Password Page
-Gives guest users the ability to submit a username and email address and receive a password reset link
+Link to page added to all guest pages in header. Gives guests ability to submit a username and email address and receive a password reset link
 - usernames and email addresses must now be unique when creating users
 - if username does not match password, show error message and do not submit anything
 - if username matches password, use email subsystem to send an email containing link to user with unique URL: hostname/passwordReset/<hash>
@@ -653,4 +653,19 @@ Basic form allowing users to submit a new password.
 - research and follow some best practices for passwords such as a minimum number of characters, inclusion of particular types of characters, etc
 - use 2 input fields to make sure user types in password they expect to have typed in
 - write your own validator to test incoming password against your criteria
+- invalid password does not change password and displays error message
+- valid password changes password, logs user in, and takes user to `landing`
+        
+### Creating new event sends email to all group members
+- include details of event and link to the event
+
+### Live chat client
+On all pages, registered users can now see a list of all other users that are currently logged in. Clicking any logged in user opens up a chat window that allows messages to be exchanged without needing to reload the page. Clicking on a different logged in user selects a different ongoing chat. Users can only chat with 1 logged in user at a time. Feel free to extend this how you like. 
+
+### Use a CDN to serve all media
+Make a free account on Amazon Cloudfront and change all media being served to using it.
+https://aws.amazon.com/cloudfront/
+
+### Search by zipcode
+Users now submit a zipcode also when they register. On the group list / landing page, a new field is added next to the search term to limit the groups to those that have events within x kilometers. Users also have the option to submit a separate zipcode and limit results within x km from that zipcode. 
 
