@@ -471,7 +471,7 @@ This includes:
 ### MIDDLEWARE
 - Having a layer between the requests coming in from the client and your Django project can be useful in many situations.
     - https://docs.djangoproject.com/en/3.2/ref/middleware/
-- Sessions are a frequently used middleware that allows users to associate users with some stored data. 
+- Sessions are a frequently used middleware that allows developers to associate users with some stored data. 
     - https://docs.djangoproject.com/en/3.2/topics/http/sessions/
 
 ### SECURITY
@@ -482,10 +482,10 @@ Writing applications while protecting valuable resources is challenging but shou
 The next challenge will be to create a social media website aimed towards organizing groups and in-person meetings between people with similar interests. The overarching aims of this site are to offer an exceptional user experience, maintain security, and allow easy communication between users.
 
 ### Validation/Security Considerations
-Due to the fact that there will be multiple surfaces users will be submitting data through and due to the personal nature of some of the data, this project must follow more strict data validation and security procedures. 
+Due to the fact that there will be multiple surfaces users will be submitting data through and due to the personal nature of some of the data, this project must follow more strict data validation and security considerations, especially with regards to privacy. 
 - All forms should use the ModelForms API wherever appropriate and validation wherever there are requirements on submitted data. 
 - Any forms with invalid data should not be submitted, keep the user on the same page, and display an informative error message. 
-- Any forms should have cross site request forgery protection
+- Any forms should have cross site request forgery(CSRF) protection
 - Any forms should have clickjacking protection
 - Any file uploads should follow suggestions here:
     - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content-security
@@ -502,7 +502,7 @@ The site will have different types of users with access to different features, b
 
 ### Landing / Group Listing Page(Guests, Registered Users)
 This should be the landing page and has primary function of searching for / listing available groups. 
-- binary toggle to switch between light and dark themes. this should change the CSS on all pages on the site and should be remembered through page reloads for all types of users.
+- binary toggle to switch between light and dark themes. this should change the appearance of all pages on the site and should be remembered through page reloads for all types of users.
     - light theme: light background, dark text
     - dark theme: dark background, light text 
 - Search field and submit button to search for groups. The results should be formed by matching each space-separated word in the search term against both the names and tags of all groups.  
@@ -511,7 +511,12 @@ This should be the landing page and has primary function of searching for / list
         - a group with group name "Chicago Cooks" that has tags "Pastries, Cooking, Baking"
         - a group with the group name "Fun In the Kitchen" that has tags "Pastries, Cooking, Baking"
     - previous 3 searches should be available to click on for all types of users, including guests. clicking any of them reloads the listed groups by doing a search using the previous search term.
-- Each group listing should contain the group logo, the group name, and the group short description and, when clicked, should take the user to the `groupHome` page for that group
+- Each group listing should contain
+    - group logo image 
+    - the group name
+    - the group short description
+    - 5 of the tags associated with the group
+    - when clicked, should take the user to the `groupHome` page for that group
 - if user is a guest include in header:
     - form to log in. successful login logs user in and takes user back to `landing` page.
     - link to `registration` page 
@@ -523,9 +528,12 @@ This should be the landing page and has primary function of searching for / list
 
 ### Registration Page(Guests)
 This page allows guests to become registered users.
-- header with link back to `landing` page
-- form with inputs to all model fields
-- input for integer age. age must be >= 0 
+- header with link back to `landing` page 
+- form with inputs for all User model fields
+    - first name and last name should contain no whitespace characters
+    - email address should follow valid email format \<string\>@\<string\>.\<string\> 
+- input for integer age 
+    - age must be >= 0 
 - input to select an image file to use as a profile picture. 
     - https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#extending-the-existing-user-model 
     - https://docs.djangoproject.com/en/3.2/topics/http/file-uploads/ 
@@ -544,6 +552,7 @@ This page allows guests to become registered users.
     - comma separated list of tags
         - <= 50 characters total
         - <= 10 tags total 
+        - if tag does not exist, create new tag
         - https://docs.djangoproject.com/en/3.2/ref/validators/#writing-validators  
     - group logo image upload
         - images must be <= 1mb
@@ -644,7 +653,7 @@ The meetup site has given users a useful tool to coordinate groups and events. T
 Link to page added to all guest pages in header. Gives guests ability to submit a username and email address and receive a password reset link
 - usernames and email addresses must now be unique when creating users
 - if username does not match password, show error message and do not submit anything
-- if username matches password, use email subsystem to send an email containing link to user with unique URL: hostname/passwordReset/<hash>
+- if username matches password, use email subsystem to send an email containing link to user with unique URL: hostname/passwordReset/\<hash\>
 - can use python's hashlib: https://docs.python.org/3/library/hashlib.html
 - ensure a lifetime of 5 minutes for the reset link to work. 
 ![meetupForgotPassword](images/meetupAdvanced/meetupForgotPassword.png)
