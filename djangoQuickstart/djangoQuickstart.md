@@ -10,6 +10,7 @@ To make the best use of this quickstart, it is suggested you feel comfortable wi
 - Relational database basics
 - Getting information from Web API
 - HTML, CSS, JS basics
+- SMTP email protocol
 
 ## Django High-Level Overview
 
@@ -587,6 +588,7 @@ This is the home page for a particular group. Details about the group and associ
 - if the user is Group Admin
     - button to add new event that takes user to `createEvent` page for that group
     - button to disband group, which removes the group and removes all associated data except the users.  
+- (optional) privacy settings to hide event information from certain types of users
 ![meetupGroupHome](images/meetupBasic/meetupGroupHome.png)
 
 ### Create Event Page (Group Members, Group Admin)
@@ -610,16 +612,16 @@ This is the page for group members to create new events for a given group.
 
 ### Event Home Page (Registered Users, Guests)
 This is a page for users to find details about events that have occurred in the past or future and to communicate with group members about the event. 
-- reference to the associated group and group logo
-- name of event event logo, and description of event
+- reference to the associated group name and group logo
+- name of event, event logo, and description of event
 - profile image and name of event host
 - profile images and names of participant group members
 - if user is guest:
     - header includes login form, and links to `registration`, `landing` 
-- if user is a registered user:
+- if user is registered user:
     - header with links to `landing`, `groupHome` for associated group, `logout`
 - if user is group member
-    - details including date, time, address
+    - details of event including date, time, address
     - toggle button to participate in event / leave event
     - message board through which all group members can post messages:
         - each message contains profile image of sender, username of sender, and text content of message
@@ -628,7 +630,9 @@ This is a page for users to find details about events that have occurred in the 
             - <= 50 charcters and submit button for new messages
 - if user is event host:  
     - button that allows event to be disbanded. disbanded events are no different than regular events except a large message indicating they are disbanded is displayed. 
+- (optional) privacy settings to hide event information from certain types of users
 ![meetupEventHome](images/meetupBasic/meetupEventHome.png)
+
 
 # Stepping Stone 4: Email, Queues/Workers, Web Sockets, CDN, Location-Based Services
 At this point, the core Django framework and many of the most typically used extended features have been explored. This stepping stone will introduce some advanced 
@@ -643,6 +647,7 @@ Queues can be used to automate tasks that occur outside the normal request-respo
 - (celery is the most commonly used Python library for handling asynchronous tasks): https://docs.celeryproject.org/en/stable/django/first-steps-with-django.html
 - (gunicorn is a very common web server used in Django projects that follows a "pre-fork worker" architecture: https://gunicorn.org/
 - (explanation of the "pre-fork worker" architecture: https://docs.gunicorn.org/en/stable/design.html
+- (you may need to write your own manage.py command): https://docs.djangoproject.com/en/3.2/howto/custom-management-commands/
 
 ### Web Sockets
 Opening a stream of data between client and host can open up many options beyond event-based HTTP interactions. 
@@ -667,9 +672,9 @@ Link to page added to all guest pages in header. Gives guests ability to submit 
 - if username matches password, use email subsystem to send an email containing link to user with unique URL: hostname/passwordReset/\<hash\>
 - can use python's hashlib: https://docs.python.org/3/library/hashlib.html
 - ensure a lifetime of 5 minutes for the reset link to work. 
+- can use https://docs.djangoproject.com/en/3.2/topics/auth/default/#all-authentication-views
 ![meetupForgotPassword](images/meetupAdvanced/meetupForgotPassword.png)
         
-
 ### Password Reset Page
 Basic form allowing users to submit a new password.
 - research and follow some best practices for passwords such as a minimum number of characters, inclusion of particular types of characters, etc
@@ -678,11 +683,21 @@ Basic form allowing users to submit a new password.
 - invalid password does not change password and displays error message
 - valid password changes password, logs user in, and takes user to `landing`
 ![meetupPasswordReset](images/meetupAdvanced/meetupPasswordReset.png)        
-### Creating new event sends email to all group members
-- include details of event and link to the event
 
-### Live chat client
-On all pages, registered users can now see a list of all other users that are currently logged in. Clicking any logged in user opens up a chat window that allows messages to be exchanged without needing to reload the page. Clicking on a different logged in user selects a different ongoing chat. Users can only chat with 1 logged in user at a time. Feel free to extend this how you like. 
+### Email notifications
+- send email to the group admin every time a new user joins the group or an event is created
+- upon event creation, send an email out to all group members informing them of the details of the event along with a link to the event
+- consider the case that you have thousands of members within your group. Sending emails is a long process and attempting to send thousands of emails at once may cause problems.
+- this is a good opportunity to use a task queue to slow down the rate of outgoing emails. 
+    - send emails using a task queue and set the rate to 1 email sent every 2 seconds
+- you can use a gmail account and google's SMTP server. see "Use the Gmail SMTP server" link at the bottom of this page:
+    - https://support.google.com/a/answer/176600?hl=en 
+- in large scale projects you would use a mass emailing service like
+   - https://mailchimp.com/ 
+   - https://www.mailgun.com/
+ 
+### Private chat client
+On all pages, registered users can now see a list of all other users that are currently logged in. Clicking any logged in user opens up a chat window that allows messages to be exchanged without needing to reload the page. Clicking on a different logged in user selects a different ongoing chat. Users can only chat with 1 logged in user at a time. If you want an additional challenge, try to implement chats with more than 2 users at a time and/or 'tabbed' chats to be able to swap between multiple chat windows. 
 ![meetupLocationAndChat](images/meetupAdvanced/meetupLocationAndChat.png)
         
 ### Use a CDN to serve all media
