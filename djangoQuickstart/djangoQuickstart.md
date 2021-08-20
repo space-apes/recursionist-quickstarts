@@ -530,8 +530,18 @@ This should be the landing page and has primary function of searching for / list
 This page allows guests to become registered users.
 - header with link back to `landing` page 
 - form with inputs for all User model fields
-    - first name and last name should contain no whitespace characters
-    - email address should follow valid email format \<string\>@\<string\>.\<string\> 
+    - first name and last name should 
+        - be alphanumeric 
+        - contain no whitespace characters
+    - email address should 
+        - be unique 
+        - follow valid email format \<string\>@\<string\>.\<string\>
+        - consider using regex in validators: https://regexr.com/
+    - username should
+        - be unique
+        - be alphanumeric 
+    - password should 
+        - be alphanumeric 
 - input for integer age 
     - age must be >= 0 
 - input to select an image file to use as a profile picture. 
@@ -540,8 +550,7 @@ This page allows guests to become registered users.
     - images must be <= 1mb
     - images must have .jpg or .gif extension only (see the security notes on using .png files)
     - https://docs.djangoproject.com/en/3.2/topics/security/#user-uploaded-content
-- registered users must have unique username
-- successful registration leads back to `landing` page
+- successful registration logs new user in and leads them back to `landing` page
 ![meetupRegister](images/meetupBasic/meetupRegister.png)
 
 ### Group Creation Page(Registered Users)
@@ -557,7 +566,7 @@ This page allows guests to become registered users.
     - group logo image upload
         - images must be <= 1mb
         - images must have .jpg or .gif extension only (see the security notes on using .png files)
-- upon successful submission, current user becomes group admin for that groupis taken to that group's `groupHome` page. 
+- upon successful submission, current user becomes group admin for that group and is taken to that group's `groupHome` page. 
 ![meetupCreateGroup](images/meetupBasic/meetupCreateGroup.png)
 
 ### Group Home (Registered Users, Guests)
@@ -612,9 +621,11 @@ This is a page for users to find details about events that have occurred in the 
 - if user is group member
     - details including date, time, address
     - toggle button to participate in event / leave event
-    - message board all group members can submit to with entries including:
-        - profile image, username, message for all previously submitted messages
-        - input field for message <= 50 charcters and submit button for new messages
+    - message board through which all group members can post messages:
+        - each message contains profile image of sender, username of sender, and text content of message
+        - all previously submitted messages can be viewed
+        - input field for a new message 
+            - <= 50 charcters and submit button for new messages
 - if user is event host:  
     - button that allows event to be disbanded. disbanded events are no different than regular events except a large message indicating they are disbanded is displayed. 
 ![meetupEventHome](images/meetupBasic/meetupEventHome.png)
