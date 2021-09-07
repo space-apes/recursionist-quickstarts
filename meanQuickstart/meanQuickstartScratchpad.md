@@ -44,7 +44,11 @@
 - variable declaration: 
     - `let message : string = "Hello World"` 
 - parameters / return type
-    - `function greeter(message : string, age : number) :  string`
+```
+    function greeter(message : string, age : number) : string {
+    return "asdasd"
+    }
+```
 - classes
 - interfaces vs types
 - interfaces 
