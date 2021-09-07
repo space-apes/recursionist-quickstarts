@@ -8,7 +8,6 @@
 ## Node.js
 - quick references
     - https://nodejs.org/en/docs/guides/getting-started-guide/ 
-    - 
 ## Angular 
 - tutorials
     - https://www.youtube.com/watch?v=3dHNOWTI7H8
@@ -24,8 +23,7 @@
 ## What is it
 - superset of javascript
 - includes typing
-- ts sourcecode transpiles to javascript
-- ts can not be executed on its own
+- ts can not be executed on its own (ts sourcecode transpiles to javascript)
 ## Tooling
 1. `npm install -g typescript`
 2. `touch example.ts`
