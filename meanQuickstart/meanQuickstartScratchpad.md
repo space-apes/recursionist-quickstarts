@@ -59,8 +59,9 @@ interface ArtistForEdit {
   bio?: string;
 }
 ``` 
-- generic types
+- unions vs generic types
 - unions
+- generic types
 
 # Node.js Notes
 ## What is it?
