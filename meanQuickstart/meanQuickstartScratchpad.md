@@ -35,11 +35,13 @@
     - `function greeter(message : string, age : number) :  
 - classes
 - interfaces 
-    - ```interface ArtistForEdit {
+```
+interface ArtistForEdit {
   id: number;
   name?: string;
   bio?: string;
-}``` 
+}
+``` 
 - generic types
 - unions
 
