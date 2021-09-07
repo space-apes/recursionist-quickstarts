@@ -32,7 +32,7 @@
 - variable declaration: 
     - `let message : string = "Hello World"` 
 - parameters / return type
-    - `function greeter(message : string, age : number) :  
+    - `function greeter(message : string, age : number) :  string`
 - classes
 - interfaces 
 ```
