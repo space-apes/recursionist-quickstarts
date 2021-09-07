@@ -1,22 +1,33 @@
 # LINKS
-## typescript 
+## Typescript 
 - tutorials
-    - https://www.youtube.com/watch?v=eCZhz0JCVx0
-    - https://www.youtube.com/watch?v=NjN00cM18Z4
 - quick references
-## angular 
+    - https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html 
+## Node.js
+- quick references
+## Angular 
 - tutorials
     - https://www.youtube.com/watch?v=3dHNOWTI7H8
     - 
 - projects
 - quick references
-## express 
+## Express 
 - tutorials
 - projects
 - quick references
 
-
 # Typescript notes
+## What is it
+## Typing
+- variable declaration
+- parameters
+- classes
+- interfaces 
+- generic types
+- unions
 
+# Node.js Notes
 
+# Angular Notes
 
+# Express Notes
