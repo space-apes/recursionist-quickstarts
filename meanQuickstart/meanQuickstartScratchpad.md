@@ -25,7 +25,6 @@
     - https://www.youtube.com/watch?v=3dHNOWTI7H8
     - https://www.youtube.com/watch?v=k5E2AVpwsko
     - https://docs.angularjs.org/tutorial
-- projects
 - quick references
     - https://angular.io/guide/cheatsheet 
 ## Express 
@@ -105,7 +104,10 @@ interface ArtistForEdit {
 # Angular Notes
 - what is it?
 - what can and can't angular do?
-
+- what are templates
+- what are components / props
+- what is data binding
+- what is meant by 'state'
 # Express Notes
 - what is it?
     - basic web framework package for NPM 
