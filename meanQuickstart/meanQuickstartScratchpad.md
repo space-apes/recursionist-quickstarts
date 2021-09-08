@@ -31,6 +31,7 @@
 - quick references
     - https://expressjs.com/en/4x/api.html 
     - https://www.guru99.com/node-js-express.html
+    - https://expressjs.com/en/guide/database-integration.html#mysql
 
 # Typescript notes
 ## What is it
