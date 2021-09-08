@@ -137,6 +137,12 @@ var server=app.listen(3000,function() {}); // start web server
     2. html file includes  script tag with our angular code
 - what are templates
 - what are components / props
+    - building block of angular app including
+        - An HTML template that declares what renders on the page
+        - A Typescript class that defines behavior
+        - A CSS selector that defines how the component is used in a template
+        - Optionally, CSS styles applied to the template
+ 
 - what is data binding
 - what is meant by 'state'
 
