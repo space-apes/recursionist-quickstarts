@@ -24,6 +24,7 @@
 - tutorials
     - https://www.youtube.com/watch?v=3dHNOWTI7H8
     - https://www.youtube.com/watch?v=k5E2AVpwsko
+    - https://docs.angularjs.org/tutorial
 - projects
 - quick references
     - https://angular.io/guide/cheatsheet 
