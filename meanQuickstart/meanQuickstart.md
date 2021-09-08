@@ -8,8 +8,9 @@
 # Node 
 - what is it 
 - installation
-- what can you do with it
+- what can you do with it 
     - runtime
+    - package manager
     - basic server "hello world"
  
 # Express
