@@ -45,6 +45,22 @@
 3. `tsc example.ts` (creates js file)
 ## Typing
 - valid primitive types
+    - number
+    - string
+    - bigint
+    - boolean
+    - symbol
+    - null
+    - undefined
+    - object
+- non-primitive types
+    - unknown
+    - never
+    - object literal
+    - void: subtype of undefined. for use as return type
+    - T[]: mutable arrays. also written as `Array<T>`
+    - [T, T]: tupes. fixed length but mutable
+    - (t: T)=> U: functions  
 - variable declaration: 
     - `let message : string = "Hello World"` 
 - parameters / return type
