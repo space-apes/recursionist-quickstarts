@@ -26,9 +26,11 @@
 - quick references
     - https://angular.io/guide/cheatsheet 
 ## Express 
-- tutorials
+- tutorials 
 - projects
 - quick references
+    - https://expressjs.com/en/4x/api.html 
+    - https://www.guru99.com/node-js-express.html
 
 # Typescript notes
 ## What is it
@@ -64,11 +66,21 @@ interface ArtistForEdit {
 - generic types
 
 # Node.js Notes
-## What is it?
-## Tooling
-- https://nodejs.org/en/download/
-- execute js with `node example.js` 
+- What is it?
+- Tooling
+    - https://nodejs.org/en/download/
+    - execute js with `node example.js` 
 
 # Angular Notes
+- what is it?
+- what can and can't angular do?
 
 # Express Notes
+- what is it?
+- what can and can't express js do?
+```
+var express=require('express'); //include express module 
+var app=express(); // store express as an object
+app.get('/',function(req,res){ res.send('Hello World!');}); // add a route: app.METHOD(PATH, HANDLER)
+var server=app.listen(3000,function() {}); // start web server
+```
