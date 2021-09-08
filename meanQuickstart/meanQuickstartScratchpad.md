@@ -53,6 +53,7 @@
     }
 ```
 - classes
+    - inheritance: `class Derived extends Base {....` 
 - interfaces vs types
 - interfaces 
 ```
