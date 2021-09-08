@@ -16,6 +16,7 @@
     - https://blog.bitsrc.io/javascript-require-vs-import-47827a361b77 
     - https://www.youtube.com/watch?v=2LUdnb-mls0
     - https://nodejs.dev/learn 
+    - https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
 - quick references
     - https://nodejs.org/en/docs/guides/getting-started-guide/ 
     - 
