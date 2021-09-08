@@ -94,6 +94,9 @@ interface ArtistForEdit {
 
 # Node.js Notes
 - What is it?
+    - local runtime environment for javascript
+    - includes package manager NPM
+    - automatic package dependency 
 - Tooling
     - https://nodejs.org/en/download/
     - execute js with `node example.js` 
@@ -104,6 +107,8 @@ interface ArtistForEdit {
 
 # Express Notes
 - what is it?
+    - basic web framework package for NPM 
+    - includes web server, routes, hooks to interact with DB, middleware, controller
 - what can and can't express js do?
 ```
 var express=require('express'); //include express module 
