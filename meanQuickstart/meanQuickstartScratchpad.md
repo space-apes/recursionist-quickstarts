@@ -1,6 +1,6 @@
 # LINKS
 
-## The Stack
+## The MEAN stack (replacing mongodb with mysql)
 - tutorials
     - https://www.youtube.com/watch?v=1tRLveSyNz8
     - https://www.youtube.com/watch?v=5NER79OFmTY 
