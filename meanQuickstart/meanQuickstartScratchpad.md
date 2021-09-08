@@ -1,6 +1,6 @@
 # LINKS
 
-## The MEAN stack (replacing mongodb with mysql)
+## The MEAN stack overview (replacing mongodb with mysql)
 - tutorials
     - https://www.youtube.com/watch?v=1tRLveSyNz8
     - https://www.youtube.com/watch?v=5NER79OFmTY 
@@ -54,6 +54,7 @@
     - undefined
     - object
 - non-primitive types
+    - any: wildcard type. used to avoid typechecking errors
     - unknown
     - never
     - object literal
@@ -61,14 +62,15 @@
     - T[]: mutable arrays. also written as `Array<T>`
     - [T, T]: tupes. fixed length but mutable
     - (t: T)=> U: functions  
-- variable declaration: 
+- type annotation in declaration: 
     - `let message : string = "Hello World"` 
-- parameters / return type
+- type annotation in function/method definition
 ```
     function greeter(message : string, age : number) : string {
     return "asdasd"
     }
 ```
+- type annotation for object types list attributes and types of attributes: `function printCoord(pt: { x: number; y: number }`
 - classes
     - defining class: `class blah {}`
     - constructors: `constructor()`  
@@ -85,7 +87,7 @@ interface ArtistForEdit {
 }
 ``` 
 - unions vs generic types
-- unions
+- unions: type can match multiple other types: `function printId(id: number | string) {`
 - generic types
 
 # Node.js Notes
