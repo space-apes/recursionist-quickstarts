@@ -19,6 +19,7 @@
     - https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment
 - quick references
     - https://nodejs.org/en/docs/guides/getting-started-guide/ 
+    - https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
     - 
 ## Angular 
 - tutorials
@@ -51,7 +52,7 @@
     - string
     - bigint
     - boolean
-    - symbol
+    - symbol: create unique entity. can never equal another symbol.
     - null
     - undefined
     - object
@@ -95,27 +96,47 @@ interface ArtistForEdit {
 # Node.js Notes
 - What is it?
     - local runtime environment for javascript
+    - server side runtime
     - includes package manager NPM
     - automatic package dependency 
+- what can it do
+    - listen for HTTP requests, send back responses
+    - execute server side logic
+    - interact with files, databases
 - Tooling
     - https://nodejs.org/en/download/
     - execute js with `node example.js` 
 
-# Angular Notes
-- what is it?
-- what can and can't angular do?
-- what are templates
-- what are components / props
-- what is data binding
-- what is meant by 'state'
 # Express Notes
 - what is it?
     - basic web framework package for NPM 
     - includes web server, routes, hooks to interact with DB, middleware, controller
 - what can and can't express js do?
+    - simplifies node.js's web framework capabilities
+    - funnels requests through chain of functions (middlewares)
+    - routing
+    - view-rendering  (but we will use Angular) 
 ```
 var express=require('express'); //include express module 
 var app=express(); // store express as an object
 app.get('/',function(req,res){ res.send('Hello World!');}); // add a route: app.METHOD(PATH, HANDLER)
 var server=app.listen(3000,function() {}); // start web server
 ```
+
+# Angular Notes
+- what is it?
+    - 100% JS, 100% client-side framework for building UIs
+    - focus on single-page-apps
+    - similar to mobile app UI
+- what can and can't angular do?
+    - update UI with dynamic whenever there are changes to data
+    - communicates with node/express
+
+- installation
+    1. html file includes script tag with src = to angular framework js
+    2. html file includes  script tag with our angular code
+- what are templates
+- what are components / props
+- what is data binding
+- what is meant by 'state'
+
