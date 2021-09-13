@@ -157,6 +157,7 @@ var server=app.listen(3000,function() {}); // start web server
     - A Typescript class that defines behavior
     - A CSS selector that defines how the component is used in a template
     - Optionally, CSS styles applied to the template
+- `@Component()` class decorator
 ## TEMPLATES
 - combines ordinary HTML with Angular directives and binding markup that allow Angular to modify the HTML before rendering it for display. 
 - modifies html elements before they are displayed
@@ -169,8 +170,10 @@ var server=app.listen(3000,function() {}); // start web server
         - "pipes" tranforming values to display (locale, currency etc)
 ## SERVICES
 - data/logic isn't associated with specific view 
-- data/logic shared across componentsw 
-
-- what is data binding
-- what is meant by 'state' in this context
+- data/logic shared across components
+- instead of directly, use services to do things like
+    - fetch data from server
+    - valdiate user input
+    - log directly into console
+- `@Injectable()` class decorator
 
