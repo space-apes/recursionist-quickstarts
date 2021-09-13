@@ -9,6 +9,7 @@
     - https://www.youtube.com/watch?v=-w1i-gARuJs 
     - https://www.typescriptlang.org/docs/handbook/dom-manipulation.html (DOM manipulation with types)
 - quick references
+    - http://hoomanb.com/cs/quickref/typescript_cheatsheet.pdf
     - https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html 
     - https://www.typescriptlang.org/play?#code/PTAEHUFMBsGMHsC2lQBd5oBYoCoE8AHSAZVgCcBLA1UABWgEM8BzM+AVwDsATAGiwoBnUENANQAd0gAjQRVSQAUCEmYKsTKGYUAbpGF4OY0BoadYKdJMoL+gzAzIoz3UNEiPOofEVKVqAHSKymAAmkYI7NCuqGqcANag8ABmIjQUXrFOKBJMggBcISGgoAC0oACCoASMFmgY7p7ehCTkVOle4jUMdRLYTqCc8LEZzCZmoNJODPHFZZXVtZYYkAAeRJTInDQS8po+rf40gnjbDKv8LqD2jpbYoACqAEoAMsK7sUmxkGSCc+VVQQuaTwVb1UBrDYULY7PagbgUZLJH6QbYmJAECjuMigZEMVDsJzCFLNXxtajBBCcQQ0MwAUVWDEQNUgADVHBQGNJ3KAALygABEAAkYNAMOB4GRogLFFTBPB3AExcwABT0xnM9zsyhc9wASmCKhwDQ8ZC8iElzhB7Bo3zcZmY7AYzEg-Fg0HUiS58D0Ii8AoZTJZggFSRxAvADlQAHJhAA5SASAVBFQAeW+ZF2gldWkgx1QjgUrmkeFATgtOlGWH0KAQiBhwiudokkuiIgMHBx3RYbC43CCJSAA
 ## Node.js
@@ -125,24 +126,51 @@ var server=app.listen(3000,function() {}); // start web server
 
 # Angular Notes
 - what is it?
-    - 100% JS, 100% client-side framework for building UIs
+    - 100% TS->JS, 100% client-side framework for building UIs
     - focus on single-page-apps
     - similar to mobile app UI
-- what can and can't angular do?
+- what can angular do?
     - update UI with dynamic whenever there are changes to data
-    - communicates with node/express
-
+    - communicate with node/express
 - installation
     1. html file includes script tag with src = to angular framework js
     2. html file includes  script tag with our angular code
-- what are templates
-- what are components / props
-    - building block of angular app including
-        - An HTML template that declares what renders on the page
-        - A Typescript class that defines behavior
-        - A CSS selector that defines how the component is used in a template
-        - Optionally, CSS styles applied to the template
- 
+    
+## DECORATORS / CLASSES
+- all modules, components, services, are _classes_ that use _decorators_.
+    - make type and provide metadata
+- metadata for component class associates it with a template that defines view\
+- metadata for service class allows service to be available through dependency injection
+
+## APPLICATION
+- set of modules towards some goal?
+- has root module AppModule, launches application  
+## MODULES
+- declares compilation context for set of related components
+- can import/allow export functionality from other modules
+- can load modules on demand ("lazy loading") 
+## COMPONENTS
+- define views. sets of screen elements can choose from / modify
+- use services. (specific functionality not directly related to views)
+- includes
+    -  An HTML template that declares what renders on the page
+    - A Typescript class that defines behavior
+    - A CSS selector that defines how the component is used in a template
+    - Optionally, CSS styles applied to the template
+## TEMPLATES
+- combines ordinary HTML with Angular directives and binding markup that allow Angular to modify the HTML before rendering it for display. 
+- modifies html elements before they are displayed
+- "directives" provide program logic
+- "binding markup" connects application data and DOM
+- BINDING
+    1. event binding: lets your application respond to user input by updating application data
+    2. property binding: interpolate values that are computed from application into HTML
+        - "two way binding": changes to DOM also are reflected in program data
+        - "pipes" tranforming values to display (locale, currency etc)
+## SERVICES
+- data/logic isn't associated with specific view 
+- data/logic shared across componentsw 
+
 - what is data binding
-- what is meant by 'state'
+- what is meant by 'state' in this context
 
