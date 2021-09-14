@@ -147,6 +147,18 @@ var server=app.listen(3000,function() {}); // start web server
     2. file structure?
     3. html file includes script tag with src = to angular framework js
     4. html file includes  script tag with our angular code
+
+
+## FILE STRUCTURE
+- package.json: node.js project meta-data (dependencies etc)
+- main.ts: ???
+- /src/
+    - styles.css: application-wide css 
+    - app/
+        - app.component.ts: component class file
+        - app.component.html: component template
+        - app.component.css: component specific styles
+
     
 ## DECORATORS / CLASSES
 - all modules, components, services, are _classes_ that use _decorators_.
@@ -172,6 +184,9 @@ var server=app.listen(3000,function() {}); // start web server
     - A Typescript class that defines behavior
     - A CSS selector that defines how the component is used in a template
     - Optionally, CSS styles applied to the template
+- `selector` meta data is name of tag that can be used in templates and will insert entire component. ex: selector: `app-root` can be used as \<app-root\> \</app-root\>
+
+
 - `@Component()` class decorator
 ```
 // in x.component.ts
@@ -199,6 +214,7 @@ export class AppComponent {
     2. property binding: interpolate values that are computed from application into HTML
         - "two way binding": changes to DOM also are reflected in program data
         - "pipes" tranforming values to display (locale, currency etc)
+
 ## SERVICES
 - data/logic isn't associated with specific view 
 - data/logic shared across components
