@@ -224,7 +224,7 @@ export class AppComponent {
 - modifies html elements before they are displayed
 - "directives" provide program data and logic: 
     - `<input id="name" [(ngModel)]="hero.name" placeholder="name">`
-    - `<li *ngFor="let hero of heroes">`
+    - `<li *ngFor="let hero of heroes">` for x in y repeat li tag 
 - "binding markup" connects application data and DOM
 - `{{ varName }}` interpolation from app data
 - templates / views are though of as hierarchical 
