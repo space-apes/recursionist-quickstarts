@@ -154,11 +154,19 @@ var server=app.listen(3000,function() {}); // start web server
 - main.ts: ???
 - /src/
     - styles.css: application-wide css 
-    - app/
-        - app.component.ts: component class file
-        - app.component.html: component template
-        - app.component.css: component specific styles
-
+    - app/: highest level component?
+        - app.module.ts: module definition for this app. opt in high level modules like FormsModule here 
+        - app.component.ts: root component class file. 
+        - app.component.spec.ts: unit tests for root component class file
+        - app.component.html: root component template
+        - app.component.css: root component specific styles
+     
+        - heroes/: non-app component directory
+            - hero.ts : example, can define interface/classes for data
+            - heroes.component.ts: non-root component class file
+            - heroes.component.html: non-root component template
+            - heroes.component.css: non-root component styles
+            - heroes.component.spec.ts: unit tests for non-root component class file
     
 ## DECORATORS / CLASSES
 - all modules, components, services, are _classes_ that use _decorators_.
@@ -177,15 +185,20 @@ var server=app.listen(3000,function() {}); // start web server
 - can import/allow export functionality from other modules
 - can load modules on demand ("lazy loading") 
 ## COMPONENTS
+- generate with `ng generate component NAMEHERE`
 - define views. sets of screen elements can choose from / modify
+- must be declared in exactly 1 NgModule `declarations: in modulefile`
 - use services. (specific functionality not directly related to views)
 - includes
     -  An HTML template that declares what renders on the page
     - A Typescript class that defines behavior
     - A CSS selector that defines how the component is used in a template
     - Optionally, CSS styles applied to the template
-- `selector` meta data is name of tag that can be used in templates and will insert entire component. ex: selector: `app-root` can be used as \<app-root\> \</app-root\>
-
+- `selector` meta data is name of tag that can be used in _parent_ templates and will insert entire component. ex: selector: `app-root` can be used as \<app-root\> \</app-root\>
+- always import Component and decorate classes with @component
+- always export classes defined in ts file so can be imported by... parent components
+- constructor(): initialize class members, set up DI
+- ngOnInit() method called after constructor. 
 
 - `@Component()` class decorator
 ```
@@ -205,16 +218,22 @@ export class AppComponent {
 
 ```
 ## TEMPLATES
+- syntax: https://angular.io/guide/template-syntax
+- component views are defined through component templates
 - combines ordinary HTML with Angular directives and binding markup that allow Angular to modify the HTML before rendering it for display. 
 - modifies html elements before they are displayed
-- "directives" provide program logic
+- "directives" provide program data and logic: 
+    -\<input id="name" [(ngModel)]="hero.name" placeholder="name"\>
+    - \<li *ngFor="let hero of heroes"\>
 - "binding markup" connects application data and DOM
-- BINDING
+- `{{ varName }}` interpolation from app data
+- templates / views are though of as hierarchical 
+- BINDING: coordinate app data and dom data
     1. event binding: lets your application respond to user input by updating application data
     2. property binding: interpolate values that are computed from application into HTML
-        - "two way binding": changes to DOM also are reflected in program data
+        - "two way binding": changes to DOM also are reflected in program data: "hero.name property to the textbox, and from the textbox back to the hero.name."
         - "pipes" tranforming values to display (locale, currency etc)
-
+    3. two way binding syntax in input tag in template: `[(ngModel)]="hero.name"
 ## SERVICES
 - data/logic isn't associated with specific view 
 - data/logic shared across components
