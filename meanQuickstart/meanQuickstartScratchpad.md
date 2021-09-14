@@ -223,7 +223,7 @@ export class AppComponent {
 - combines ordinary HTML with Angular directives and binding markup that allow Angular to modify the HTML before rendering it for display. 
 - modifies html elements before they are displayed
 - "directives" provide program data and logic: 
-    -`<input id="name" [(ngModel)]="hero.name" placeholder="name">`
+    - `<input id="name" [(ngModel)]="hero.name" placeholder="name">`
     - `<li *ngFor="let hero of heroes">`
 - "binding markup" connects application data and DOM
 - `{{ varName }}` interpolation from app data
