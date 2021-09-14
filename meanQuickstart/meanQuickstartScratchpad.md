@@ -230,6 +230,7 @@ export class AppComponent {
 - templates / views are though of as hierarchical 
 - BINDING: coordinate app data and dom data
     1. event binding: lets your application respond to user input by updating application data
+        - `<li *ngFor="let hero of heroes" (click)="onSelect(hero)">` 
     2. property binding: interpolate values that are computed from application into HTML
         - "two way binding": changes to DOM also are reflected in program data: "hero.name property to the textbox, and from the textbox back to the hero.name."
         - "pipes" tranforming values to display (locale, currency etc)
