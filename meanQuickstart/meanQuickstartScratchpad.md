@@ -133,8 +133,20 @@ var server=app.listen(3000,function() {}); // start web server
     - update UI with dynamic whenever there are changes to data
     - communicate with node/express
 - installation
-    1. html file includes script tag with src = to angular framework js
-    2. html file includes  script tag with our angular code
+    1. https://angular.io/guide/setup-local
+        - install npm
+        - install angular cli `npm install -g @angular/cli`
+        - if have version errors
+            - update node.js with 'n'
+                - `npm install -g n`
+                -   
+        - start new project `ng new new-app-name`
+        - start test server
+            - `cd new-app-name`
+            - `ng serve --open` serves at port 4200 
+    2. file structure?
+    3. html file includes script tag with src = to angular framework js
+    4. html file includes  script tag with our angular code
     
 ## DECORATORS / CLASSES
 - all modules, components, services, are _classes_ that use _decorators_.
@@ -145,6 +157,9 @@ var server=app.listen(3000,function() {}); // start web server
 ## APPLICATION
 - set of modules towards some goal?
 - has root module AppModule, launches application  
+- APP SHELL:
+    -  Application shell is a way to render a portion of your application using a route at build time. It can improve the user experience by quickly launching a static rendered page (a skeleton common to all pages) while the browser downloads the full client version and switches to it automatically after the code loads.
+    -  This gives users a meaningful first paint of your application that appears quickly because the browser can render the HTML and CSS without the need to initialize any JavaScript.
 ## MODULES
 - declares compilation context for set of related components
 - can import/allow export functionality from other modules
@@ -158,6 +173,22 @@ var server=app.listen(3000,function() {}); // start web server
     - A CSS selector that defines how the component is used in a template
     - Optionally, CSS styles applied to the template
 - `@Component()` class decorator
+```
+// in x.component.ts
+
+//decorator for new component
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+//actual component class definition
+export class AppComponent {
+  title = 'Tour Of Tutorials!!!';
+}
+
+```
 ## TEMPLATES
 - combines ordinary HTML with Angular directives and binding markup that allow Angular to modify the HTML before rendering it for display. 
 - modifies html elements before they are displayed
