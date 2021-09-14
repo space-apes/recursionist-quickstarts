@@ -233,8 +233,8 @@ export class AppComponent {
         - `<li *ngFor="let hero of heroes" (click)="onSelect(hero)">` 
     2. property binding: interpolate values that are computed from application into HTML
         - "two way binding": changes to DOM also are reflected in program data: "hero.name property to the textbox, and from the textbox back to the hero.name."
-        - "pipes" tranforming values to display (locale, currency etc)
-    3. two way binding syntax in input tag in template: `[(ngModel)]="hero.name"
+        - "pipes" tranforming values to display (locale, currency etc): `{{ hero.name | uppercase }}`
+    3. two way binding syntax in input tag in template: `[(ngModel)]="hero.name"`
 ## SERVICES
 - data/logic isn't associated with specific view 
 - data/logic shared across components
