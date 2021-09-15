@@ -269,4 +269,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 ```
+- typically fetched data is NOT SYNCHRONOUS (waits for response from server and dont want to block web application)
+- need to set signature of data fetch methods as asynchronous. `getHeroes(): Observable<Hero[]> {`
+- using this service now involves being an observer that subscribes to an observable that will emit an array of Heroes after some time has passed
+```getHeroes(): void {
+  this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+}
+```
 
+## Built In Features
+
+### HttpClient
+    - `HttpClient.get(addr) -> Observable`
+    - `HttpClient.get<Hero[]>()` returns an Observable<Hero[]> that emits a single value, an array of heroes from the body of the HTTP response.
+### rxjs
+    - Observable (asynch generic container?)
+    - http://reactivex.io/documentation/observable.html
