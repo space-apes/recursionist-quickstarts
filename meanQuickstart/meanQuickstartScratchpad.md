@@ -233,7 +233,7 @@ export class AppComponent {
     1. event binding: lets your application respond to user input by updating application data
         - `<li *ngFor="let hero of heroes" (click)="onSelect(hero)">` 
     2. property binding: interpolate values that are computed from application into HTML
-        - `<app-hero-detail [hero]="selectedHero"></app-hero-detail>`
+        - `@Input() hero?: Hero` in class file and `<app-hero-detail [hero]="selectedHero"></app-hero-detail>` in template
         - It's a one way data binding from the selectedHero property of the HeroesComponent to the hero property of the target element, which maps to the hero property of the HeroDetailComponent. 
         - "two way binding": changes to DOM also are reflected in program data: "hero.name property to the textbox, and from the textbox back to the hero.name."
         - "pipes" tranforming values to display (locale, currency etc): `{{ hero.name | uppercase }}`
