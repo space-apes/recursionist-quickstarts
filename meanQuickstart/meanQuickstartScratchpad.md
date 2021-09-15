@@ -225,6 +225,7 @@ export class AppComponent {
 - "directives" provide program data and logic: 
     - `<input id="name" [(ngModel)]="hero.name" placeholder="name">`
     - `<li *ngFor="let hero of heroes">` for x in y repeat li tag 
+    - `<div *ngIf="selectedHero">` displays div only if value is set
 - "binding markup" connects application data and DOM
 - `{{ varName }}` interpolation from app data
 - templates / views are though of as hierarchical 
@@ -232,9 +233,13 @@ export class AppComponent {
     1. event binding: lets your application respond to user input by updating application data
         - `<li *ngFor="let hero of heroes" (click)="onSelect(hero)">` 
     2. property binding: interpolate values that are computed from application into HTML
+        - `<app-hero-detail [hero]="selectedHero"></app-hero-detail>`
+        - It's a one way data binding from the selectedHero property of the HeroesComponent to the hero property of the target element, which maps to the hero property of the HeroDetailComponent. 
         - "two way binding": changes to DOM also are reflected in program data: "hero.name property to the textbox, and from the textbox back to the hero.name."
         - "pipes" tranforming values to display (locale, currency etc): `{{ hero.name | uppercase }}`
-    3. two way binding syntax in input tag in template: `[(ngModel)]="hero.name"`
+    - two way binding syntax in input tag in template: `[(ngModel)]="hero.name"`
+    - class binding: Add `[class.some-css-class]="some-condition"` to the element you want to style. 
+    - class binding ex: `[class.selected] = "hero === selectedHero"`
 ## SERVICES
 - data/logic isn't associated with specific view 
 - data/logic shared across components
