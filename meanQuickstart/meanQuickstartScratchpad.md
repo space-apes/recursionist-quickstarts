@@ -248,13 +248,20 @@ export class AppComponent {
 - why?: 
     - "Components shouldn't fetch or save data directly and they certainly shouldn't knowingly present fake data. They should focus on presenting data and delegate data access to a service."
     - great way for classes that don't know each other to share data
+    - great way to abstract where data comes from. (db, etc)
 - data/logic isn't associated with specific view 
 - data/logic shared across components
 - instead of directly, use services to do things like
     - fetch data from server
     - valdiate user input
     - log directly into console
-- `@Injectable()` class decorator
+- cli: `ng generate service serviceName`
+- can not make available for DI until registers a provider with the injector
+- 'A provider is something that can create or deliver a service; in this case, it instantiates the HeroService class to provide the service.'
+- injector: 'the object that is responsible for choosing and injecting the provider where the application requires it.'
+- 'providedIn' metadata in Injectable() decorator registers this provider with the _root injector_ for teh application
+- 
+- `@Injectable()` class decorator that suggests this class participates in dependency injection system
 ```
 import { Injectable } from '@angular/core';
 
