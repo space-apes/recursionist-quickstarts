@@ -26,8 +26,11 @@
 - official tutorial: https://angular.io/tutorial
 
 # Stepping Stone 1: Components / Basic Templates
+- components vs views
 - command line 
 - decorator / metadata 
+    - template file
+    - css file
 
 # Project 1A: Coffeeshop Menu Item (OR SPORT SCORE KEEPER)
 - (data model idea) menu item interface
@@ -35,10 +38,11 @@
     - number: itemPrice
     - string: itemImageUrl
     - string: customerName
+- can select different items to display just 1 at a time
 
 # Project 1B: Cafe Menu 
 - uses hierarchical quality of components
-- can select multiple Coffeeshop Menu Items
+- can select multiple Coffeeshop Menu Items to create an Order
 - displays all menuItems, total price, customer name
 - can store multiple orders, expand/collapse view of orders, 'finish' to remove orders
 
