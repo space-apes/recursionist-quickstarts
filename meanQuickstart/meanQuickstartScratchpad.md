@@ -189,6 +189,7 @@ var server=app.listen(3000,function() {}); // start web server
 - define views. sets of screen elements can choose from / modify
 - must be declared in exactly 1 NgModule `declarations: in modulefile`
 - use services. (specific functionality not directly related to views)
+- Angular creates, updates, and destroys components as the user moves through the application. 
 - includes
     -  An HTML template that declares what renders on the page
     - A Typescript class that defines behavior
@@ -230,17 +231,23 @@ export class AppComponent {
 - `{{ varName }}` interpolation from app data
 - templates / views are though of as hierarchical 
 - BINDING: coordinate app data and dom data
-    1. event binding: lets your application respond to user input by updating application data
+- https://angular.io/guide/binding-syntax#types-of-data-binding
+    1. interpolation: `{{ title }}` 
+    2. event binding: lets your application respond to user input by updating application data
         - `<li *ngFor="let hero of heroes" (click)="onSelect(hero)">` 
-    2. property binding: interpolate values that are computed from application into HTML
+    2. property binding: bind values between components
         - `@Input() hero?: Hero` in class file and `<app-hero-detail [hero]="selectedHero"></app-hero-detail>` in template
         - It's a one way data binding from the selectedHero property of the HeroesComponent to the hero property of the target element, which maps to the hero property of the HeroDetailComponent. 
         - "two way binding": changes to DOM also are reflected in program data: "hero.name property to the textbox, and from the textbox back to the hero.name."
         - "pipes" tranforming values to display (locale, currency etc): `{{ hero.name | uppercase }}`
-    - two way binding syntax in input tag in template: `[(ngModel)]="hero.name"`
+    4. two way binding syntax in input tag in template: `[(ngModel)]="hero.name"`
     - class binding: Add `[class.some-css-class]="some-condition"` to the element you want to style. 
     - class binding ex: `[class.selected] = "hero === selectedHero"`
+    - "Angular processes all data bindings once for each JavaScript event cycle, from the root of the application component tree through all child components."
 ## SERVICES
+- why?: 
+    - "Components shouldn't fetch or save data directly and they certainly shouldn't knowingly present fake data. They should focus on presenting data and delegate data access to a service."
+    - great way for classes that don't know each other to share data
 - data/logic isn't associated with specific view 
 - data/logic shared across components
 - instead of directly, use services to do things like
@@ -248,4 +255,11 @@ export class AppComponent {
     - valdiate user input
     - log directly into console
 - `@Injectable()` class decorator
+```
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+```
 
