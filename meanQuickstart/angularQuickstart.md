@@ -37,6 +37,11 @@
     - string: customerName
 
 # Project 1B: Cafe Menu 
+- uses hierarchical quality of components
 - can select multiple Coffeeshop Menu Items
 - displays all menuItems, total price, customer name
 - can store multiple orders, expand/collapse view of orders, 'finish' to remove orders
+
+# Stepping Stone 2: Binding
+
+# Stepping Stone 3: Services and Routes
