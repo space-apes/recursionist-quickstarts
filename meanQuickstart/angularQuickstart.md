@@ -5,22 +5,27 @@
     - essentially 100% client side js loaded from web browser and included in HTML
     - is actually transpiled from typescript
     - gives ability to: reuse elements, dependency injection, 
+    - collection of common functionality: client/server, forms 
+    - try it link
 - what you will need to know
     - html, css
     - object oriented concepts
     - typescript fundamentals 
+
 - conceptual hierarchy
     - application
         - modules
-          - components
-          - services
+            - components (views)
+            - services
     
 - installation
+    - https://angular.io/guide/setup-local 
     - basic file hierarchy
     - root module
-- 
+
+- official tutorial: https://angular.io/tutorial
+
 # Stepping Stone 1: Components / Basic Templates
-- 
 - command line 
 - decorator / metadata 
 
