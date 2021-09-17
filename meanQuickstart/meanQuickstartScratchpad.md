@@ -284,6 +284,31 @@ import { Injectable } from '@angular/core';
 }
 ```
 
+## ROUTING
+- routes map urls/clickable links to views
+- routing is defined in a module
+- In Angular, the best practice is to load and configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.
+- CLI: `ng generate module app-routing --flat --module=app` (puts in app folder instead of own folder and registers route in app module)
+```
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HeroesComponent } from './heroes/heroes.component';
+
+const routes: Routes = [
+  { path: 'heroes', component: HeroesComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+- imports RouterModule, Routes
+- defines array of Route elements with path name and component to be routed to
+- dont understand imports/exports module level metadata yet...
+- Routes tell the Router which view to display when a user clicks a link or pastes a URL into the browser address bar.
+- 
 ## Built In Features
 
 ### HttpClient
@@ -292,3 +317,4 @@ import { Injectable } from '@angular/core';
 ### rxjs
     - Observable (asynch generic container?)
     - http://reactivex.io/documentation/observable.html
+
