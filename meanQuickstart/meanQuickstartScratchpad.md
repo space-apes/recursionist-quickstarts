@@ -186,6 +186,8 @@ var server=app.listen(3000,function() {}); // start web server
 - can load modules on demand ("lazy loading") 
 ## COMPONENTS
 - generate with `ng generate component NAMEHERE`
+    - declares component in app module
+    - creates all component files   
 - define views. sets of screen elements can choose from / modify
 - must be declared in exactly 1 NgModule `declarations: in modulefile`
 - use services. (specific functionality not directly related to views)
@@ -244,6 +246,7 @@ export class AppComponent {
     - class binding: Add `[class.some-css-class]="some-condition"` to the element you want to style. 
     - class binding ex: `[class.selected] = "hero === selectedHero"`
     - "Angular processes all data bindings once for each JavaScript event cycle, from the root of the application component tree through all child components."
+- if binding to some value in template, must use public class properties because: "Angular only binds to public component properties."
 ## SERVICES
 - why?: 
     - "Components shouldn't fetch or save data directly and they certainly shouldn't knowingly present fake data. They should focus on presenting data and delegate data access to a service."
@@ -256,6 +259,9 @@ export class AppComponent {
     - valdiate user input
     - log directly into console
 - cli: `ng generate service serviceName`
+    - generally stored in top level folder because services app-wide (uses root injector)
+    - creates service ts file
+    -  
 - can not make available for DI until registers a provider with the injector
 - 'A provider is something that can create or deliver a service; in this case, it instantiates the HeroService class to provide the service.'
 - injector: 'the object that is responsible for choosing and injecting the provider where the application requires it.'
