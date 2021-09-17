@@ -49,3 +49,7 @@
 # Stepping Stone 2: Binding
 
 # Stepping Stone 3: Services and Routes
+    - queue
+        - add messages to queue on events
+    - application wide service
+    - application wide and fetching from external source
