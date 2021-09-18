@@ -306,10 +306,21 @@ export class AppRoutingModule { }
 ```
 - imports RouterModule, Routes
 - defines array of Route elements with path name and component to be routed to
-- dont understand imports/exports module level metadata yet...
+- `imports: [ RouterModule.forRoot(routes) ]`: The forRoot() method supplies the service providers and directives needed for routing, and performs the initial navigation based on the current browser URL.
 - Routes tell the Router which view to display when a user clicks a link or pastes a URL into the browser address bar.
+### after creating the routing module 
+- you can use `<router-outlet>` in templates which comes from exporting `RouterModule` which listens for changes to url and displays diff components
+``` 
+<h1> {{ title }} </h1>
+<router-outlet> </router-outlet>
+<app-messages> </app-messages>
+```
+- in this example, navigating to `/` shows h1 and app-messages, but not heroes. 
+- in this example, navigating to `/heroes` shows title, heroes, and app-messages
+- within templates, can navigate to components `<a routerLink='/heroes'> 
+- view level redirecting: `{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },`
 - 
-## Built In Features
+## Built-In Features
 
 ### HttpClient
     - `HttpClient.get(addr) -> Observable`
