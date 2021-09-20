@@ -319,13 +319,18 @@ export class AppRoutingModule { }
 - in this example, navigating to `/heroes` shows title, heroes, and app-messages
 - within templates, can navigate to components `<a routerLink='/heroes'> 
 - view level redirecting: `{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },`
-- 
+- parameterized routes: `{ path: 'detail/:id', component: HeroDetailComponent }` 
+- get current route information by injecting ActivatedRoute from `import { ActivatedRoute } from '@angular/router';`
+- extract parameter from route `this.route.snapshot.paramMap.get('id')`
+- navigate browser back: ` this.location.back();`
 ## Built-In Features
 
 ### HttpClient
-    - `HttpClient.get(addr) -> Observable`
-    - `HttpClient.get<Hero[]>()` returns an Observable<Hero[]> that emits a single value, an array of heroes from the body of the HTTP response.
+- `HttpClient.get(addr) -> Observable`
+- `HttpClient.get<Hero[]>(url)` returns an Observable<Hero[]> that emits a single value, an array of heroes from the body of the HTTP response.
+- HttpClient.get() returns the body of the response as an untyped JSON object by default. 
 ### rxjs
-    - Observable (asynch generic container?)
-    - http://reactivex.io/documentation/observable.html
-
+- Observable (asynch generic container?)
+- http://reactivex.io/documentation/observable.html
+- catching errors and piping: `import { catchError, map, tap } from 'rxjs/operators';`
+- 
