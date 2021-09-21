@@ -328,7 +328,15 @@ export class AppRoutingModule { }
 ### HttpClient
 - `HttpClient.get(addr) -> Observable`
 - `HttpClient.get<Hero[]>(url)` returns an Observable<Hero[]> that emits a single value, an array of heroes from the body of the HTTP response.
-- HttpClient.get() returns the body of the response as an untyped JSON object by default. 
+- HttpClient.get() returns the body of the response as an untyped JSON object by default.
+- HttpClient.put(): `this.http.put(this.heroesUrl, hero, this.httpOptions)`
+    - url, data to update, and options
+    - data is known by receiving api by id
+    - need to define httpOptions
+    - ```httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+```
 ### rxjs
 - Observable (asynch generic container?)
 - http://reactivex.io/documentation/observable.html
