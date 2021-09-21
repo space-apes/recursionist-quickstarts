@@ -342,7 +342,20 @@ httpOptions = {
 ```
 
 ### rxjs
-- Observable (asynch generic container?)
+
+#### Observable Datatype
+- Observable (asynch generic container. need to specify internal type to be emitted when ready. 
+- observable variables have convention of ending with '$'
 - http://reactivex.io/documentation/observable.html
 - catching errors and piping: `import { catchError, map, tap } from 'rxjs/operators';`
+- can chain .pipe(function call, function call) off of any observable. make sure each function call returns the observable
+- subscribing to an observable waits asynchronously until it emits the internal value then calls supplied function
+    - `this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)`
+- specifying observable in template: `<li *ngFor="let hero of heroes$ | async ">`
 - 
+
+#### Subject datatype
+- like Observable, a async container where we must specify the type of data it emits
+- `searchTerms = new Subject<string>();`
+- two way: can subscribe to subjects but also push values into them
+    - `searchTerms.next("HI GUYS!")`
