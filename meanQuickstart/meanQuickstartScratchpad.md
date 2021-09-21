@@ -333,7 +333,7 @@ export class AppRoutingModule { }
     - url, data to update, and options
     - data is known by receiving api by id
     - need to define httpOptions
-```httpOptions = {
+``` httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 ```
