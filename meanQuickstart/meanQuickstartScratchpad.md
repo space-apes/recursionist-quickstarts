@@ -335,7 +335,8 @@ export class AppRoutingModule { }
     - need to define httpOptions
 
 
-``` httpOptions = {
+``` 
+httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 ```
