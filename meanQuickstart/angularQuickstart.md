@@ -1,5 +1,5 @@
 # Angular.js Quickstart
-This quickstart output guide will cover all the necessary knowledge to begin building applications in ![Angular.js](https://angularjs.org/), a powerful 
+This quickstart output guide will cover all the necessary knowledge to begin building web applications in ![Angular.js](https://angularjs.org/), a sophisticated front-end design and development framework with an emphasis on creating single-page apps that is backed by Google. The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components'. The power of Angular comes from the ability to create whole applications by composing components, which can be reused, nested, and can share data between each other. Angular ha
 
 - what is angular
     - front-end framework for developing flexible GUIs and following the general "one-page app" form
