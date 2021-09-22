@@ -22,19 +22,14 @@ You have two options for setting up a development environment for running Angula
 
 #### Angular Element / File Hierarchy
 Application: `/rootDir/` 
-    - [Modules](https://angular.io/guide/architecture-modules): `/rootDir/src/app/<moduleName>.module.ts`
-        - [Components](https://angular.io/guide/architecture-components): `/rootDir/src/app/<componentName>/`
-            - `/rootDir/src/app/<componentName>/<componentName>.component.ts` 
-            - `/rootDir/src/app/<componentName>/<componentName>.component.html`
-            - `/rootDir/src/app/<componentName>/<componentName>.component.css`
-            - other files to support this component, like interfaces/class definitions
-        - [Service Providers](https://angular.io/guide/architecture-services): `/rootDir/src/app/<serviceName>.service.ts`
+- [Modules](https://angular.io/guide/architecture-modules): `/rootDir/src/app/<moduleName>.module.ts`
+    - [Components](https://angular.io/guide/architecture-components): `/rootDir/src/app/<componentName>/`
+        - `/rootDir/src/app/<componentName>/<componentName>.component.ts` 
+        - `/rootDir/src/app/<componentName>/<componentName>.component.html`
+        - `/rootDir/src/app/<componentName>/<componentName>.component.css`
+        - other files to support this component, like interfaces/class definitions
+    - [Service Providers](https://angular.io/guide/architecture-services): `/rootDir/src/app/<serviceName>.service.ts`
 
-- Application `/rootDir/`: all angular files towards some specified goal. Composed of modules. Always contains at least one _Root Module_ defined in `root/src/app/app.module.ts`
-- [Modules](https://angular.io/guide/architecture-modules) : Cohesive block of code dedicated to single purpose. Composed of components, service providers, and other relevant code. defined in `root/src/app/<moduleName>.module.ts`
-        - [Components](https://angular.io/guide/architecture-components): html, css, and typescript that defines a 'view' or visible patch of website. 
-            - other relevant code, like interfaces or class definitions specific to this component 
-        - [Service Providers](https://angular.io/guide/architecture-services): "typically a class with a narrow, well-defined purpose. It should do something specific and do it well." However, not associated with any view.  
 
 #### Official Tutorial
 Before continuing this quickstart, run through the [official tutorial](https://angular.io/tutorial) to get a broad understanding of Angular. 
