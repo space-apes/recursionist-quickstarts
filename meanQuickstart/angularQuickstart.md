@@ -1,17 +1,14 @@
 # Angular.js Quickstart
-This quickstart will cover all the necessary knowledge to build web applications in ![Angular](https://angular.io/) by guiding you through official documentation and incremental output steps. Angular is a sophisticated front-end design and development framework with an emphasis on creating single-page apps that is backed by Google. The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components'. The power of Angular comes from the ability to create whole applications by composing components, which can be reused, nested, and can share data between each other. While the end result 
+This quickstart will cover all the necessary knowledge to build web applications in ![Angular](https://angular.io/) by guiding you through official documentation and incremental output steps. Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps. The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components' which each have their own scope. The power of Angular comes from the ability to create whole applications by composing components, which can be reused, nested, and can share data between each other. While the end result is Javascript, development in Angular is done in Typescript, a statically-typed superset of Javascript, then is transpiled to Javascript files. Finally, Angular's support for development can be seen in many places: testing and development environments, commonly needed features like testing and development tools, templates to combine static and dynamic portions of your page and a focus from the ground up on dependency injection and inversion of control. 
 
-- what is angular
-    - front-end framework for developing flexible GUIs and following the general "one-page app" form
-    - essentially 100% client side js loaded from web browser and included in HTML
-    - is actually transpiled from typescript
-    - gives ability to: reuse elements, dependency injection,
-    - collection of common functionality: templates, forms, http requests, testing
-    - try it link
-- what you will need to know
-    - html, css
-    - object oriented concepts
-    - typescript fundamentals 
+#### What You Will Need To Know For This Quickstart
+- How to execute and run programs from a CLI
+- HTML, CSS, Javascript fundamentals
+- Object oriented design principles
+- [!Typescript](https://www.typescriptlang.org/) fundamentals (if you are comfortable with javascript you will only need a short review to begin using Typescript)
+
+
+
 
 - conceptual hierarchy
     - application
