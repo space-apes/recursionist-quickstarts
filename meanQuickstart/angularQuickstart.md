@@ -71,7 +71,7 @@ Your single-page application can be thought of in 4 states:
 
 4. game completed state
     - no more cells left to enter data. User quickly closes application if their total is red or shows it to opponent if their total is green. 
-![Golf Score Keeper In Progress](images/angularQuickstartGolfProjectGameCompleteView.png)
+![Golf Score Keeper In Progress](images/angularQuickstartGolfGameCompleteView.png)
 
 # Project 2B: Cafe Menu 
 - (data model idea) menu item interface
