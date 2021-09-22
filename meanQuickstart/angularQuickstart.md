@@ -1,5 +1,5 @@
 # Angular.js Quickstart
-This quickstart will cover all the necessary knowledge to build web applications in ![Angular](https://angular.io/) by guiding you through official documentation and incremental output steps. 
+This quickstart will cover all the necessary knowledge to build web applications in [Angular](https://angular.io/) by guiding you through official documentation and incremental output steps. 
 
 #### What is Angular?
 - Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps
@@ -11,7 +11,7 @@ This quickstart will cover all the necessary knowledge to build web applications
 - How to execute and run programs from a CLI
 - HTML, CSS, Javascript fundamentals
 - Object oriented design principles
-- [!Typescript](https://www.typescriptlang.org/) fundamentals (if you are comfortable with Javascript you will only need a short review to begin using Typescript)
+- [Typescript](https://www.typescriptlang.org/) fundamentals (if you are comfortable with Javascript you will only need a short review to begin using Typescript)
 
 
 
