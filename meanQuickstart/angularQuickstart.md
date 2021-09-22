@@ -5,7 +5,7 @@ This quickstart will cover all the necessary knowledge to build web applications
 - Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps
 - The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components'. Components can be composed to make applications
 - Development in Angular is done in Typescript, a statically-typed superset of Javascript, then is transpiled to Javascript
-- Angular has many features to support for design, development and testing, and is built from the ground up with dependency injection in mind 
+- Angular has many features to support design, development and testing, and is built from the ground up with dependency injection in mind 
 
 #### What You Will Need To Know For This Quickstart
 - How to execute and run programs from a CLI
