@@ -3,8 +3,7 @@ This quickstart will cover all the necessary knowledge to build web applications
 
 #### What is Angular?
 - Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps. 
-- The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components' which each have their own scope. 
-- The power of Angular comes from the ability to create whole applications by composing components, which can be reused, nested, and can share data between each other. 
+- The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components' which each have their own scope and can be composed to make applications. 
 - While the end result is Javascript, development in Angular is done in Typescript, a statically-typed superset of Javascript, then is transpiled to Javascript files. Finally, 
 - Angular has support for development, testing, templates for integrating dynamic and static parts of your page, and is built from the ground up with dependency injection in mind 
 
