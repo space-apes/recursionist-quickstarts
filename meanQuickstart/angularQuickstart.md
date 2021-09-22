@@ -1,5 +1,12 @@
 # Angular.js Quickstart
-This quickstart will cover all the necessary knowledge to build web applications in ![Angular](https://angular.io/) by guiding you through official documentation and incremental output steps. Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps. The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components' which each have their own scope. The power of Angular comes from the ability to create whole applications by composing components, which can be reused, nested, and can share data between each other. While the end result is Javascript, development in Angular is done in Typescript, a statically-typed superset of Javascript, then is transpiled to Javascript files. Finally, Angular's support for development can be seen in many places: testing and development environments, commonly needed features like testing and development tools, templates to combine static and dynamic portions of your page and a focus from the ground up on dependency injection and inversion of control. 
+This quickstart will cover all the necessary knowledge to build web applications in ![Angular](https://angular.io/) by guiding you through official documentation and incremental output steps. 
+
+#### What is Angular?
+- Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps. 
+- The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components' which each have their own scope. 
+- The power of Angular comes from the ability to create whole applications by composing components, which can be reused, nested, and can share data between each other. 
+- While the end result is Javascript, development in Angular is done in Typescript, a statically-typed superset of Javascript, then is transpiled to Javascript files. Finally, 
+- Angular has support for development, testing, templates for integrating dynamic and static parts of your page, and is built from the ground up with dependency injection in mind 
 
 #### What You Will Need To Know For This Quickstart
 - How to execute and run programs from a CLI
