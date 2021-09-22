@@ -2,16 +2,16 @@
 This quickstart will cover all the necessary knowledge to build web applications in ![Angular](https://angular.io/) by guiding you through official documentation and incremental output steps. 
 
 #### What is Angular?
-- Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps. 
-- The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components' which each have their own scope and can be composed to make applications. 
-- While the end result is Javascript, development in Angular is done in Typescript, a statically-typed superset of Javascript, then is transpiled to Javascript files. Finally, 
-- Angular has support for development, testing, templates for integrating dynamic and static parts of your page, and is built from the ground up with dependency injection in mind 
+- Angular is a sophisticated front-end design and development framework backed by Google with an emphasis on creating single-page apps
+- The core goal for the Angular framework is to take static HTML and CSS pages and make them dynamic by combining them with javascript into packages called 'components' can be composed to make applications
+- Development in Angular is done in Typescript, a statically-typed superset of Javascript, then is transpiled to Javascript
+- Angular has many features to support for design, development and testing, and is built from the ground up with dependency injection in mind 
 
 #### What You Will Need To Know For This Quickstart
 - How to execute and run programs from a CLI
 - HTML, CSS, Javascript fundamentals
 - Object oriented design principles
-- [!Typescript](https://www.typescriptlang.org/) fundamentals (if you are comfortable with javascript you will only need a short review to begin using Typescript)
+- [!Typescript](https://www.typescriptlang.org/) fundamentals (if you are comfortable with Javascript you will only need a short review to begin using Typescript)
 
 
 
