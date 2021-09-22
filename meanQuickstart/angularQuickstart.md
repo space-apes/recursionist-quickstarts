@@ -21,13 +21,13 @@ You have two options for setting up a development environment for running Angula
 - [Local](https://angular.io/guide/setup-local)
 
 #### Angular Element Hierarchy
-*Application*: all angular files for project. composed of modules. always includes at least _root module_
+**Application**: all angular files for project. composed of modules. always includes at least _root module_
 - [Modules](https://angular.io/guide/architecture-modules): cohesive block of code towards some purpose. can import data or export data to other modules. composed of components, services providers, and other related code.
     - [Components](https://angular.io/guide/architecture-components): HTML, CSS, and TS that define a visible patch of website called a 'view'  
     - [Service Providers](https://angular.io/guide/architecture-services): 
 
 #### Angular File Hierarchy
-*Application*: `/rootDir/` 
+**Application**: `/rootDir/` 
 - Modules: `/rootDir/src/app/<moduleName>.module.ts`
     - Components: `/rootDir/src/app/<componentName>/`
         - `/rootDir/src/app/<componentName>/<componentName>.component.ts` 
