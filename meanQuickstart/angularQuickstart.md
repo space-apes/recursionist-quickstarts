@@ -1,5 +1,5 @@
 # Angular.js Quickstart
-This quickstart output guide will cover all the necessary knowledge to begin building applications in ![Angular Main Page](https://angularjs.org/), a powerful 
+This quickstart output guide will cover all the necessary knowledge to begin building applications in ![Angular.js](https://angularjs.org/), a powerful 
 
 - what is angular
     - front-end framework for developing flexible GUIs and following the general "one-page app" form
