@@ -24,7 +24,7 @@ You have two options for setting up a development environment for running Angula
 **Application**: all angular files for project. composed of modules. always includes at least _root module_
 - [Modules](https://angular.io/guide/architecture-modules): cohesive block of code towards some purpose. can import data or export data to other modules. composed of components, services providers, and other related code.
     - [Components](https://angular.io/guide/architecture-components): HTML, CSS, and TS that define a visible patch of website called a 'view'  
-    - [Service Providers](https://angular.io/guide/architecture-services): 
+    - [Service Providers](https://angular.io/guide/architecture-services): A class with a well defined purpose that is not directly associated with a visible part of the application.
 
 #### Angular File Hierarchy
 **Application**: `/rootDir/` 
@@ -40,25 +40,20 @@ You have two options for setting up a development environment for running Angula
 #### Official Tutorial
 Before continuing this quickstart, run through the [official tutorial](https://angular.io/tutorial) to get a broad understanding of Angular. 
 
-#### Angular Element Hierarchy
-- application: all relevant angular files built towards some common purpose
-    - modules: 
-            - components
-            - services
-   
-
-
 # Stepping Stone 1: Components / Basic Templates
-The first stepping stone will be concerned with concepts surrounding the building block of Angular apps: components ([overview](https://angular.io/guide/component-overview), [reference](https://angular.io/guide/architecture-components)). Each component in your program defines a patch of visible website.  
+The first stepping stone will focus on the building block of Angular apps: components ([overview](https://angular.io/guide/component-overview), [reference](https://angular.io/guide/architecture-components)). You will create a dynamic score-keeping application for a game of golf that can be refreshed to start a new game. 
 
-- components vs views
+Golf is played over a series of 'holes' where the player attempts to hit the ball into a hole with the fewest amount of swings or 'strokes'. The number of strokes for each hole is recorded and added up for the final total. At each hole, a sign is typically posted that shows how many strokes a skilled golfer typically requires for that hole. This is a way to give a benchmark to players on a per-hole basis and a course-wide basis. A golfer who took 6 stokes on a 'par 4' hole would be considered 'two over par'. Also, a golfer that took 66 strokes across all holes compared to a par 70 course would be 'six under par' and would be considered very competent
+
+
+
 - command line 
 - decorator / metadata 
     - template file
     - css file
 
 # Project 1A: Golf Score Keeper
-
+In this first project, you will create a single module app with just two components
 
 # Project 2B: Cafe Menu 
 - (data model idea) menu item interface
