@@ -45,12 +45,15 @@ The first stepping stone will focus on the building block of Angular apps: compo
 
 Golf is played over a series of 'holes' where the player attempts to hit the ball into a hole with the fewest amount of swings or 'strokes'. The number of strokes for each hole is recorded and added up for the final total. At each hole, a sign is typically posted that shows how many strokes a skilled golfer typically requires for that hole. This is a way to give a benchmark to players on a per-hole basis and a course-wide basis. A golfer who took 6 stokes on a 'par 4' hole would be considered 'two over par'. Also, a golfer that took 66 strokes across all holes compared to a par 70 course would be 'six under par' and would be considered very competent
 
+For this project, you will write an angular project that have the following combinations of views:
 
+1. initial page(when page first loads): 
+    - heading with a title like "golf score keeper"
+    - text input field for player's name
+    - dropdown or number input for number of holes in the course
 
-- command line 
-- decorator / metadata 
-    - template file
-    - css file
+2. initial page with scoring grid(only visible when both name and number of holes have been selected)
+    - should generate enough columns for number of holes selected, as well as 'total' and 'over/under par' 
 
 # Project 1A: Golf Score Keeper
 In this first project, you will create a single module app with just two components
