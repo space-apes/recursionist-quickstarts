@@ -38,10 +38,14 @@ You have two options for setting up a development environment for running Angula
 
 
 #### Official Tutorial
-Before continuing this quickstart, run through the [official tutorial](https://angular.io/tutorial) to get a broad understanding of Angular. 
+Before continuing this quickstart, run through the [official tutorial](https://angular.io/tutorial) to get an initial understanding of Angular. 
 
-# Stepping Stone 1: Components / Basic Templates
+# Stepping Stone 1: Components / Basic Templates / Basic Binding
 The first stepping stone will focus on the building block of Angular apps: components ([overview](https://angular.io/guide/component-overview), [reference](https://angular.io/guide/architecture-components)). 
+
+Components are composed of templates, css files, and at least one typescript file that defines the component class. After creating a component using the command-line options, take note of the decorator above the component's class definition in the typescript file. This will map the component to each of its files. 
+
+Each component defines a 'view' which is a portion of visible website. While the typescript file performs processing and is a source of dynamic data, this data can be inserted into your html through [templates](https://angular.io/guide/template-syntax) through various types of binding such as interpolation, or two-way binding. 
 
 # Project 1A: Golf Score Keeper
 In this first project you will create a dynamic score-keeping application for a game of golf that updates as data is entered into it. 
@@ -60,6 +64,7 @@ Your single-page application can be thought of in 4 states:
     - keep all elements from initial state
     - should generate a grid enough columns for number of holes selected, as well as 'total' and 'under/over par' 
     - generate one row for 'par'. users can enter the par for each hole. total will be dynamically updated. 'under/over par' is always 0
+    - player's name in grid and input field should be able to be updated through [two-way binding](https://angular.io/guide/two-way-binding)
     - generate one row for the player. users can enter their strokes for each hole. total and 'under/over par' will be dynamically updated
 ![Golf Score Keeper Load Grid](images/angularQuickstartGolfProjectLoadGridView.png)
 
@@ -72,6 +77,9 @@ Your single-page application can be thought of in 4 states:
 4. game completed state
     - no more cells left to enter data. User quickly closes application if their total is red or shows it to opponent if their total is green. 
 ![Golf Score Keeper In Progress](images/angularQuickstartGolfGameCompleteView.png)
+
+
+As an extra challenge, try adding more players whose scores can be tracked. 
 
 # Project 2B: Cafe Menu 
 - (data model idea) menu item interface
