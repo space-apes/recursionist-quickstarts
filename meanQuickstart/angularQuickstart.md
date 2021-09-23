@@ -70,7 +70,7 @@ Your single-page application should be made with at least 2 components and can b
 
 3. scoring grid state(only visible when both name and number of holes have been set by input elements)
     - all previous elements
-    - should generate a grid with enough columns for number of holes selected, as well as 'total' and 'under/over par' 
+    - should generate a grid with enough columns for number of holes selected, as well as 'total' and 'under/over par'. you may need to [bind values between components](golfScoreProjectIShowScoreGridView.png)
     - generate one row for 'par'. 
         - users can enter the par for each hole by clicking on the associated cell and typing a number. 
         - total will be dynamically updated when user enters a new par value for a hole. 
