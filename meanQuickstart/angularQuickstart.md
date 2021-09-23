@@ -69,7 +69,7 @@ Your single-page application should be made with at least 2 components and can b
 ![Golf Score Keeper Initial](images/golfScoreProjectInitialViewWithCourseName.png)
 
 3. scoring grid state(only visible when both name and number of holes have been set by input elements)
-    - keep all elements from previous states
+    - all previous elements
     - should generate a grid with enough columns for number of holes selected, as well as 'total' and 'under/over par' 
     - generate one row for 'par'. 
         - users can enter the par for each hole by clicking on the associated cell and typing a number. 
@@ -84,8 +84,11 @@ Your single-page application should be made with at least 2 components and can b
 
 4. game in progress state
     - as game progresses, user continues entering the par for each hole and their number of strokes per hole. 
-    - for each number of strokes, if it is above par, that cell background should be red. if it is under par it should be green. if it is par it should be neutral. 
-    - the par and player 'total and under/over par' columns should be dynamically updated. player's total follows same color scheme to individual strokes compared to overall par. 
+    - for each player number of strokes, the cell background color should be dynamically updated. You may use [style binding](https://angular.io/guide/attribute-binding#binding-to-a-single-style)
+        - if the number of strokes is above par, that cell background should be red. 
+        - if it is under par it should be green. 
+        - if it is par it should be neutral. 
+    - the par and player 'total and under/over par' columns should also be dynamically updated whenever a new number of player strokes and par strokes is entered for a hole. player's total follows same color scheme to individual strokes compared to overall par. 
 ![Golf Score Keeper In Progress](images/golfScoreProjectGameInProgressView.png)
 
 5. game completed state(when all par and user stroke cells have had values entered)
