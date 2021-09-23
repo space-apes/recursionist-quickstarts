@@ -54,7 +54,7 @@ Golf is played over a series of 'holes' where the player attempts to hit the bal
 
 SHINYA: if this explanation is not enough, explain deeper or add a link to some resource that explains golf scoring
 
-Your single-page application should be made with at least 2 components and can be thought of as having 4 states: 
+Your single-page application should be made with at least 2 components and can be thought of as having 5 states: 
 
 1. initial state(when page first loads): 
     - heading with a title like "golf score keeper"
@@ -63,7 +63,12 @@ Your single-page application should be made with at least 2 components and can b
     - dropdown or number input for number of holes in the course
 ![Golf Score Keeper Initial](images/golfScoreProjectInitialView.png)
 
-2. scoring grid state(only visible when both name and number of holes have been set by input elements)
+2. entering the course name
+    - all previous elements
+    - use event binding to update the heading when the user enters a course name 
+![Golf Score Keeper Initial](images/golfScoreProjectInitialViewWithCourseName.png)
+
+3. scoring grid state(only visible when both name and number of holes have been set by input elements)
     - keep all elements from initial state
     - should generate a grid enough columns for number of holes selected, as well as 'total' and 'under/over par' 
     - generate one row for 'par'. users can enter the par for each hole. total will be dynamically updated. 'under/over par' is always 0
@@ -71,13 +76,13 @@ Your single-page application should be made with at least 2 components and can b
     - generate one row for the player. users can enter their strokes for each hole. total and 'under/over par' will be dynamically updated
 ![Golf Score Keeper Load Grid](images/angularQuickstartGolfProjectLoadGridView.png)
 
-3. game in progress state
+4. game in progress state
     - as game progresses, user continues entering the par for each hole and their number of strokes per hole. 
     - for each number of strokes, if it is above par, that cell background should be red. if it is under par it should be green. if it is par it should be neutral. 
     - the par and player 'total and under/over par' columns should be dynamically updated. player's total follows same color scheme to individual strokes compared to overall par. 
 ![Golf Score Keeper In Progress](images/angularQuickstartGolfProjectGameInProgressView.png)
 
-4. game completed state
+5. game completed state
     - no more cells left to enter data. User quickly closes application if their total is red or shows it to opponent if their total is green. 
 ![Golf Score Keeper In Progress](images/angularQuickstartGolfGameCompleteView.png)
 
