@@ -92,7 +92,7 @@ Your single-page application should be made with at least 2 components and can b
     - no more cells left to enter data. User quickly closes application if their total is red or shows it to opponent if their total is green. 
     - a message alerts the user that the course has been completed
     - a button appears allowing the user to reset all values back to the initial state
-![Golf Score Keeper In Progress](images/golfScoreProjectGameCompleteView.png)
+![Golf Score Keeper In Progress](images/golfScoreProjectGameInCompleteView.png)
 
 
 As an extra challenge, try adding more players whose scores can be tracked. 
