@@ -96,11 +96,14 @@ As an extra challenge, try adding more players whose scores can be tracked.
 - displays all menuItems, total price, customer name
 - can store multiple orders, expand/collapse view of orders, 'finish' to remove orders
 
-# Stepping Stone 2: Binding
+# Stepping Stone 2: Binding maybe blend with Services? advanced component stuff?
 
 # Stepping Stone 3: Services and Routes
     - queue
         - add messages to queue on events
     - application wide service
     - application wide and fetching from external source
+
 # Stepping Stone 4: Asynchronous Requests
+
+# Stepping Stone 5: Modules and Dependency Injection ?????
