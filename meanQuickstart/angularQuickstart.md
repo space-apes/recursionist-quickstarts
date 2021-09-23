@@ -80,7 +80,7 @@ Your single-page application should be made with at least 2 components and can b
         - the value in the total column for this player will be updated every time a user enters a new stroke value by finding the sum of all strokes so far 
         - the value in the 'under/over par' column for this player will be dynamically updated when player enters a new stroke value by sum of par strokes so far by sum of player strokes so far 
     - player's name in grid should be updated when the input field for player name is changed. You may use [two-way binding](https://angular.io/guide/two-way-binding)
-![Golf Score Keeper Load Grid](images/golfScoreProjectLoadScoringGridView.png)
+![Golf Score Keeper Load Grid](images/golfScoreProjectShowScoringGridView.png)
 
 4. game in progress state
     - as game progresses, user continues entering the par for each hole and their number of strokes per hole. 
