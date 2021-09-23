@@ -61,7 +61,7 @@ Your single-page application should be made with at least 2 components and can b
     - text inputField for course name
     - text input field for player's name
     - dropdown or number input for number of holes in the course
-![Golf Score Keeper Initial](images/golfProjectInitialView.png)
+![Golf Score Keeper Initial](images/golfScoreProjectInitialView.png)
 
 2. scoring grid state(only visible when both name and number of holes have been set by input elements)
     - keep all elements from initial state
