@@ -41,7 +41,7 @@ You have two options for setting up a development environment for running Angula
 Before continuing this quickstart, run through the [official tutorial](https://angular.io/tutorial) to get an initial understanding of Angular. 
 
 # Stepping Stone 1: Components / Basic Templates / Basic Binding
-The first stepping stone will focus on the building block of Angular apps: components ([overview](https://angular.io/guide/component-overview), [reference](https://angular.io/guide/architecture-components)). 
+The first stepping stone will focus on the building block of Angular apps: components make sure to read up on the concept of components [here](https://angular.io/guide/component-overview), and the architectural reference [here](https://angular.io/guide/architecture-components)). 
 
 Components are composed of templates, css files, and at least one typescript file that defines the component class. After creating a component using the command-line options, take note of the decorator above the component's class definition in the typescript file. This will map the component to each of its files. 
 
