@@ -26,7 +26,7 @@ You have two options for setting up a development environment for running Angula
     - [Components](https://angular.io/guide/architecture-components): HTML, CSS, and TS that define a visible patch of website called a 'view'  
     - [Service Providers](https://angular.io/guide/architecture-services): A class with a well defined purpose that is not directly associated with a visible part of the application.
 
-#### Angular File Hierarchy
+#### Angular File Hierarchy ####FOR SHINYA: TURN THIS INTO A PICTURE / DIAGRAM
 **Application**: `/rootDir/` 
 - Modules: `/rootDir/src/app/<moduleName>.module.ts`
     - Components: `/rootDir/src/app/<componentName>/`
