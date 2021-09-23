@@ -65,7 +65,7 @@ Your single-page application should be made with at least 2 components and can b
 
 2. entering the course name
     - all previous elements
-    - use event binding to update the heading when the user enters a course name 
+    - use [event binding](https://angular.io/guide/event-binding) and [text interpolation](https://angular.io/guide/interpolation) to update the heading when the user enters a course name 
 ![Golf Score Keeper Initial](images/golfScoreProjectInitialViewWithCourseName.png)
 
 3. scoring grid state(only visible when both name and number of holes have been set by input elements)
