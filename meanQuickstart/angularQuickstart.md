@@ -50,19 +50,23 @@ Finally, while each component has it's own scope, you are able to [bind values b
 
 
 
-#Project 1A: Number Guesser Basic
+# Project 1A: Number Guesser Basic
 In this first project you will create a guessing game where player 1 submits a number that is correct, and player 2 enters numbers, attempting to match the correct number. After each guess, some visual feedback is given to player 2 to indicate how close their guess was to the correct number. 
 
-In the first iteration of this project, you will need just 3 components: the root component ("app-component"), a "game"component, and a "guess component".
-
-### App Component
-- simply displays the game component
-### Game Component
-- maintains the state for the correctNumber, the currentGuess, and the number of guesses player 2 has submitted so far
-- has input type text to take both the correct number and the guesses
-- has  
-### Guess Component
-- 
+You will need just 3 components: 
+- Root Component ("app-component") 
+    - Game Component
+- Game Component
+    - shows heading with welcome message 
+    - input type text to enter all numeric values. use event binding to 
+    - dynamic message to direct the players at each step of the game
+    - if correct number has been submitted, show Guess Component. Use binding to pass information from Game component to Guess Component. 
+    - if guessed number matches correct number, show a reset button that returns the game to it's initial state 
+- Guess Component
+    - a heading that shows whatever the last guess was
+    - a message that describes how close the last guess was to the correct number using the following ranges: 0, 1-2, 3-4, 5-9, 10-24, 25-49, 50+
+    - some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or images)
+            - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
 
 # Project 1B: Number Guesser 
 Next, you will add some complexity, 
