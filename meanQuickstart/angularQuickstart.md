@@ -58,7 +58,7 @@ In this first project you will create a guessing game where player 1 submits a n
 - Game Component
 ### Game Component
 - shows heading with welcome message 
-- input type text to enter all numeric values. use event binding to 
+- input type text to enter all numeric values. use event binding to. make sure to do some basic input validation to receive only integers between 1-100 
 - dynamic message to direct the players at each step of the game
 - if correct number has been submitted, show Guess Component. Use binding to pass information from Game component to Guess Component. 
 - if guessed number matches correct number, show a reset button that returns the game to it's initial state 
@@ -68,7 +68,7 @@ In this first project you will create a guessing game where player 1 submits a n
 - some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or images)
     - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
 
-##Application State Flow
+## Application State Flow
 1. game loads into initial state. 
 
 # Project 1B: Number Guesser 
