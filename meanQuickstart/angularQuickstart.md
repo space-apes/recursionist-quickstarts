@@ -36,18 +36,39 @@ You have two options for setting up a development environment for running Angula
         - other files to support this component, like interfaces/class definitions
     - Services: `/rootDir/src/app/<serviceName>.service.ts`
 
-
 #### Official Tutorial
 Before continuing this quickstart, run through the [official tutorial](https://angular.io/tutorial) to get an initial understanding of Angular. 
 
 # Stepping Stone 1: Components / Basic Templates / Basic Binding
-The first stepping stone will focus on the building block of Angular apps: components. Make sure to read up on the concept of components [here](https://angular.io/guide/component-overview), and understand the architectural reference [here](https://angular.io/guide/architecture-components). 
+The first stepping stone will focus on the building block of Angular apps: components and will touch lightly upon templates and binding. Make sure to read up on the concept of components [here](https://angular.io/guide/component-overview), and understand the architectural reference [here](https://angular.io/guide/architecture-components). 
 
 Components are composed of templates, css files, and at least one typescript file that defines the component class. After creating a component using the command-line options, take note of the decorator above the component's class definition in the typescript file. This will map the component to each of its files. 
 
 Each component defines a 'view' which is a portion of visible website. While the typescript file performs processing and is a source of dynamic data, this data can be inserted into your html through [templates](https://angular.io/guide/template-syntax) through various types of binding. You can use [structural directives](https://angular.io/guide/built-in-directives#built-in-structural-directives) within templates to programatically affect the html structure of your components.
 
 Finally, while each component has it's own scope, you are able to [bind values between components](https://angular.io/guide/property-binding#bind-values-between-components) as well. 
+
+
+
+#Project 1A: Number Guesser Basic
+In this first project you will create a guessing game where player 1 submits a number that is correct, and player 2 enters numbers, attempting to match the correct number. After each guess, some visual feedback is given to player 2 to indicate how close their guess was to the correct number. 
+
+In the first iteration of this project, you will need just 3 components: the root component ("app-component"), a "game"component, and a "guess component".
+
+### App Component
+- simply displays the game component
+### Game Component
+- maintains the state for the correctNumber, the currentGuess, and the number of guesses player 2 has submitted so far
+- has input type text to take both the correct number and the guesses
+- has  
+### Guess Component
+- 
+
+# Project 1B: Number Guesser 
+Next, you will add some complexity, 
+- an 'update' function that allows up to 5 guesses
+- directive to repeat component
+- good data model to back each "guess" component
 
 # Project 1A: Golf Score Keeper
 In this first project you will create a dynamic score-keeping application for a game of golf that updates as data is entered into it. 
