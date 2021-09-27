@@ -49,17 +49,19 @@ Each component defines a 'view' which is a portion of visible website. While the
 Finally, while each component has it's own scope, you are able to [bind values between components](https://angular.io/guide/property-binding#bind-values-between-components) as well. 
 
 
-
 # Project 1A: Number Guesser Basic
-In this first project you will create a guessing game where player 1 submits a number that is correct, and player 2 enters numbers, attempting to match the correct number. After each guess, some visual feedback is given to player 2 to indicate how close their guess was to the correct number. 
+In this first project you will create a guessing game where player 1 submits a number between 1-100, and player 2 enters numbers, attempting to match the correct number submitted by player 1. After each guess, some visual feedback is given to player 2 to indicate how close their guess was to the correct number. Once player 2 enters the correct number, a message displays how many attempts it took. 
 
 ## Components
 ### Root Component ("app-component") 
 - Game Component
 ### Game Component
 - shows heading with welcome message 
-- input type text to enter all numeric values. use event binding to. make sure to do some basic input validation to receive only integers between 1-100 
-- dynamic message to direct the players at each step of the game
+- dynamic message using [text interpolation binding](https://angular.io/guide/interpolation) to direct the players at each step of the game
+- input type text to enter all numeric values. 
+    - use [event binding](https://angular.io/guide/event-binding) to call some update function whenever the user presses the 'enter' key. 
+    - make sure to do some basic input validation to receive only integers between 1-100. add error text if they did not. 
+    - if you want to hide the text when player 1 is submitting the correct number you can style the input field with `color: transparent` during that time.  
 - if correct number has been submitted, show Guess Component. Use binding to pass information from Game component to Guess Component. 
 - if guessed number matches correct number, show a reset button that returns the game to it's initial state 
 ### Guess Component
