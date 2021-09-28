@@ -62,8 +62,13 @@ In this first project you will create a guessing game where player 1 submits a n
     - use [event binding](https://angular.io/guide/event-binding) to call some update function whenever the user presses the 'enter' key. the event `(keyup.enter)` can be used. 
     - make sure to do some basic input validation to receive only integers between 1-100. add error text if they did not. 
     - if you want to hide the text when player 1 is submitting the correct number you can style the input field with `color: transparent` during that time.  
-- if correct number has been submitted, show Guess Component. Use binding to pass information from Game component to Guess Component. 
-- if guessed number matches correct number, show a reset button that returns the game to it's initial state 
+- if correct number has been submitted, 
+    - show Guess Component using [class binding](https://angular.io/guide/attribute-binding#binding-to-a-single-css-class)
+    -  [bind property values between components]([bind values between components](https://angular.io/guide/property-binding#bind-values-between-components) to share information between Game component and Guess component
+- if guessed number matches correct number
+    - have the message tell the user how many attempts it took. 
+    - hide the input element using 
+    - show a reset button that returns the game to it's initial state 
 ### Guess Component
 - a heading that shows whatever the last guess was
 - a message that describes how close the last guess was to the correct number using the following ranges: 0, 1-2, 3-4, 5-9, 10-24, 25-49, 50+
