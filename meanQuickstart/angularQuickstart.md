@@ -46,7 +46,7 @@ Components are composed of templates, css files, and at least one typescript fil
 
 Each component defines a 'view' which is a portion of visible website. While the typescript file performs processing and is a source of dynamic data, this data can be inserted into your html through [templates](https://angular.io/guide/template-syntax) through various types of binding. You can use [structural directives](https://angular.io/guide/built-in-directives#built-in-structural-directives) within templates to programatically affect the html structure of your components.
 
-Finally, while each component has it's own scope, you are able to [bind values between components](https://angular.io/guide/property-binding#bind-values-between-components) as well. 
+There are a multitude of ways that data can be shared both within and across templates and components in general. Read up on [property binding](https://angular.io/guide/property-binding), [attribute, style, class binding](https://angular.io/guide/attribute-binding), and [event binding](https://angular.io/guide/event-binding) 
 
 
 # Project 1A: Number Guesser Basic
@@ -67,12 +67,13 @@ In this first project you will create a guessing game where player 1 submits a n
     -  [bind property values between components]([bind values between components](https://angular.io/guide/property-binding#bind-values-between-components) to share information between Game component and Guess component
 - if guessed number matches correct number
     - have the message tell the user how many attempts it took. 
-    - hide the input element using 
+    - hide the input element using class binding
     - show a reset button that returns the game to it's initial state 
 ### Guess Component
 - a heading that shows whatever the last guess was
-- a message that describes how close the last guess was to the correct number using the following ranges: 0, 1-2, 3-4, 5-9, 10-24, 25-49, 50+
+- a message that describes how far the last guess was from the correct number using the following ranges: 0, 1-2, 3-4, 5-9, 10-24, 25-49, 50+
 - some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or images)
+    - EX: (0)-> happy baby img, (1-2)-> grumpy baby img, (3-4)-> sad baby img, (5-9)->upset baby img, (10-24) -> angry baby img, (25-49)->very angry baby img, (50+)-> tantrum baby img
     - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
 
 ## Application State Flow
