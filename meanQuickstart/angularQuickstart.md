@@ -64,7 +64,7 @@ In this first project you will create a guessing game where player 1 submits a n
 
 ## Components
 ### Root Component ("app-component") 
-- Game Component
+- contains the Game Component. (Compartmentalize the entire game in case you wish to change the highest level view).
 ### Game Component
 - shows heading with welcome message 
 - dynamic message using [text interpolation binding](https://angular.io/guide/interpolation) to direct the players at each step of the game
@@ -86,12 +86,18 @@ In this first project you will create a guessing game where player 1 submits a n
     - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
 
 # Project 1B: Number Guesser 
-Next, you will add some complexity, 
-- an 'update' function that allows up to 5 guesses
-- directive to repeat component
+This project will extend the original number guesser, by both adding extra functionality and following a more sophisticated and flexible design. 
+In this variation of the number guessing game, player two is allowed to make up to 5 attempts at guessing the correct number. Each guess attempt will be represented by it's own instance of a Guess component. When the user either guesses correctly or runs out of attempts, a sum of deviations from the correct score will be displayed as a way to summarize how close player two was over all attempts. 
+
+## High Level Changes to Original Number Guessing Game
+- A good data model to back each Guess Component. If you haven't done so already, decouple the data for each guess from the Guess Components by defining a new class called Guess
+- your Game Component must now initialize and maintain an array of Guess elements
+- [structural directive](https://angular.io/guide/structural-directives) to repeat guess components
+- Now, each Guess Component only requires a Guess element as Input when binding properties across components 
+- Your 'update' function should allow between 1 and 5 guess attempts
 - good data model to back each "guess" component
 
-# Project 1A: Golf Score Keeper
+# Project 1C: Golf Score Keeper
 In this first project you will create a dynamic score-keeping application for a game of golf that updates as data is entered into it. 
 
 Golf is played over a series of 'holes' where the player attempts to hit the ball into a hole with the fewest amount of swings or 'strokes'. The number of strokes for each hole is recorded and added up for the final total. At each hole, a sign is typically posted that shows how many strokes a skilled golfer typically requires for that hole. This is a way to give a benchmark to players on a per-hole basis and a course-wide basis. A golfer who took 6 stokes on a 'par 4' hole would be considered 'two over par'. Also, a golfer that took 66 strokes across all holes compared to a par 70 course would be 'six under par' and would be considered very competent
