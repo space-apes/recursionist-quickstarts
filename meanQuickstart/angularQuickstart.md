@@ -98,7 +98,7 @@ Your single-page application should be made with at least 2 components and can b
 2. entering the course name
     - all previous elements
     - use [event binding](https://angular.io/guide/event-binding) and [text interpolation](https://angular.io/guide/interpolation) to update the heading when the user enters a course name 
-![Golf Score Keeper Initial](images/golfScoreProjectInitialViewWithCourseName.png)
+![Golf Score Keeper Initial](images/golfScoreProject/golfScoreProjectInitialViewWithCourseName.png)
 
 3. scoring grid state(only visible when both name and number of holes have been set by input elements)
     - all previous elements
@@ -107,7 +107,7 @@ Your single-page application should be made with at least 2 components and can b
         - generate one row for 'par for hole' with empty row cells for each hole, 'total', and 'under/over par' 
         - generate one row for the player, inserting their name in the first cell, with empty row cells for each hole, 'total', and 'under/over par' 
     - player's name in grid should be updated when the input field for player name is changed. You may use [two-way binding](https://angular.io/guide/two-way-binding)
-![Golf Score Keeper Load Grid](images/golfScoreProjectIShowScoreGridView.png)
+![Golf Score Keeper Load Grid](images/golfScoreProject/golfScoreProjectIShowScoreGridView.png)
 
 4. game in progress state
     - PAR ROW: as game progresses, users will enter values for each hole in the par row by clicking on the associated cell and typing a number
@@ -121,13 +121,13 @@ Your single-page application should be made with at least 2 components and can b
         - if it is under par it should be green. 
         - if it is par it should be neutral. 
     - the par and player 'total and under/over par' columns should also be dynamically updated whenever a new number of player strokes and par strokes is entered for a hole. player's total follows same color scheme to individual strokes compared to overall par. 
-![Golf Score Keeper In Progress](images/golfScoreProjectGameInProgressView.png)
+![Golf Score Keeper In Progress](images/golfScoreProject/golfScoreProjectGameInProgressView.png)
 
 5. game completed state(when all par and user stroke cells have had values entered)
     - no more cells left to enter data. User quickly closes application if their total is red or shows it to opponent if their total is green. 
     - a message alerts the user that the course has been completed
     - a button appears allowing the user to reset all values back to the initial state
-![Golf Score Keeper In Progress](images/golfScoreProjectGameInCompleteView.png)
+![Golf Score Keeper In Progress](images/golfScoreProject/golfScoreProjectGameInCompleteView.png)
 
 
 As an extra challenge, try adding more players whose scores can be tracked. 
