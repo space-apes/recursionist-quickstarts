@@ -48,8 +48,8 @@ Each component defines a 'view' which is a portion of visible website. While the
 
 There are a multitude of ways that data can be shared both within and across templates and components in general. Read up on [property binding](https://angular.io/guide/property-binding), [attribute, style, class binding](https://angular.io/guide/attribute-binding), and [event binding](https://angular.io/guide/event-binding) and you will have many of the core abilities to create Angular apps. 
 
-# Project 1A: Number Guesser Basic
-In this first project you will create a guessing game where player 1 submits a number between 1-100, and player 2 enters numbers, attempting to match the correct number submitted by player 1. After each guess, some visual feedback is given to player 2 to indicate how close their guess was to the correct number. Once player 2 enters the correct number, a message displays how many attempts it took. 
+# Project 1A: Number Guesser Simple
+In this first project you will create a guessing game where player 1 submits a number between 1-100, and player 2 enters numbers, attempting to match the correct number submitted by player 1. After each guess, some visual feedback is given to player 2 to indicate how close their guess was to the correct number. Once player 2 enters the correct number, a message displays how many attempts it took and the game is able to reset to it's original state.
 
 ## Application State Flow
 1. game loads into initial state
@@ -85,21 +85,24 @@ In this first project you will create a guessing game where player 1 submits a n
 - some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or upset baby images)
     - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
 
-# Project 1B: Number Guesser 
+# Project 1B: Number Guesser  
 This project will extend the original number guesser, by both adding extra functionality and following a more sophisticated and flexible design. 
-In this variation of the number guessing game, player two is allowed to make up to 5 attempts at guessing the correct number. Each guess attempt will be represented by it's own instance of a Guess component. When the user either guesses correctly or runs out of attempts, a sum of deviations from the correct score will be displayed as a way to summarize how close player two was over all attempts. 
+In this variation of the number guessing game, player two is allowed to make up to 5 attempts at guessing the correct number. Each guess attempt will be represented by it's own instance of a Guess component. When player two either guesses correctly or runs out of attempts, a sum of deviations from the correct score will be displayed as a way to summarize how close player two was over all attempts. 
 
 ## High Level Changes to Original Number Guessing Game
-- If you haven't done so already, decouple the data for each guess from the Guess Components by defining a new class called Guess
+- If you haven't done so already, create a good data model to back each Guess Component. Definine a new class called Guess
+    
+    - correct number???!?!?!??!?!?!?!
     - number value : value of the guess
     - string distanceRange : range that distance between guess and correct number falls under: EX: "0",  "1-2", "3-4" etc
     - string imageUrl : location of image you will use based on the distance. if you chose to map distance to colors, can also make this a hex color code string or a class name.
-    
+    - string distanceToDistanceRangeString(number) : converts numeric distance to string distance message
+    - 
 - your Game Component must now initialize and maintain an array of Guess elements
-- [structural directive](https://angular.io/guide/structural-directives) to repeat guess components
+- [structural directive](https://angular.io/guide/structural-directives) in Game template to repeat Guess Components
 - Now, each Guess Component only requires a Guess element as Input when binding properties across components 
 - Your 'update' function should allow between 1 and 5 guess attempts
-- good data model to back each "guess" component
+
 
 # Project 1C: Golf Score Keeper
 In this first project you will create a dynamic score-keeping application for a game of golf that updates as data is entered into it. 
