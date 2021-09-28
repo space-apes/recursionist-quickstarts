@@ -53,7 +53,7 @@ In this first project you will create a guessing game where player 1 submits a n
 
 ## Application State Flow
 1. game loads into initial state
-![initial state](images/numberGuessingGameSimple/numberGuessingGameInitialState.png)
+![initial state](images/numberGuessingGameSimple/numberGuessingGameSimpleInitialState.png)
 3. correct number has been submitted by player 1
 4. player two attempts a guess but it is incorrect
 5. player two attempts a guess and it is correct
