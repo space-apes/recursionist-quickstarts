@@ -46,11 +46,21 @@ Components are composed of templates, css files, and at least one typescript fil
 
 Each component defines a 'view' which is a portion of visible website. While the typescript file performs processing and is a source of dynamic data, this data can be inserted into your html through [templates](https://angular.io/guide/template-syntax) through various types of binding. You can use [structural directives](https://angular.io/guide/built-in-directives#built-in-structural-directives) within templates to programatically affect the html structure of your components.
 
-There are a multitude of ways that data can be shared both within and across templates and components in general. Read up on [property binding](https://angular.io/guide/property-binding), [attribute, style, class binding](https://angular.io/guide/attribute-binding), and [event binding](https://angular.io/guide/event-binding) 
-
+There are a multitude of ways that data can be shared both within and across templates and components in general. Read up on [property binding](https://angular.io/guide/property-binding), [attribute, style, class binding](https://angular.io/guide/attribute-binding), and [event binding](https://angular.io/guide/event-binding) and you will have many of the core abilities to create Angular apps. 
 
 # Project 1A: Number Guesser Basic
 In this first project you will create a guessing game where player 1 submits a number between 1-100, and player 2 enters numbers, attempting to match the correct number submitted by player 1. After each guess, some visual feedback is given to player 2 to indicate how close their guess was to the correct number. Once player 2 enters the correct number, a message displays how many attempts it took. 
+
+## Application State Flow
+1. game loads into initial state
+![initial state](images/numberGuessingGameSimple/numberGuessingGameInitialState.png)
+3. correct number has been submitted by player 1
+4. player two attempts a guess but it is incorrect
+5. player two attempts a guess and it is correct
+
+
+
+
 
 ## Components
 ### Root Component ("app-component") 
@@ -75,8 +85,6 @@ In this first project you will create a guessing game where player 1 submits a n
 - some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or upset baby images)
     - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
 
-## Application State Flow
-1. game loads into initial state. 
 
 # Project 1B: Number Guesser 
 Next, you will add some complexity, 
