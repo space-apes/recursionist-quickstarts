@@ -72,8 +72,7 @@ In this first project you will create a guessing game where player 1 submits a n
 ### Guess Component
 - a heading that shows whatever the last guess was
 - a message that describes how far the last guess was from the correct number using the following ranges: 0, 1-2, 3-4, 5-9, 10-24, 25-49, 50+
-- some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or images)
-    - EX: (0)-> happy baby img, (1-2)-> grumpy baby img, (3-4)-> sad baby img, (5-9)->upset baby img, (10-24) -> angry baby img, (25-49)->very angry baby img, (50+)-> tantrum baby img
+- some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or upset baby images)
     - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
 
 ## Application State Flow
