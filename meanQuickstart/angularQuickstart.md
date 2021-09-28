@@ -76,7 +76,7 @@ In this first project you will create a guessing game where player 1 submits a n
     - show Guess Component using [class binding](https://angular.io/guide/attribute-binding#binding-to-a-single-css-class)
     -  [bind property values between components]([bind values between components](https://angular.io/guide/property-binding#bind-values-between-components) to share information between Game component and Guess component
 - if guessed number matches correct number
-    - have the message tell the user how many attempts it took. 
+    - update the message to tell the user how many attempts it took. 
     - hide the input element using class binding
     - show a reset button that returns the game to it's initial state 
 ### Guess Component
@@ -84,7 +84,6 @@ In this first project you will create a guessing game where player 1 submits a n
 - a message that describes how far the last guess was from the correct number using the following ranges: 0, 1-2, 3-4, 5-9, 10-24, 25-49, 50+
 - some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or upset baby images)
     - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
-
 
 # Project 1B: Number Guesser 
 Next, you will add some complexity, 
