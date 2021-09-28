@@ -90,7 +90,11 @@ This project will extend the original number guesser, by both adding extra funct
 In this variation of the number guessing game, player two is allowed to make up to 5 attempts at guessing the correct number. Each guess attempt will be represented by it's own instance of a Guess component. When the user either guesses correctly or runs out of attempts, a sum of deviations from the correct score will be displayed as a way to summarize how close player two was over all attempts. 
 
 ## High Level Changes to Original Number Guessing Game
-- A good data model to back each Guess Component. If you haven't done so already, decouple the data for each guess from the Guess Components by defining a new class called Guess
+- If you haven't done so already, decouple the data for each guess from the Guess Components by defining a new class called Guess
+    - number value : value of the guess
+    - string distanceRange : range that distance between guess and correct number falls under: EX: "0",  "1-2", "3-4" etc
+    - string imageUrl : location of image you will use based on the distance. if you chose to map distance to colors, can also make this a hex color code string or a class name.
+    
 - your Game Component must now initialize and maintain an array of Guess elements
 - [structural directive](https://angular.io/guide/structural-directives) to repeat guess components
 - Now, each Guess Component only requires a Guess element as Input when binding properties across components 
