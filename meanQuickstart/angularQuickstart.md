@@ -58,7 +58,7 @@ In this first project you will create a guessing game where player 1 submits a n
 ### Game Component
 - shows heading with welcome message 
 - dynamic message using [text interpolation binding](https://angular.io/guide/interpolation) to direct the players at each step of the game
-- input type text to enter all numeric values. 
+- input type text or number to enter all numeric values. 
     - use [event binding](https://angular.io/guide/event-binding) to call some update function whenever the user presses the 'enter' key. the event `(keyup.enter)` can be used. 
     - make sure to do some basic input validation to receive only integers between 1-100. add error text if they did not. 
     - if you want to hide the text when player 1 is submitting the correct number you can style the input field with `color: transparent` during that time.  
