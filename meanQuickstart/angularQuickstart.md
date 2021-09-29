@@ -179,6 +179,10 @@ Read up on Angular's [Dependency Injection and Services](https://angular.io/guid
 
 Also, your single-page apps will be enhanced by using [routes](https://angular.io/guide/routing-overview), allowing both users and developers to interact and reason with the page in terms of particular urls. 
 
+# Project 2: Cafe POS
+This application will be a Point Of Sales system for employees to enter in and track orders during the daily operations of a cafe. 
+You will make the use of services in order to access valid menu items, current orders, completed orders, and logging messages. This will be a one-page application that relies on routing in order for users to select different features of the system they wish to interact with. 
+
 # Project 2A: Cafe POS Item Service and Item Detail Component
 - (data model idea) menu item interface
     - string : name
