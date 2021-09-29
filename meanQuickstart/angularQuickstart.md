@@ -175,7 +175,7 @@ As an extra challenge, try adding more players whose scores can be tracked.
 
 In this stepping stone you will practice abstracting out common or shared features of your applications by defining [service providers](https://angular.io/guide/dependency-injection-providers). For example, in the first project, you will define a service that provides your application with access to data. This will give different components the ability perform CRUD operations on a shared data store. Importantly, this gives you as the developer the freedom to choose where that data comes from in future implementations of the program. 
 
-The use of services relies on Angular's Dependency Injection system
+Read up on Angular's [Dependency Injection and Services](https://angular.io/guide/architecture-services) to get a better idea of how DI works in Angular.
 
 Also, your single-page apps will be enhanced by using [routes](https://angular.io/guide/routing-overview), allowing both users and developers to interact and reason with the page in terms of particular urls. 
 
