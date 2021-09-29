@@ -106,8 +106,10 @@ This project will extend the original number guesser, by both adding extra funct
 
 ## Application State Flow
 1. Prompt tells Player 1 to enter the correct number to be guessed.
+![initial state](images/numberGuessingGame/numberGuessingGameInitialState.png)
+
 2. Prompt tells Player 2 to enter their first guess
-3. Player 2 makes 1-5 guesses total, each one updating one of the Guess Components
+3. Guess Components are updated for each guess attempt made by Player 2.
 4. If player 2 guesses correctly within 1 guess, display a success message, hide the input field, and show a game restart button
 5. If player 2 does not guess correctly in 5 attempts, display a failure message, hide the input field, show a game restart button
 
