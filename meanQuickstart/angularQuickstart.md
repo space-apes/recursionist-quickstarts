@@ -87,7 +87,7 @@ In this first project you will create a guessing game where player 1 submits a n
 
 # Project 1B: Number Guesser  
 This project will extend the original number guesser, by both adding extra functionality and following a more sophisticated and flexible design. 
-In this variation of the number guessing game, player two is allowed to make up to 5 attempts at guessing the correct number. In order for player two to better track how close their guesses are getting, each guess attempt will be represented by it's own instance of a Guess component. When player two either guesses correctly or runs out of attempts, a sum of deviations from the correct score will be displayed as a way to summarize how close player two was over all attempts. 
+In this variation of the number guessing game, player two is allowed to make up to 5 attempts at guessing the correct number. In order for player two to better track how close their guesses are getting, each guess attempt will be represented by it's own instance of a Guess Component. When player two either guesses correctly or runs out of attempts, a sum of deviations from the correct score will be displayed as a way to summarize how close player two was over all attempts. 
 
 ## High Level Changes to Original Number Guessing Game
 - If you haven't done so already, create a good data model to back each Guess Component. Definine a new class called Guess
@@ -96,11 +96,17 @@ In this variation of the number guessing game, player two is allowed to make up 
     - string distanceRange : range that distance between guess and correct number falls under: EX: "0",  "1-2", "3-4" etc
     - string imageUrl : location of image you will use based on the distance. if you chose to map distance to colors, can also make this a hex color code string or a class name.
     - string distanceToDistanceRangeString(number) : converts numeric distance to string distance message
-    - 
 - your Game Component must now initialize and maintain an array of Guess elements
 - [structural directive](https://angular.io/guide/structural-directives) in Game template to repeat Guess Components
 - Now, each Guess Component only requires a Guess element as Input when binding properties across components 
 - Your 'update' function should allow between 1 and 5 guess attempts
+
+## Application State Flow
+1. Prompt tells Player 1 to enter the correct number to be guessed.
+2. Prompt tells Player 2 to enter their first guess
+3. Player 2 makes 1-5 guesses total, each one updating one of the Guess Components
+4. If player 2 guesses correctly within 1 guess, display a success message, hide the input field, and show a game restart button
+5. If player 2 does not guess correctly in 5 attempts, display a failure message, hide the input field, show a game restart button
 
 # Project 1C: Golf Score Keeper
 In this first project you will create a dynamic score-keeping application for a game of golf that updates as data is entered into it. 
