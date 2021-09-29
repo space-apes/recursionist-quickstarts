@@ -87,7 +87,7 @@ In this first project you will create a guessing game where player 1 submits a n
     - EX: (0)-> happy baby, (1-2)-> grumpy baby, (3-4)-> sad baby, (5-9)->upset baby, (10-24) -> angry baby, (25-49)->very angry baby, (50+)->full tantrum baby      
 
 # Project 1B: Number Guesser  
-This project will extend the original number guesser, by both adding extra functionality and following a more sophisticated and flexible design. Most significantly, this version of the game will allow Player 2 to make a maximum of 5 guesses, and each guess attempt will be represeted by its own instance of a Guess Component. 
+This project will extend the original number guesser, by both adding extra functionality and following a more sophisticated and flexible design. Most significantly, this version of the game will allow Player 2 to make a maximum of 5 guesses, and each guess attempt will be represented by its own instance of a Guess Component. 
 
 ## High Level Changes to Original Number Guessing Game
 - keep all input validation functionality of guessing game
