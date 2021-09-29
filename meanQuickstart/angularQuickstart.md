@@ -171,22 +171,54 @@ Your single-page application should be made with at least 2 components and can b
 
 As an extra challenge, try adding more players whose scores can be tracked. 
 
-# Project 2B: Cafe Menu 
+# Stepping Stone 2: Services and Routes
+
+In this stepping stone you will practice abstracting out common or shared features of your applications by defining [service providers](https://angular.io/guide/dependency-injection-providers). For example, in the first project, you will define a service that provides your application with access to data. This will give different components the ability perform CRUD operations on a shared data store. Importantly, this gives you as the developer the freedom to choose where that data comes from in future implementations of the program. 
+
+The use of services relies on Angular's Dependency Injection system
+
+Also, your single-page apps will be enhanced by using [routes](https://angular.io/guide/routing-overview), allowing both users and developers to interact and reason with the page in terms of particular urls. 
+
+# Project 2A: Cafe POS Item Service and Item Detail Component
 - (data model idea) menu item interface
-    - string: itemName
-    - number: itemPrice
-    - string: itemImageUrl
-    - string: customerName
-- can select different items to display just 1 at a time
+    - string : name
+    - number : price
+    - string : imageURL
 
-- uses hierarchical quality of components
-- can select multiple Coffeeshop Menu Items to create an Order
-- displays all menuItems, total price, customer name
-- can store multiple orders, expand/collapse view of orders, 'finish' to remove orders
+- menuItem service
+    - get(index: number) : menuItem
+    - getAll(): menuItem[]
 
-# Stepping Stone 2: Binding maybe blend with Services? advanced component stuff?
+- menuItemDetailComponent
+    - display all menuItem field values with h3, p, and img tags
+    
+# Project 2B: Cafe POS AddOrUpdateOrder
+- backed by order data model
+    - string : customerName
+    -  menuItem[] : items
+    -  addItem(item) : void
+    -  removeItem(item) : void
+    -  dateUpdated : number
+    -  getTotal() : number
+    -  updateDate() : void 
+    -  setAsCompleted() : void
+    -  setAsNotCompleted() : void
+- includes menuItemDetailComponent
+- includes selector that pulls from menuItemService(). menuDetailComponent data is updated when different selector option selected
 
-# Stepping Stone 3: Services and Routes
+# Project 2C: Cafe POS Order Components
+### Current Orders Component
+- pulls from orders.getAllCurrent service
+- lists all current orders including date/time modified, name of customer, total, and a button to mark as completed
+- can expand any order for mini view of order within this frame
+- clicking any order collapses order view and directs browser to 'addItem' view, focusing on that particular order
+- when 'completed' button is pressed, use order service to transfer this order from current orders to completed orders
+
+### Completed Orders Component
+- pulls from orders.getAllCompleted service
+- can expand order for mini view of order within this frame
+
+# Stepping Stone 3: Defining and Using Feature Modules, Template Module
     - queue
         - add messages to queue on events
     - application wide service
