@@ -107,11 +107,16 @@ This project will extend the original number guesser, by both adding extra funct
 ## Application State Flow
 1. Prompt tells Player 1 to enter the correct number to be guessed.
 ![initial state](images/numberGuessingGame/numberGuessingGameInitialState.png)
-
 2. Prompt tells Player 2 to enter their first guess
+![correct number submitted](images/numberGuessingGame/numberGuessingGameCorrectNumberSubmittedState.png)
+3. Player two enters their first guess and the first Guess Component is updated
+![single guess submtted](images/numberGuessingGame/numberGuessingGameSingleGuessSubmittedState.png)
 3. Guess Components are updated for each guess attempt made by Player 2.
+![three guesses submtted](images/numberGuessingGame/numberGuessingThreeGuessesSubmittedState.png)
 4. If player 2 guesses correctly within 1 guess, display a success message, hide the input field, and show a game restart button
+![game over success](images/numberGuessingGame/numberGuessingGameGameOverSuccessState.png)
 5. If player 2 does not guess correctly in 5 attempts, display a failure message, hide the input field, show a game restart button
+![game over failure](images/numberGuessingGame/numberGuessingGameGameOverFailureState.png)
 
 # Project 1C: Golf Score Keeper
 In this first project you will create a dynamic score-keeping application for a game of golf that updates as data is entered into it. 
