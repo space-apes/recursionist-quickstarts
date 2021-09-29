@@ -82,14 +82,15 @@ In this first project you will create a guessing game where player 1 submits a n
 ### Guess Component
 - a heading that shows whatever the last guess was
 - a message that describes how far the last guess was from the correct number using the following ranges: 0, 1-2, 3-4, 5-9, 10-24, 25-49, 50+
-- some visual indication that maps distance between last guess and correct number to some visual feedback (like colors or upset baby images)
-    - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red    
+- some visual indication that maps distance between last guess and correct number to some visual feedback (like images or colors)
+    - EX: (0)-> blue, (1-2)-> green, (3-4)-> yellow-green, (5-9)->yellow, (10-24) -> yellow-orange, (25-49)->orange, (50+)->red 
+    - EX: (0)-> happy baby, (1-2)-> grumpy baby, (3-4)-> sad baby, (5-9)->upset baby, (10-24) -> angry baby, (25-49)->very angry baby, (50+)->full tantrum baby      
 
 # Project 1B: Number Guesser  
-This project will extend the original number guesser, by both adding extra functionality and following a more sophisticated and flexible design. 
-In this variation of the number guessing game, player two is allowed to make up to 5 attempts at guessing the correct number. In order for player two to better track how close their guesses are getting, each guess attempt will be represented by it's own instance of a Guess Component. When player two either guesses correctly or runs out of attempts, a sum of deviations from the correct score will be displayed as a way to summarize how close player two was over all attempts. 
+This project will extend the original number guesser, by both adding extra functionality and following a more sophisticated and flexible design. Player 2 will now have a maximum 5 attempts to correctly guess the number inputted by player 1. To help Player 2 track their progress, each guess attempt will be represented by its own instance of a Guess Component to help track the guesses. Finally, as a way to 
 
 ## High Level Changes to Original Number Guessing Game
+- keep all input validation functionality of guessing game
 - If you haven't done so already, create a good data model to back each Guess Component. Definine a new class called Guess
     - number correctNumber : the value entered by player 1 
     - number value : value of the guess
