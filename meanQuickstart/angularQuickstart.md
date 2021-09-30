@@ -228,6 +228,6 @@ You will make the use of services in order to access valid menu items, current o
     - application wide service
     - application wide and fetching from external source
 
-# Stepping Stone 4: Asynchronous Requests
+# Stepping Stone 4: Asynchronous Data / Concurrent Programming
 
-# Stepping Stone 5: Http Requests
+# PUT IT ALL TOGETHER!
