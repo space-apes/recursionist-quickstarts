@@ -230,4 +230,4 @@ You will make the use of services in order to access valid menu items, current o
 
 # Stepping Stone 4: Asynchronous Requests
 
-# Stepping Stone 5: Modules and Dependency Injection ?????
+# Stepping Stone 5: Http Requests
