@@ -223,10 +223,7 @@ You will make the use of services in order to access valid menu items, current o
 - can expand order for mini view of order within this frame
 
 # Stepping Stone 3: Defining and Using Feature Modules, Template Module
-    - queue
-        - add messages to queue on events
-    - application wide service
-    - application wide and fetching from external source
+
 
 # Stepping Stone 4: Asynchronous Data / Concurrent Programming
 
