@@ -183,6 +183,10 @@ Also, your single-page apps will be enhanced by using [routes](https://angular.i
 This application will be a Point Of Sales system for employees to enter in and track orders during the daily operations of a cafe. 
 You will make the use of services in order to access a __set of current orders__, __set of completed orders__, and a __set of logging messages__. This will be a one-page application that relies on routing in order for users to select different features of the system they wish to interact with. 
 
+Here is a wireframe of the completed project in all of its states:
+![cafePOS completed](images/cafePOS/cafePOSSource.png)
+
+
 ### Overview
 #### Data Models:
 - MenuItem
@@ -237,14 +241,14 @@ Now that you have a way to pull the valid menu items you can create the data mod
 ### Order Service
 
 # Project 2B: Add top level components and routing
+![cafePOS Initial State](images/cafePOS/cafePOSInitialState.png)
 Create the scaffolding for each of the order componenets: currentOrders, completedOrders, addOrUpdateOrder. (EX: `ng generate component currentOrders`). You will add more detail to them later. Add routing to your application using `ng generate module app-routing --flat --module=app`. Your root level template will only contain an `<app-dashboard>` component and the `<router-outlet>`. Define the 3 routes (https://angular.io/guide/router) that will lead to your 3 order components.
 After creating the dashboard component, add links using `routerLink` to each of the 3 order components. You should be able to click each link and see a change below the dashboard. 
-You should have a simple view like this: 
+When serving your app, should have a simple view like this: 
 
 
 # Project 2C: Cafe POS AddOrUpdateOrder
-The most complex component in this app is ths AddOrUpdateOrder component which looks like this:
-
+![cafePOS Add Or Update Order](images/cafePOS/cafePOSAddOrUpdateOrderState.png)
 - backed by order data model
 
     -  updateDate() : void 
@@ -254,6 +258,8 @@ The most complex component in this app is ths AddOrUpdateOrder component which l
 # Project 2C: Cafe POS Order Components
 https://angular.io/guide/router-tutorial-toh#route-parameters
 ### Current Orders Component
+
+
 
 - pulls from orders.getAllCurrent service
 - lists all current orders including date/time modified, name of customer, total, and a button to mark as completed
