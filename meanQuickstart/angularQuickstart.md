@@ -202,33 +202,40 @@ You will make the use of services in order to access a __set of current orders__
 create a new folder called 'models' and two files : menuItem.ts and order.ts
 
 ### MenuItem Model 
-- name : string 
-- imageUrl : string 
-- price : number
+    - name : string 
+    - imageUrl : string 
+    - price : number
 
 ### Mockup Array of Menu Items
-You will create a list of at least 4 valid menu items, coming up with your own name, price and image URL for each item
+create a folder called 'data' and within it a file called 'valid-menu-items.ts' 
+You will export a constant array of at least 4 valid menu items, coming up with your own name, price and image URL for each item.
+Because this is a constant, it will be unable to be modified by any other parts of your program. 
 
+### Implement MenuItemService
+create a new service that simple imports the mockup of valid menuitems as an array. 
+    - get(index : number) : MenuItem -- if index is within valid range, get the MenuItem in the mockup in that index 
+    - getAll() : Menuitems[] -- retrive all valid menu items from mockup 
+
+Test this out by creating a temporary test component that displays all valid menu item data by calling upon the menu item service. 
 
 ### Order Model
-    - customerName : string 
-    - menuItems : number[] -- 
-    - hours : number 
-    - minutes : number
-    - seconds : number
-    - isCompleted : boolean
-    - constructor(customerName : string) 
-    - setCompleted() : void 
-    - addItem(index : number) 
-    - removeItem(index : number)
-    - updateTime()  
-- menuItem service
-    - get(index: number) : menuItem
-    - getAll(): menuItem[]
+Now that you have a way to pull the valid menu items you can create the data model for your orders (both current and completed). 
 
-- menuItemDetailComponent
-    - display all menuItem field values with h3, p, and img tags
-    
+    - customerName : string -- customer's name
+    - menuItems : number[] -- index of each element corresponds with index in mockup of valid items. value describes quantity of that particular item. 
+    - hours : number -- hour of last update to this order
+    - minutes : number -- minute of last update to this order
+    - seconds : number -- second of last update to this order
+    - isCompleted : boolean -- false by default
+    - constructor(customerName : string, private menuItemService : MenuItemService) 
+    - setCompleted() : void -- sets isCompleted to true
+    - addItem(index : number) -- if index falls within range of valid menu items, increments element in that index
+    - removeItem(index : number) -- if index falls within range of valid menu items and value is not 0 already, decrement element in that index
+    - updateTime()  -- updates all time data fields using current time 
+ 
+
+### Order Service
+
 # Project 2B: Cafe POS AddOrUpdateOrder
 - backed by order data model
 
