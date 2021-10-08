@@ -171,9 +171,9 @@ Your single-page application should be made with at least 2 components and can b
 
 As an extra challenge, try adding more players whose scores can be tracked. 
 
-# Stepping Stone 2: Services and Routes
+# Stepping Stone 2: Services, Concurrent Programming, and Routes
 
-In this stepping stone you will practice abstracting out common or shared features of your applications by defining [service providers](https://angular.io/guide/dependency-injection-providers). For example, in the first project, you will define a service that provides your application with access to data. This will give selected components the ability perform CRUD operations on a shared data store. Importantly, this gives you as the developer the freedom to choose how/where that data actually comes from in future implementations of the program. 
+In this stepping stone you will practice offering shared resources to various parts of your applications by defining [service providers](https://angular.io/guide/dependency-injection-providers). This allows developers to abstract the access to those resources, giving them the freedom to choose how those resources will actually be provisioned or accessed in any future iterations of the design. For example, you may want to offer some data that is stored as an array in memory, but later in development, retrieve that data using an HTTP request. Also, service providers make use of Angular's dependency injection framework which will substantially decrease the effort of handling dependencies between elements in your applications. 
 
 Read up on Angular's [Dependency Injection and Services](https://angular.io/guide/architecture-services) to get a better idea of how DI works in Angular.
 
@@ -182,7 +182,6 @@ Also, your single-page apps will be enhanced by using [routes](https://angular.i
 # Project 2: Cafe POS
 This application will be a Point Of Sales system for employees to enter in and track orders during the daily operations of a cafe. 
 You will make the use of services in order to access a __set of current orders__, __set of completed orders__, and a __set of logging messages__. This will be a one-page application that relies on routing in order for users to select different features of the system they wish to interact with. 
-
 
 ### Overview
 #### Data Models:
@@ -199,9 +198,30 @@ You will make the use of services in order to access a __set of current orders__
 - logMessageService (to insert/retrieve messages for any updates to order)
 
 
-# Project 2A: Define your Data Models
+# Project 2A: Define Data Models and Implement Services
+create a new folder called 'models' and two files : menuItem.ts and order.ts
+
+### MenuItem Model 
+- name : string 
+- imageUrl : string 
+- price : number
+
+### Mockup Array of Menu Items
+You will create a list of at least 4 valid menu items, coming up with your own name, price and image URL for each item
 
 
+### Order Model
+    - customerName : string 
+    - menuItems : number[] -- 
+    - hours : number 
+    - minutes : number
+    - seconds : number
+    - isCompleted : boolean
+    - constructor(customerName : string) 
+    - setCompleted() : void 
+    - addItem(index : number) 
+    - removeItem(index : number)
+    - updateTime()  
 - menuItem service
     - get(index: number) : menuItem
     - getAll(): menuItem[]
@@ -211,15 +231,8 @@ You will make the use of services in order to access a __set of current orders__
     
 # Project 2B: Cafe POS AddOrUpdateOrder
 - backed by order data model
-    - string : customerName
-    -  menuItem[] : items
-    -  addItem(item) : void
-    -  removeItem(item) : void
-    -  dateUpdated : number
-    -  getTotal() : number
+
     -  updateDate() : void 
-    -  setAsCompleted() : void
-    -  setAsNotCompleted() : void
 - includes menuItemDetailComponent
 - includes selector that pulls from menuItemService(). menuDetailComponent data is updated when different selector option selected
 
