@@ -159,7 +159,7 @@ Your single-page application should be made with at least 2 components and can b
         - if the number of strokes is above par, that cell background should be red. 
         - if it is under par it should be green. 
         - if it is par it should be neutral. 
-    - the par and player 'total and under/over par' columns should also be dynamically updated whenever a new number of player strokes and par strokes is entered for a hole. player's total follows same color scheme to individual strokes compared to overall par. 
+    - the par and player 'total and under/over par' columns should also be dynamically updated whenever a new number of player strokes and par strokes is entered for a hole. player's Cancel changestotal follows same color scheme to individual strokes compared to overall par. 
 ![Golf Score Keeper In Progress](images/golfScoreProject/golfScoreProjectGameInProgressView.png)
 
 5. game completed state(when all par and user stroke cells have had values entered)
