@@ -190,35 +190,35 @@ You will make the use of services in order to access a __set of current orders__
 #### Components:
 - app-root
 - NavDashboardComponent : gives user router links to each of the following components
-- AddOrUpdateOrderComponent : gives user a view of valid menu items and all details of a current order. allows user to create a new order or update current order. 
+- AddOrUpdateOrderComponent : gives user a view of valid menu items and all details of a current order. allows user to select from them and create or update an order. 
 - CurrentOrdersComponent : gives user a list of all current orders. clicking any list element will send user to addOrUpdateOrderComponent for that particular order
 - CompletedOrdersComponent : gives user a list of all completed orders. 
 #### Services
 - OrderService (to insert/retrieve both completed and current orders)
 - logMessageService (to insert/retrieve messages for any updates to order)
 
-
 # Project 2A: Define Data Models and Implement Services
-create a new folder called 'models' and two files : menuItem.ts and order.ts
+Create a new directory called `models` and directory called `data`. 
 
-### MenuItem Model 
+### MenuItem Model (`src/app/models/menuItem.ts`)
     - name : string 
     - imageUrl : string 
     - price : number
 
-### Mockup Array of Menu Items
-create a folder called 'data' and within it a file called 'valid-menu-items.ts' 
+### Mockup Array of Menu Items (`src/app/data/validMenuItems.ts`)
 You will export a constant array of at least 4 valid menu items, coming up with your own name, price and image URL for each item.
 Because this is a constant, it will be unable to be modified by any other parts of your program. 
 
-### Implement MenuItemService
-create a new service that simple imports the mockup of valid menuitems as an array. 
+### Implement MenuItemService (`src/app/menu-item.service.ts`)
+Use `ng generate service menuItem` to generate a new service to access the data in the mockup. 
+This service will have the following methods
+    
     - get(index : number) : MenuItem -- if index is within valid range, get the MenuItem in the mockup in that index 
     - getAll() : Menuitems[] -- retrive all valid menu items from mockup 
 
 Test this out by creating a temporary test component that displays all valid menu item data by calling upon the menu item service. 
 
-### Order Model
+### Order Model (`src/models/order.ts`)
 Now that you have a way to pull the valid menu items you can create the data model for your orders (both current and completed). 
 
     - customerName : string -- customer's name
@@ -227,16 +227,23 @@ Now that you have a way to pull the valid menu items you can create the data mod
     - minutes : number -- minute of last update to this order
     - seconds : number -- second of last update to this order
     - isCompleted : boolean -- false by default
-    - constructor(customerName : string, private menuItemService : MenuItemService) 
+    - constructor(customerName : string, private menuItemService : MenuItemService) : sets time parameters to current time hours, minutes, seconds
     - setCompleted() : void -- sets isCompleted to true
-    - addItem(index : number) -- if index falls within range of valid menu items, increments element in that index
-    - removeItem(index : number) -- if index falls within range of valid menu items and value is not 0 already, decrement element in that index
+    - addItem(index : number) -- if index falls within range of valid menu items, increments element in that index. calls updateTime
+    - removeItem(index : number) -- if index falls within range of valid menu items and value is not 0 already, decrement element in that index. calls updateTime()
     - updateTime()  -- updates all time data fields using current time 
  
-
 ### Order Service
 
-# Project 2B: Cafe POS AddOrUpdateOrder
+# Project 2B: Add top level components and routing
+Create the scaffolding for each of the order componenets: currentOrders, completedOrders, addOrUpdateOrder. (EX: `ng generate component currentOrders`). You will add more detail to them later. Add routing to your application using `ng generate module app-routing --flat --module=app`. Your root level template will only contain an `<app-dashboard>` component and the `<router-outlet>`. Define the 3 routes (https://angular.io/guide/router) that will lead to your 3 order components.
+After creating the dashboard component, add links using `routerLink` to each of the 3 order components. You should be able to click each link and see a change below the dashboard. 
+You should have a simple view like this: 
+
+
+# Project 2C: Cafe POS AddOrUpdateOrder
+The most complex component in this app is ths AddOrUpdateOrder component which looks like this:
+
 - backed by order data model
 
     -  updateDate() : void 
@@ -244,7 +251,9 @@ Now that you have a way to pull the valid menu items you can create the data mod
 - includes selector that pulls from menuItemService(). menuDetailComponent data is updated when different selector option selected
 
 # Project 2C: Cafe POS Order Components
+https://angular.io/guide/router-tutorial-toh#route-parameters
 ### Current Orders Component
+
 - pulls from orders.getAllCurrent service
 - lists all current orders including date/time modified, name of customer, total, and a button to mark as completed
 - can expand any order for mini view of order within this frame
