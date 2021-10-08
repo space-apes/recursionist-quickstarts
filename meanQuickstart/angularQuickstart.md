@@ -181,13 +181,26 @@ Also, your single-page apps will be enhanced by using [routes](https://angular.i
 
 # Project 2: Cafe POS
 This application will be a Point Of Sales system for employees to enter in and track orders during the daily operations of a cafe. 
-You will make the use of services in order to access a __set of valid menu items__, ___current orders__, __completed orders__, and __logging messages__. This will be a one-page application that relies on routing in order for users to select different features of the system they wish to interact with. 
+You will make the use of services in order to access a __set of current orders__, __set of completed orders__, and a __set of logging messages__. This will be a one-page application that relies on routing in order for users to select different features of the system they wish to interact with. 
 
-# Project 2A: Cafe POS Item Service and Item Detail Component
-- (data model idea) menu item interface
-    - string : name
-    - number : price
-    - string : imageURL
+
+### Overview
+#### Data Models:
+- MenuItem
+- Order
+#### Components:
+- app-root
+- NavDashboardComponent : gives user router links to each of the following components
+- AddOrUpdateOrderComponent : gives user a view of valid menu items and all details of a current order. allows user to create a new order or update current order. 
+- CurrentOrdersComponent : gives user a list of all current orders. clicking any list element will send user to addOrUpdateOrderComponent for that particular order
+- CompletedOrdersComponent : gives user a list of all completed orders. 
+#### Services
+- OrderService (to insert/retrieve both completed and current orders)
+- logMessageService (to insert/retrieve messages for any updates to order)
+
+
+# Project 2A: Define your Data Models
+
 
 - menuItem service
     - get(index: number) : menuItem
