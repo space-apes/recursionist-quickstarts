@@ -186,7 +186,6 @@ You will make the use of services in order to access a __set of current orders__
 Here is a wireframe of the completed project in all of its states:
 ![cafePOS completed](images/cafePOS/cafePOSSource.png)
 
-
 ### Overview
 #### Data Models:
 - MenuItem
@@ -238,7 +237,13 @@ Now that you have a way to pull the valid menu items you can create the data mod
     - removeItem(index : number) -- if index falls within range of valid menu items and value is not 0 already, decrement element in that index. calls updateTime()
     - updateTime()  -- updates all time data fields using current time 
  
-### Order Service
+### Order Service (`src/app/order.service.ts`)
+    - orders : Order[] -- all orders
+    - get(index : number) : Order -- if index is within valid range, get the Order 
+    - getAll() : Menuitems[] Order[] -- retrive all valid orders    
+    - getAllCurrent() : Order[] -- retrieve all current orders
+    - getAllCompleted() : Order[] -- retrieve all completed orders
+    - create() : creates a new Order object with default values, pushes it into the array of orders, and returns a reference to it.  
 
 # Project 2B: Add top level components and routing
 ![cafePOS Initial State](images/cafePOS/cafePOSInitialState.png)
@@ -246,34 +251,35 @@ Create the scaffolding for each of the order componenets: currentOrders, complet
 After creating the dashboard component, add links using `routerLink` to each of the 3 order components. You should be able to click each link and see a change below the dashboard. 
 When serving your app, should have a simple view like this: 
 
-
-# Project 2C: Cafe POS AddOrUpdateOrder
+# Project 2C: Cafe POS AddOrUpdateOrder Component
 ![cafePOS Add Or Update Order](images/cafePOS/cafePOSAddOrUpdateOrderState.png)
-- backed by order data model
+This component will be where users can either enter a new order, or retrieve an existing order and update the order's values. This component requires an Order as input. Any changes to the form should be reflected in the targetd Order and seen app-wide. 
+- printout of name, image, and cost of each menu item
+- text input for customer name, 
+- input field to adjust quantity of each item the customer wants
+- a printout of the total cost 
+- optional submit button. you can use binding to update all values without the button. 
+- any changes to an order should trigger the updateTime() method for that order
 
-    -  updateDate() : void 
-- includes menuItemDetailComponent
-- includes selector that pulls from menuItemService(). menuDetailComponent data is updated when different selector option selected
+Initially, you can test this by creating a single Order manually within the OrderService constructor then using orderService.get(0) in the component's typescript definition. 
 
-# Project 2C: Cafe POS Order Components
-https://angular.io/guide/router-tutorial-toh#route-parameters
+Next, you will need to set up parametarized routing such that loading the url with parameters allows you to use an existing Order for this component, and a url without parameters creates a new order using the order service. Read up on parameterized routes here: https://angular.io/guide/router-tutorial-toh#route-parameters
+
+# Project 2D: Cafe POS Order Components
 ### Current Orders Component
-
-
-
-- pulls from orders.getAllCurrent service
-- lists all current orders including date/time modified, name of customer, total, and a button to mark as completed
-- can expand any order for mini view of order within this frame
-- clicking any order collapses order view and directs browser to 'addItem' view, focusing on that particular order
-- when 'completed' button is pressed, use order service to transfer this order from current orders to completed orders
+![cafePOS Current Orders](images/cafePOS/cafePOSCurrentOrdersState.png)
+- pulls orders from OrderService.getAllCurrent() 
+- lists all current orders as a link with content including date/time modified, name of customer, total, and a button to mark as completed
+- can click on any link to route back to addOrUpdateOrder, using parameterized routing to view the correct order
+- when 'completed' button is pressed update the order to completed and update the time modified
 
 ### Completed Orders Component
-- pulls from orders.getAllCompleted service
-- can expand order for mini view of order within this frame
+![cafePOS Completed Orders](images/cafePOS/cafePOSCoimpletedOrdersState.png)
+- pulls orders from OrderService.getAllCompleted()
+- lists all completed orders with content including date/time modified, name of customer and total
 
-# Stepping Stone 3: Defining and Using Feature Modules, Template Module
 
+# Stepping Stone 3: Asynchronous Data / Concurrent Programming
 
-# Stepping Stone 4: Asynchronous Data / Concurrent Programming
 
 # PUT IT ALL TOGETHER!
