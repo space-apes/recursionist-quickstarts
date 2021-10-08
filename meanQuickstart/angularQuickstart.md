@@ -194,6 +194,7 @@ You will make the use of services in order to access a __set of current orders__
 - CurrentOrdersComponent : gives user a list of all current orders. clicking any list element will send user to addOrUpdateOrderComponent for that particular order
 - CompletedOrdersComponent : gives user a list of all completed orders. 
 #### Services
+- MenuItemService (to retrieve all valid menu choices)
 - OrderService (to insert/retrieve both completed and current orders)
 - logMessageService (to insert/retrieve messages for any updates to order)
 
