@@ -274,7 +274,7 @@ Next, you will need to set up parametarized routing such that loading the url wi
 - when 'completed' button is pressed update the order to completed and update the time modified
 
 ### Completed Orders Component
-![cafePOS Completed Orders](images/cafePOS/cafePOSCoimpletedOrdersState.png)
+![cafePOS Completed Orders](images/cafePOS/cafePOSCompletedOrdersState.png)
 - pulls orders from OrderService.getAllCompleted()
 - lists all completed orders with content including date/time modified, name of customer and total
 
