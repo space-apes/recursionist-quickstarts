@@ -171,7 +171,7 @@ Your single-page application should be made with at least 2 components and can b
 
 As an extra challenge, try adding more players whose scores can be tracked. 
 
-# Stepping Stone 2: Services, Concurrent Programming, and Routes
+# Stepping Stone 2: Services and Routes
 
 In this stepping stone you will practice offering shared resources to various parts of your applications by defining [service providers](https://angular.io/guide/dependency-injection-providers). This allows developers to abstract the access to those resources, giving them the freedom to choose how those resources will actually be provisioned or accessed in any future iterations of the design. For example, you may want to offer some data that is stored as an array in memory, but later in development, retrieve that data using an HTTP request. Also, service providers make use of Angular's dependency injection framework which will substantially decrease the effort of handling dependencies between elements in your applications. 
 
@@ -280,6 +280,16 @@ Next, you will need to set up parametarized routing such that loading the url wi
 
 
 # Stepping Stone 3: Remote Data Through HTTP and Concurrent Programming
-Angular is a framework to assist in the development of dynamic GUIs that is ultimately run client-side. However, it is often the case that some data must be retrieved non-locally to be used in the frontend. Angular comes with 
+Angular is a framework to assist in the development of dynamic GUIs and it is ultimately run client-side. However, it is often the case that some data must be retrieved non-locally. Angular comes packaged with a set of tools to make various types of HTTP requests and handle their responses. Make sure to read up on [communicating with back-end services through HTTP](https://angular.io/guide/http). It is important to note than when your system relies on non-local data, there may some delay before that data is available, but you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
 
-# PUT IT ALL TOGETHER!
+
+#Project 3A: Multi-User Asynchronous Task Board
+In order to coordinate work between groups of people, you will create web-based task board that allows multiple users to add containers for different types of tasks, cards to represent each task, and with the functionality to edit the contents of the cards and move them between containers. Data will be stored on a back-end service and accessed through a REST API. All clients will listen for changes to the application 
+
+Column
+    - label
+    - cards
+Card
+    - content
+    - timestamp
+
