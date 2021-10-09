@@ -237,7 +237,7 @@ Now that you have a way to pull the valid menu items you can create the data mod
     - removeItem(index : number) -- if index falls within range of valid menu items and value is not 0 already, decrement element in that index. calls updateTime()
     - updateTime()  -- updates all time data fields using current time 
  
-### Order Service (`src/app/order.service.ts`)
+### Implement Order Service (`src/app/order.service.ts`)
     - orders : Order[] -- all orders
     - get(index : number) : Order -- if index is within valid range, get the Order 
     - getAll() : Menuitems[] Order[] -- retrive all valid orders    
@@ -279,7 +279,7 @@ Next, you will need to set up parametarized routing such that loading the url wi
 - lists all completed orders with content including date/time modified, name of customer and total
 
 
-# Stepping Stone 3: Asynchronous Data / Concurrent Programming
-
+# Stepping Stone 3: Remote Data Through HTTP and Concurrent Programming
+Angular is a framework to assist in the development of dynamic GUIs that is ultimately run client-side. However, it is often the case that some data must be retrieved non-locally to be used in the frontend. Angular comes with 
 
 # PUT IT ALL TOGETHER!
