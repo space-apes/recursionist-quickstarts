@@ -280,16 +280,19 @@ Next, you will need to set up parametarized routing such that loading the url wi
 
 
 # Stepping Stone 3: Remote Data Through HTTP and Concurrent Programming
-Angular is a framework to assist in the development of dynamic GUIs and it is ultimately run client-side. However, it is often the case that some data must be retrieved non-locally. Angular comes packaged with a set of tools to make various types of HTTP requests and handle their responses. Make sure to read up on [communicating with back-end services through HTTP](https://angular.io/guide/http). It is important to note than when your system relies on non-local data, there may some delay before that data is available, but you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
+Angular is a framework to assist in the development of dynamic GUIs and it is ultimately run client-side. However, it is often the case that some data must be retrieved non-locally. Angular comes packaged with a set of tools to make various types of HTTP requests and handle their responses. Make sure to read up on [communicating with back-end services through HTTP](https://angular.io/guide/http). 
+
+It is important to note than when your system relies on non-local data, there may some delay before that data is available, but you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
 
 
 #Project 3A: Multi-User Asynchronous Task Board
 In order to coordinate work between groups of people, you will create web-based task board that allows multiple users to add containers for different types of tasks, cards to represent each task, and with the functionality to edit the contents of the cards and move them between containers. Data will be stored on a back-end service and accessed through a REST API. All clients will listen for changes to the application 
 
+```
 Column
     - label
     - cards
 Card
     - content
     - timestamp
-
+```
