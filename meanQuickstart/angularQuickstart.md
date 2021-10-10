@@ -287,14 +287,42 @@ It is important to note than when your system relies on non-local data, there ma
 
 #Project 3: Personalized / Randomized Book Recommender
 
+Template Forms? 
+
+### Data Models
+Person:
+```
+gender : string -- {"male", "female"}
+country : string -- {"Australia", "Brazil", "France", "Other"}
+imageURL : string 
+age : number
+ageRange : string -- {"child", "teen". "adult"}
+```    
+Book:
+```
+title : string 
+author : string
+publisher : string
+pubDate : string
+isbn : number
+```
+### Components
+- root module
+- person-input
+- book-list
+- book-detail
+
 #Project 3A: 
 
-Person:
-    gender : string -- {"male", "female"}
-    country : string -- {"Australia", "Brazil", "France", "Other"}
-    ageRange : string -- {"child", "teen". "adult"}
-    
+###Data Models
 
+
+
+
+
+
+Person->topic map
+```
 France
     Child
         Male
@@ -343,6 +371,7 @@ Australia
             Movies
         Female
             Business
+```
 
 https://randomuser.me/
 
