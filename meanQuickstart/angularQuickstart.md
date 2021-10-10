@@ -279,11 +279,12 @@ Next, you will need to set up parametarized routing such that loading the url wi
 - lists all completed orders with content including date/time modified, name of customer and total
 
 
-# Stepping Stone 3: Remote Data Through HTTP and Concurrent Programming
-Angular is a framework to assist in the development of dynamic GUIs and it is ultimately run client-side. However, it is often the case that some data must be retrieved non-locally. Angular comes packaged with a set of tools to make various types of HTTP requests and handle their responses. Make sure to read up on [communicating with back-end services through HTTP](https://angular.io/guide/http). 
+# Stepping Stone 3: Remote Data Through HTTP, Concurrent Programming, and Reactive Forms
+Angular is a framework to assist in the development of dynamic GUIs and it is ultimately run client-side. However, it very often the case that you have a complex web application that relies on data and services requested from remote APIs and other servers. Angular comes packaged with a set of tools to make various types of HTTP requests and handle their responses. Make sure to read up on [communicating with back-end services through HTTP](https://angular.io/guide/http). 
 
-It is important to note than when your system relies on non-local data, there may some delay before that data is available, but you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
+It is important to note than when your system relies on data and there is a delay (like when you request something from a REST API), you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
 
+Finally, forms are an ever-present interface to get data from your users and Angular offers two ways to implement them: reactive and template-driven. Though each method can provide the same functionality as the other, each has their own respective strengths and typical use-cases. Template-driven forms should be familiar at this point and are easier to work with in simple forms with few fields and also if your task is to upgrade an application written in an older version of Angular to a newer one. Reactive forms are defined programmatically instead of through template directives and are more scalable. You can more easily implement complex functionality in your forms like validation that depends on multiple fields or 'save' / 'reset' for all form data using reactive forms. Make sure to read up on the different approaches here: [Angular forms overview](https://angular.io/guide/forms-overview).
 
 #Project 3: Personalized / Randomized Book Recommender
 
