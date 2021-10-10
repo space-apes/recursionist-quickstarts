@@ -188,8 +188,8 @@ Here is a wireframe of the completed project in all of its states:
 
 ### Overview
 #### Data Models:
-- MenuItem
-- Order
+- MenuItem : this is the model that represents an item that a customer can buy from the cafe
+- Order : this is the model that represents an order that a customer has made, including the quantity of each MenuItem for that order. 
 #### Components:
 - app-root
 - NavDashboardComponent : gives user router links to each of the following components
@@ -286,9 +286,10 @@ It is important to note than when your system relies on data and there is a dela
 
 Finally, forms are an ever-present interface to get data from your users and Angular offers two ways to implement them: reactive and template-driven. Though each method can provide the same functionality as the other, each has their own respective strengths and typical use-cases. Template-driven forms should be familiar at this point and are easier to work with in simple forms with few fields and also if your task is to upgrade an application written in an older version of Angular to a newer one. Reactive forms are defined programmatically instead of through template directives and are more scalable. You can more easily implement complex functionality in your forms like validation that depends on multiple fields or 'save' / 'reset' for all form data using reactive forms. Make sure to read up on the different approaches here: [Angular forms overview](https://angular.io/guide/forms-overview).
 
-#Project 3: Personalized / Randomized Book Recommender
+#Project 3: Personalized Book Recommender with Randomizer
+In this project you are tasked with creating an application that takes in information about a user (gender, age, country) then provides information about books the user may like. 
+The user may also retrieve randomized person data from the [randomuser.me api](https://randomuser.me/documentation#results). Once user data has been entered or randomly generated, you will provide some logic to select a topic to be used to retrieve a list of books from the ![openlibrary API](https://openlibrary.org/developers/api). 
 
-Template Forms? 
 
 ### Data Models
 Person:
