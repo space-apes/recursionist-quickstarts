@@ -285,17 +285,64 @@ Angular is a framework to assist in the development of dynamic GUIs and it is ul
 It is important to note than when your system relies on non-local data, there may some delay before that data is available, but you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
 
 
-#Project 3A: Multi-User Asynchronous Task Board
-In order to coordinate work between groups of people, you will create web-based task board that allows multiple users to add containers for different types of tasks, cards to represent each task, and with the functionality to edit the contents of the cards and move them between containers. Data will be stored on a back-end service and accessed through a REST API. All clients will listen for changes to the application 
+#Project 3: Personalized / Randomized Book Recommender
 
+#Project 3A: 
+
+Person:
+    gender : string -- {"male", "female"}
+    country : string -- {"Australia", "Brazil", "France", "Other"}
+    ageRange : string -- {"child", "teen". "adult"}
+    
+
+France
+    Child
+        Male
+            Dinosaurs
+        Female
+            Ballet
+    Teen
+        Male
+            Bicycles
+        Female
+            Romance
+    Adult
+        Male
+            Business
+        Female
+            Law
+Brazil
+     Child
+        Male
+            Karate
+        Female
+            Rainforest
+    Teen
+        Male
+            Surfing
+        Female
+            Psychology
+    Adult
+        Male
+            Football
+        Female
+            Jewelry
+Australia
+    Child
+        Male
+            Spiders
+        Female
+            Geology 
+    Teen
+        Male
+            Rugby
+        Female
+            Fencing
+    Adult
+        Male
+            Movies
+        Female
+            Business
 
 https://randomuser.me/
 
-```
-Column
-    - label
-    - cards
-Card
-    - content
-    - timestamp
-```
