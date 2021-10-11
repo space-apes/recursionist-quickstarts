@@ -390,6 +390,7 @@ pubDate : string
 isbn : number
 ```
 # Project 3B: Person Service, Person Input Component first iteration
+![](images/bookRecommender/bookRecommenderPersonInputSimple.png)
 On this step you will build the Person service and test it by using it in the Person Input Component. As mentioned earlier, the service will be built around a single observable. All components will subscribe to this one observable and the methods on the service will update that observable. Make a new service called 'person' with a single data field in the class definition:`personSubject : Subject<Person>;`
 
 In the service's constructor you can instantiate this Subject with `this.personSubject = new Subject<Person>()`. Next you can define the methods to push values into the Subject:
