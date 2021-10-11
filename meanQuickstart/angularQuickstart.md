@@ -414,6 +414,7 @@ The component class definition will have a single person field: `person? : Perso
 
 
 # Project 3C: Getting Person Data from API
+
 Now you are ready to retrieve randomized Person data from the API. You will first need to [get up your app with HttpClient](https://angular.io/guide/http#setup-for-server-communication) then you can define a method in the person service called `setRandomPerson()`. In case you need it, here is the [documentation for the randomuser.me API](https://randomuser.me/documentation) again. By default, the data is served in JSON format, and it will be good practice to take that JSON, strip out the relevant fields, and convert that data into a Person to update the service. When you use HttpClient.get, you need to supply the endpoint of the api (https://randomuser.me/api/) and you have the option to set some http options as well. Make sure to set 'observe' to 'body' and the 'responseType' to 'json'. 
 
 It is suggested to use console.log() to figure out how to extract the relevant data from the response. You may need to use some of the pipeable [rxjs operators](https://rxjs.dev/guide/operators) such as map, tap if you wish to perform transformations and on the data. 
@@ -421,6 +422,7 @@ It is suggested to use console.log() to figure out how to extract the relevant d
 Once you are satisfied with `personService.setRandomPerson()`, test it by adding a randomizing button to Person Input Component. 
 
 # Project 3D: Person data through a form, book service, Book List Component, and Book Detail Component 
+![](images/bookRecommender/bookRecommenderRandomWithNoBookList.png)
 Update your Person Input Component's template to 
 ```
 make sure image tag works with a default image when not pulling from randomuser.me
@@ -442,4 +444,7 @@ get(index : number)
 Explore the [openLibrary API documentation](https://openlibrary.org/developers/api) to see how to search for books that match a specified topic. 
 For each element that is retrieved from the API, you will need to once again convert it into a Book as defined by your Book model. 
 
-Once you have populated book.service.bookList, you can display the results in your component. Book List Component's template is relatively simple, but you will need to rely on some of your previous knowledge about parameterized routing. For each element in the local array, display a link with the Title, the Author, and the year for content. Clicking on a link will cause the details to be displayed in the Book Detail Component, including the title, author, publisher, publication date, and isbn. 
+Once you have populated book.service.bookList, you can display the results in your component. 
+![](images/bookRecommender/bookRecommenderRandomWithBookList.png)
+Book List Component's template is relatively simple, but you will need to rely on some of your previous knowledge about parameterized routing. For each element in the local array, display a link with the Title, the Author, and the year for content. Clicking on a link will cause the details to be displayed in the Book Detail Component, including the title, author, publisher, publication date, and isbn. 
+![](images/bookRecommender/bookRecommenderRandomWithBookListAndDetail.png)
