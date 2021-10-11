@@ -279,16 +279,15 @@ Next, you will need to set up parametarized routing such that loading the url wi
 - lists all completed orders with content including date/time modified, name of customer and total
 
 
-# Stepping Stone 3: Remote Data Through HTTP, Concurrent Programming, and Reactive Forms
+# Stepping Stone 3: Remote Data Through HTTP, Concurrent Programming
 Angular is a framework to assist in the development of dynamic GUIs and it is ultimately run client-side. However, it very often the case that you have a complex web application that relies on data and services requested from remote APIs and other servers. Angular comes packaged with a set of tools to make various types of HTTP requests and handle their responses. Make sure to read up on [communicating with back-end services through HTTP](https://angular.io/guide/http). 
 
 It is important to note than when your system relies on data and there is a delay (like when you request something from a REST API), you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. Make sure to read [Angular's overview of rxjs](https://angular.io/guide/rx-library) also. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
 
-Finally, forms are an ever-present interface to get data from your users and Angular offers two ways to implement them: reactive and template-driven. Though each method can provide the same functionality as the other, each has their own respective strengths and typical use-cases. Template-driven forms should be familiar at this point and are easier to work with in simple forms with few fields and also if your task is to upgrade an application written in an older version of Angular to a newer one. Reactive forms are defined programmatically instead of through template directives and are more scalable. You can more easily implement complex functionality in your forms like validation that depends on multiple fields or 'save' / 'reset' for all form data using reactive forms. Make sure to read up on the different approaches here: [Angular forms overview](https://angular.io/guide/forms-overview).
 
-#Project 3: Personalized Book Recommender with Randomizer
+# Project 3: Personalized Book Recommender with Randomizer
 In this project you are tasked with creating an application that takes in information about a user (gender, country, age) then provides information about books the user may like. 
-The user may also retrieve randomized person data from the [randomuser.me api](https://randomuser.me/documentation#results). Once user data has been entered or randomly generated, you will provide some logic to select a topic to be used to retrieve a list of books from the ![openlibrary API](https://openlibrary.org/developers/api). Pay special attention to the response type, shape, and key values for each of the APIs as it will inform you on how to name things appropriately in your program. 
+The user may also retrieve randomized person data from the [randomuser.me api](https://randomuser.me/documentation#results). Once user data has been entered or randomly generated, you will provide some logic to select a topic to be used to retrieve a list of books from the ![openlibrary API](https://openlibrary.org/developers/api). Pay special attention to the  type, shape, and key values of the responses for each of the APIs as it will inform you on how to name and structure things in your application.
 
 ### Data Models
 - Person: This represents a user who wishes to find matching books. It can be provided through a form or by randomizing using the randomuser.me API.
@@ -296,22 +295,19 @@ The user may also retrieve randomized person data from the [randomuser.me api](h
 
 ### Components
 - root module
-- person-form
-- book-list
-- book-detail
+- person-input Component : allows user to update Person fields or generate a random Person
+- book-list : shows results from openLibrary search based on given Person's topic
+- book-detail : gives more detail on any particular book 
 
 ### Services
-- person service
-    - request a test person
-    - request a random person 
-- book service
-    - request a list of books 
-    - request a particular book      
+One of this project's services will handle sharing of data between components in a different way than the previous ones. Instead of using property binding and sharing state through parent components, you will rely on Observables and Subjects. The service will have an observable and components will set their local variables as subscribers to those observables so that if any change is made to the service's observable, all components will be updated. Instead of 'getting' values, you will define methods to set the observable's emitted value. 
+- person service : a way to share a Person with any components in your app. There will always be exactly 1 Person and no more. 
+- book service : a way to share books with components in your app. You will request lists of books and store them locally then access the stored books. 
+  
+# Project 3A: Define Data Models
+The first step of the project is similar to the previous project: define your data models. However, if you wish, you may start by creating the layout and high level components without any content, including the root component, the person form component, the book list component, and the book detail component. You will define service providers in subsequent steps. 
 
-#Project 3A: 
-The first step of the project is similar to the previous project: define your data models and service providers. However, if you wish, you may start by creating the layout and high level components without any content, including the root component, the person form component, the book list component, and the book detail component. 
-
-### Data Models and Services
+### Data Models
 #### Person Model
 ```
 gender : string -- {"male", "female"}
@@ -391,30 +387,56 @@ publisher : string
 pubDate : string
 isbn : number
 ```
+# Project 3B: Person Service, Person Input Component first iteration
+On this step you will build the Person service and test it by using it in the Person Input Component. As mentioned earlier, the service will be built around a single observable. All components will subscribe to this one observable and the methods on the service will update that observable. Make a new service called 'person' with a single data field in the class definition:`personSubject : Subject<Person>;`
 
-
-#Project 3B: Person Randomizer
-On this step you will build the person service and test it by creating a simple temporary component called RandomPersonComponent. 
-
-### person Service
-The person service should be defined with the following methods:
+In the service's constructor you can instantiate this Subject with `this.personSubject = new Subject<Person>()`. Next you can define the methods to push values into the Subject:
+``` 
+  setStaticPerson1() : void -- set service's Subject Person to a Person with hardcoded values for the default initial state using Subject.next()
+  setStaticPerson2() : void -- set Person with hardcoded values for further testing using Subject.next()
+  setPerson(inPerson : Person) : void -- set the service's observable Person to a given Person. Again, uses Subject.next()
 ```
-getStaticPerson1() : Observable<Person> -- uses rxjs 'of' function to return a new Person with set constructor parameters. EX: "male", "Australia", "question.jpg", 23
-getStaticPerson2() : Observable<Person> -- uses rxjs 'of' function to return a new Person with set constructor parameters. must be different than above.
-getRandomPerson() : Observable<Person> -- HttpClient.get() to retrieve a JSON from https://randomuser.me/api/, and use the appropriate fields to generate a new Person. 
-```
-### RandomUserComponent
-```
-person? : Person -- person retrieved from the person service to be used in the view
-constructor(private personService : PersonService) 
-ngOnInit() -- sets this.person to PersonService.getStaticPerson1()
+You will add the randomizer next but here is a good moment to test communication between components. 
 
-setStaticPerson2() -- sets this.person to PersonService.getStaticPerson2()
-setRandomPerson() -- sets this.person to random person from PersonService.getRandomPerson()
+The first iteration of the Person Input Component's template will have
 ```
+- image tag
+- p tag for gender
+- p tag for country
+- p tag for age
+- button to set the Person service's Observable to a static case 1
+- button to set the Person service's Observable to static case 2
+```
+The component class definition will have a single person field: `person? : Person` and in the constructor you will subscribe to personService.personSubject, updating `this.person` with it's value any time it changes. Test this out by having your buttons call the service methods. You may want to have another component subscribe to the service and see if data is updated across both components. 
 
 
+# Project 3C: Getting Person Data from API
+Now you are ready to retrieve randomized Person data from the API. You will first need to [get up your app with HttpClient](https://angular.io/guide/http#setup-for-server-communication) then you can define a method in the person service called `setRandomPerson()`. In case you need it, here is the [documentation for the randomuser.me API](https://randomuser.me/documentation) again. By default, the data is served in JSON format, and it will be good practice to take that JSON, strip out the relevant fields, and convert that data into a Person to update the service. When you use HttpClient.get, you need to supply the endpoint of the api (https://randomuser.me/api/) and you have the option to set some http options as well. Make sure to set 'observe' to 'body' and the 'responseType' to 'json'. 
+
+It is suggested to use console.log() to figure out how to extract the relevant data from the response. You may need to use some of the pipeable [rxjs operators](https://rxjs.dev/guide/operators) such as map, tap if you wish to perform transformations and on the data. 
+
+Once you are satisfied with `personService.setRandomPerson()`, test it by adding a randomizing button to Person Input Component. 
+
+# Project 3D: Person data through a form, book service, Book List Component, and Book Detail Component 
+Update your Person Input Component's template to 
 ```
-This basic component will have on Person object in its class definition. 
-The template should include an image, and paragraph tags for gender, country, and age. 
-There should be one button to 'load static person' and another button to 'load random person'. 
+make sure image tag works with a default image when not pulling from randomuser.me
+replace p tag with label and dropdown menu for gender
+replace p tag with label and dropdown menu for country
+replace p tag with label and input type number for age
+replace the static user button with a new button to 'submit for book search' 
+```
+This new button should both use `personService.setPerson(Person)` using values from the form, but should also trigger the actions to update the list of suggested books within the book service. 
+
+The book service will be used by both the book-list component, to list all the local books, and by the book-detail component, to display more details about a specific book. You will not define this service in terms of observables except when requesting data from API. The bookservice will have the following fields and methods: 
+```
+bookList : Book[]
+updateLocalList(topic: string) 
+getAllLocal()
+get(index : number) 
+```
+
+Explore the [openLibrary API documentation](https://openlibrary.org/developers/api) to see how to search for books that match a specified topic. 
+For each element that is retrieved from the API, you will need to once again convert it into a Book as defined by your Book model. 
+
+Once you have populated book.service.bookList, you can display the results in your component. Book List Component's template is relatively simple, but you will need to rely on some of your previous knowledge about parameterized routing. For each element in the local array, display a link with the Title, the Author, and the year for content. Clicking on a link will cause the details to be displayed in the Book Detail Component, including the title, author, publisher, publication date, and isbn. 
