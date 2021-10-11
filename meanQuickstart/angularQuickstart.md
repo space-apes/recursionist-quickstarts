@@ -282,25 +282,108 @@ Next, you will need to set up parametarized routing such that loading the url wi
 # Stepping Stone 3: Remote Data Through HTTP, Concurrent Programming, and Reactive Forms
 Angular is a framework to assist in the development of dynamic GUIs and it is ultimately run client-side. However, it very often the case that you have a complex web application that relies on data and services requested from remote APIs and other servers. Angular comes packaged with a set of tools to make various types of HTTP requests and handle their responses. Make sure to read up on [communicating with back-end services through HTTP](https://angular.io/guide/http). 
 
-It is important to note than when your system relies on data and there is a delay (like when you request something from a REST API), you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
+It is important to note than when your system relies on data and there is a delay (like when you request something from a REST API), you do not want your application to stop functioning in that time. Angular relies on a library called [RxJS](https://rxjs.dev/guide/overview) to create asynchronous and event-based applications to overcome this problem. Make sure to read [Angular's overview of rxjs](https://angular.io/guide/rx-library) also. The [observable](https://rxjs.dev/guide/observable) data type supports this by following a publish-subscribe architectural pattern. 
 
 Finally, forms are an ever-present interface to get data from your users and Angular offers two ways to implement them: reactive and template-driven. Though each method can provide the same functionality as the other, each has their own respective strengths and typical use-cases. Template-driven forms should be familiar at this point and are easier to work with in simple forms with few fields and also if your task is to upgrade an application written in an older version of Angular to a newer one. Reactive forms are defined programmatically instead of through template directives and are more scalable. You can more easily implement complex functionality in your forms like validation that depends on multiple fields or 'save' / 'reset' for all form data using reactive forms. Make sure to read up on the different approaches here: [Angular forms overview](https://angular.io/guide/forms-overview).
 
 #Project 3: Personalized Book Recommender with Randomizer
-In this project you are tasked with creating an application that takes in information about a user (gender, age, country) then provides information about books the user may like. 
-The user may also retrieve randomized person data from the [randomuser.me api](https://randomuser.me/documentation#results). Once user data has been entered or randomly generated, you will provide some logic to select a topic to be used to retrieve a list of books from the ![openlibrary API](https://openlibrary.org/developers/api). 
-
+In this project you are tasked with creating an application that takes in information about a user (gender, country, age) then provides information about books the user may like. 
+The user may also retrieve randomized person data from the [randomuser.me api](https://randomuser.me/documentation#results). Once user data has been entered or randomly generated, you will provide some logic to select a topic to be used to retrieve a list of books from the ![openlibrary API](https://openlibrary.org/developers/api). Pay special attention to the response type, shape, and key values for each of the APIs as it will inform you on how to name things appropriately in your program. 
 
 ### Data Models
-Person:
+- Person: This represents a user who wishes to find matching books. It can be provided through a form or by randomizing using the randomuser.me API.
+- Book: This represents a book that is recommended to the user. The openLibrary API provides a wealth of information but we will focus on just a couple of its fields. 
+
+### Components
+- root module
+- person-form
+- book-list
+- book-detail
+
+### Services
+- person service
+    - request a test person
+    - request a random person 
+- book service
+    - request a list of books 
+    - request a particular book      
+
+#Project 3A: 
+The first step of the project is similar to the previous project: define your data models and service providers. However, if you wish, you may start by creating the layout and high level components without any content, including the root component, the person form component, the book list component, and the book detail component. 
+
+### Data Models and Services
+#### Person Model
 ```
 gender : string -- {"male", "female"}
 country : string -- {"Australia", "Brazil", "France", "Other"}
 imageURL : string 
 age : number
 ageRange : string -- {"child", "teen". "adult"}
-```    
-Book:
+getTopic() : string 
+constructor(gender : string, country : string, imageURL : string, age : number) 
+```
+The constructor should map the users age to an age range string and set the ageRange data field of that object using the following mapping: 
+```
+0-12 -> "child"
+13-19 -> "teen"
+20+ -> "adult"
+```
+The getTopic method should map from the Person object's gender, country, and age fields to a single topic string and return that string. You may use the following table
+for the mapping: 
+```
+France
+    Child
+        male
+            Dinosaurs
+        female
+            Ballet
+    Teen
+        male
+            Bicycles
+        female
+            Romance
+    Adult
+        male
+            Business
+        female
+            Law
+Brazil
+     Child
+        male
+            Karate
+        female
+            Rainforest
+    Teen
+        male
+            Surfing
+        female
+            Psychology
+    Adult
+        male
+            Football
+        female
+            Jewelry
+Australia
+    Child
+        male
+            Spiders
+        female
+            Geology 
+    Teen
+        male
+            Rugby
+        female
+            Fencing
+    Adult
+        male
+            Movies
+        female
+            Sculpture
+```
+You may fill in whatever topic values you feel are appropriate but make sure to maintain the country values, ageRange values, and gender values. 
+
+
+#### Book Model
 ```
 title : string 
 author : string
@@ -308,72 +391,30 @@ publisher : string
 pubDate : string
 isbn : number
 ```
-### Components
-- root module
-- person-input
-- book-list
-- book-detail
-
-#Project 3A: 
-
-###Data Models
 
 
+#Project 3B: Person Randomizer
+On this step you will build the person service and test it by creating a simple temporary component called RandomPersonComponent. 
 
-
-
-
-Person->topic map
+### person Service
+The person service should be defined with the following methods:
 ```
-France
-    Child
-        Male
-            Dinosaurs
-        Female
-            Ballet
-    Teen
-        Male
-            Bicycles
-        Female
-            Romance
-    Adult
-        Male
-            Business
-        Female
-            Law
-Brazil
-     Child
-        Male
-            Karate
-        Female
-            Rainforest
-    Teen
-        Male
-            Surfing
-        Female
-            Psychology
-    Adult
-        Male
-            Football
-        Female
-            Jewelry
-Australia
-    Child
-        Male
-            Spiders
-        Female
-            Geology 
-    Teen
-        Male
-            Rugby
-        Female
-            Fencing
-    Adult
-        Male
-            Movies
-        Female
-            Business
+getStaticPerson1() : Observable<Person> -- uses rxjs 'of' function to return a new Person with set constructor parameters. EX: "male", "Australia", "question.jpg", 23
+getStaticPerson2() : Observable<Person> -- uses rxjs 'of' function to return a new Person with set constructor parameters. must be different than above.
+getRandomPerson() : Observable<Person> -- HttpClient.get() to retrieve a JSON from https://randomuser.me/api/, and use the appropriate fields to generate a new Person. 
+```
+### RandomUserComponent
+```
+person? : Person -- person retrieved from the person service to be used in the view
+constructor(private personService : PersonService) 
+ngOnInit() -- sets this.person to PersonService.getStaticPerson1()
+
+setStaticPerson2() -- sets this.person to PersonService.getStaticPerson2()
+setRandomPerson() -- sets this.person to random person from PersonService.getRandomPerson()
 ```
 
-https://randomuser.me/
 
+```
+This basic component will have on Person object in its class definition. 
+The template should include an image, and paragraph tags for gender, country, and age. 
+There should be one button to 'load static person' and another button to 'load random person'. 
