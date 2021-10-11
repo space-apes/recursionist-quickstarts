@@ -286,6 +286,8 @@ It is important to note than when your system relies on data and there is a dela
 
 
 # Project 3: Personalized Book Recommender with Randomizer
+![](images/bookRecommender/bookRecommenderRandomWithBookListAndDetail.png)
+
 In this project you are tasked with creating an application that takes in information about a user (gender, country, age) then provides information about books the user may like. 
 The user may also retrieve randomized person data from the [randomuser.me api](https://randomuser.me/documentation#results). Once user data has been entered or randomly generated, you will provide some logic to select a topic to be used to retrieve a list of books from the ![openlibrary API](https://openlibrary.org/developers/api). Pay special attention to the  type, shape, and key values of the responses for each of the APIs as it will inform you on how to name and structure things in your application.
 
